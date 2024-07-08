@@ -1,0 +1,21 @@
+@media (max-width: 768px) {
+
+    .mobileLinks {
+        background-color: #0f172a;
+        position: absolute;
+        /* top: 50px; */
+        right: 15px;
+        width: 50%;
+        height: 35vh;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 4rem;
+        list-style-type: none;
+        border-radius: 10px;
+        font-size: large;
+        font-weight: 700;
+        border: 1px solid #0f172a;
+    }
+}
