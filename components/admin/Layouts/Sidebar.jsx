@@ -15,7 +15,7 @@ import { Info } from "lucide-react";
 export default function Sidebar() {
   return (
     <>
-      <div className="text-white h-screen w-14 bg-DashboardBG">
+      <div className="text-white h-screen w-14 bg-accent">
         {/* Sidebar content */}
         <Link
           href={"/admin"}

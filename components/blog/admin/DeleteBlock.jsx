@@ -5,7 +5,7 @@ import config from "@/config";
 export default function DeleteBlog({ id }) {
   const router = useRouter();
   async function deleteTicket() {
-    const res = await fetch(`${config.domainNameProduction}/api/Articles/${id}`, {
+    const res = await fetch(`${config.domainNameProduction}/en/api/Articles/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {

@@ -18,7 +18,7 @@ export default function Home() {
       <About />
       <HowAceYourScoreWorks />
       <Pricing />
-      {/* <OurBlog /> */}
+      <OurBlog />
       <CTA />
       <Footer />
     </>

@@ -16,7 +16,7 @@ const Header = () => {
   // const userImgeUrl = user ? user.imageUrl : "Loading...";
   return (
     <>
-      <div className="items-center h-14 bg-DashboardBG text-white flex justify-between">
+      <div className="items-center h-14 bg-accent text-white flex justify-between">
         <button className="flex items-center md:hidden ml-4">
           {/* Menu icon */}
           <AlignJustify />

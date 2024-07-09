@@ -3,7 +3,7 @@ const config = {
   appDescription: "This Blog of AceYourScore",
   domainName: "blog.aceyourscore.com",
   domainNameDev: "http://localhost:3000",
-  domainNameProduction: "https://aceyourscore.com",
+  domainNameProduction: "http://localhost:3000",
   aws: {
     // If you use AWS S3/Cloudfront, put values in here
     bucket: "bucket-name",

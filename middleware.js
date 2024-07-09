@@ -30,6 +30,7 @@ const apiRoutes = createRouteMatcher([
   "/api(.*)",
   "/api/Articles(.*)",
   "/en/api/webhook(.*)",
+  "/en/api/payments(.*)"
 ]);
 
 export default clerkMiddleware((auth, req) => {

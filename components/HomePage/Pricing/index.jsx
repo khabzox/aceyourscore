@@ -69,8 +69,8 @@ export default function Pricing() {
         >
           Pricing
         </h1>
-        <div className="py-9">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3  gap-6">
+        <div className="px-2 sm:px-5 md:px-10 py-9">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-transparent border-2 border-accent text-accent rounded-lg p-6 max-w-full md:max-w-sm">
               <p className={`${ubuntu.className} font-bold text-2xl uppercase`}>
                 Prep for TOEFL Exam
@@ -96,7 +96,7 @@ export default function Pricing() {
               <BtnOfPay
                 text={"Pay Now"}
                 py={3}
-                px={11}
+                px={10}
                 examId={"442338"}
                 handleExamPurchase={handleExamPurchase}
               />
@@ -127,7 +127,7 @@ export default function Pricing() {
               <BtnOfPay
                 text={"Pay Now"}
                 py={3}
-                px={11}
+                px={10}
                 examId={"443228"}
                 handleExamPurchase={handleExamPurchase}
               />
@@ -158,7 +158,7 @@ export default function Pricing() {
               <BtnOfPay
                 text={"Pay Now"}
                 py={3}
-                px={11}
+                px={10}
                 examId={"443229"}
                 handleExamPurchase={handleExamPurchase}
               />
@@ -189,7 +189,7 @@ export default function Pricing() {
               <BtnOfPay
                 text={"Pay Now"}
                 py={3}
-                px={11}
+                px={10}
                 examId={"443230"}
                 handleExamPurchase={handleExamPurchase}
               />

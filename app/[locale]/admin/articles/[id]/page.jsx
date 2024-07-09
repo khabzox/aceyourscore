@@ -2,7 +2,7 @@ import ArticleForm from "@/components/blog/admin/ArticleForm";
 import config from "@/config";
 async function getTicketById(id) {
   try {
-    const res = await fetch(`${config.domainNameProduction}/api/Articles/${id}`, {
+    const res = await fetch(`${config.domainNameProduction}/en/api/Articles/${id}`, {
       cache: "no-store",
     });
     if (!res.ok) {

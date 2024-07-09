@@ -1,13 +1,12 @@
 import crypto from "crypto";
+import clientPromise from "@/utils/mongodb";
 
 export async function POST(req) {
   try {
-    // Catch the event type
     const clonedReq = req.clone();
     const eventType = req.headers.get("X-Event-Name");
     const body = await req.json();
 
-    // Check signature
     const secret = process.env.LEMON_SQUEEZY_WEBHOOK_SECRET;
     const hmac = crypto.createHmac("sha256", secret);
     const digest = Buffer.from(
@@ -22,24 +21,50 @@ export async function POST(req) {
 
     console.log(body);
 
-    // // Logic according to event
-    // if (eventType === "order_created") {
-    //   const userId = body.meta.custom_data.user_id;
-    //   const isSuccessful = body.data.attributes.status === "paid";
-    // }
-
     if (eventType === "order_created") {
-      const userId = body.meta.custom_data.user_id;
-      const isSuccessful = body.data.attributes.status === "paid";
-      // if (isSuccessful) {
-      //   // Here you can implement your logic to redirect the user
-      //   // For example, you could update a database field with the WhatsApp link
-      //   // that your frontend can then use to redirect the user
-      // }
+      const clerkUser = {
+        userID: body.meta.custom_data.user_id,
+        userFullName: body.meta.custom_data.userFullName,
+        userEmail: body.meta.custom_data.userEmail,
+      };
+      const lemonsqueezyUser = {
+        customerInfo: {
+          identifier: body.data.attributes.identifier,
+          customerID: body.data.attributes.customer_id,
+          created_at: body.data.attributes.created_at,
+          updated_at: body.data.attributes.updated_at,
+        },
+        paymentsInfo: {
+          status: body.data.attributes.status,
+          refunded_at: body.data.attributes.refunded_at,
+          total_formatted: body.data.attributes.total_formatted,
+        },
+        customerName: body.data.attributes.user_name,
+        customerEmail: body.data.attributes.user_email,
+      };
+      const examName = body.data.attributes.first_order_item.product_name;
+
+
+      const client = await clientPromise;
+      const db = client.db(process.env.MONGODB_DB);
+
+      const result = await db.collection("payments").insertOne({
+        clerkUser,
+        lemonsqueezyUser,
+        examName,
+        timestamp: new Date(),
+      });
+
+      console.log("Data saved to MongoDB:", result);
     }
-    return Response.json({ message: "Webhook received" });
+
+    return new Response(JSON.stringify({ message: "Webhook received" }), {
+      status: 200,
+    });
   } catch (error) {
     console.error(error);
-    return Response.json({ message: "Server error" }, { status: 500 });
+    return new Response(JSON.stringify({ message: "Server error" }), {
+      status: 500,
+    });
   }
 }

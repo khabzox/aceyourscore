@@ -16,31 +16,31 @@ export async function POST(req) {
     const userFullName = reqData.userFullName.toString();
     const userEmail = reqData.userEmail.toString();
 
-    let examName = "";
+    // let examName = "";
 
-    switch (reqData.productId.toString()) {
-      case "442338":
-        examName = "TOEFL";
-        break;
-      case "443230":
-        examName = "IELTS";
-        break;
-      case "443228":
-        examName = "TOEIC";
-        break;
-      case "443229":
-        examName = "SAT";
-        break;
-      default:
-        examName = "unrecognized";
-    }
+    // switch (reqData.productId.toString()) {
+    //   case "442338":
+    //     examName = "TOEFL";
+    //     break;
+    //   case "443230":
+    //     examName = "IELTS";
+    //     break;
+    //   case "443228":
+    //     examName = "TOEIC";
+    //     break;
+    //   case "443229":
+    //     examName = "SAT";
+    //     break;
+    //   default:
+    //     examName = "unrecognized";
+    // }
 
-    const sendMessageToWhatsApp = generateWhatsAppUrl(
-      userId,
-      examName,
-      userFullName,
-      userEmail
-    );
+    // const sendMessageToWhatsApp = generateWhatsAppUrl(
+    //   userId,
+    //   examName,
+    //   userFullName,
+    //   userEmail
+    // );
 
     const response = await lemonSqueezyApiInstance.post("/checkouts", {
       data: {
@@ -54,7 +54,7 @@ export async function POST(req) {
             },
           },
           product_options: {
-            redirect_url: sendMessageToWhatsApp,
+            redirect_url: "https://www.aceyourscore.com/dashboard",
           },
         },
         relationships: {
@@ -87,8 +87,8 @@ export async function POST(req) {
   }
 }
 
-function generateWhatsAppUrl(userId, examName, userFullName, userEmail) {
-  const baseUrl = "https://wa.me/+212697998010?text=";
-  const message = `UserID: ${userId}\nExam: This exam is ${examName}.\nUserFullName: ${userFullName}\nUserEmail: ${userEmail}`;
-  return baseUrl + encodeURIComponent(message);
-}
+// function generateWhatsAppUrl(userId, examName, userFullName, userEmail) {
+//   const baseUrl = "https://wa.me/+212697998010?text=";
+//   const message = `*This is my information for verification:* \n UserID: ${userId}\nExam: This exam is ${examName}.\nUserFullName: ${userFullName}\nUserEmail: ${userEmail}`;
+//   return baseUrl + encodeURIComponent(message);
+// }
