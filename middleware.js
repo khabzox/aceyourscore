@@ -10,7 +10,7 @@ const isProtectedRoute = createRouteMatcher([
   "/dashboard(.*)",
   "/dashboard/settings/profile(.*)",
   "/en/dashboard(.*)",
-  "/en/dashboard/settings/profile(.*)",  
+  "/en/dashboard/settings/profile(.*)",
   "/fr/dashboard(.*)",
   "/fr/dashboard/settings/profile(.*)",
   "/en/pay(.*)",
@@ -21,18 +21,19 @@ const isPublicRoute = createRouteMatcher([
   "/",
   "/blog(.*)",
   "/api(.*)",
+  "/en/api/webhook(.*)",
   "/sign-in(.*)",
   "/sign-up(.*)",
 ]);
 
-const apiRoutes = createRouteMatcher(["/api(.*)", "/api/Articles(.*)"]);
+const apiRoutes = createRouteMatcher([
+  "/api(.*)",
+  "/api/Articles(.*)",
+  "/en/api/webhook(.*)",
+]);
 
 export default clerkMiddleware((auth, req) => {
-  if (
-    !isPublicRoute(req) &&
-    !apiRoutes(req) &&
-    isProtectedRoute(req)
-  ) {
+  if (!isPublicRoute(req) && !apiRoutes(req) && isProtectedRoute(req)) {
     auth().protect(); // Protect all routes except public routes
   }
 
@@ -40,5 +41,10 @@ export default clerkMiddleware((auth, req) => {
 });
 
 export const config = {
-  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)", "/(fr|en)/:path*"],
+  matcher: [
+    "/((?!.*\\..*|_next).*)",
+    "/",
+    "/(api|trpc)(.*)",
+    "/(fr|en)/:path*",
+  ],
 };

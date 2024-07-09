@@ -7,16 +7,18 @@ import Pricing from "@/components/HomePage/Pricing";
 import OurBlog from "@/components/HomePage/OurBlog";
 import CTA from "@/components/HomePage/CTA";
 import Footer from "@/components/HomePage/Footer";
+// import 
 export default function Home() {
   return (
     <>
+
       <NavBar />
       <Hero />
       <Exams />
       <About />
       <HowAceYourScoreWorks />
       <Pricing />
-      <OurBlog />
+      {/* <OurBlog /> */}
       <CTA />
       <Footer />
     </>

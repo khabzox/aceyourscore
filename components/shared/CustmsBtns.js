@@ -42,3 +42,8 @@ export function BtnOfCTA({ text, linkto }) {
     </Link>
   );
 }
+
+
+
+
+

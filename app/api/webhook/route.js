@@ -22,12 +22,21 @@ export async function POST(req) {
 
     console.log(body);
 
-    // Logic according to event
+    // // Logic according to event
+    // if (eventType === "order_created") {
+    //   const userId = body.meta.custom_data.user_id;
+    //   const isSuccessful = body.data.attributes.status === "paid";
+    // }
+
     if (eventType === "order_created") {
       const userId = body.meta.custom_data.user_id;
       const isSuccessful = body.data.attributes.status === "paid";
+      // if (isSuccessful) {
+      //   // Here you can implement your logic to redirect the user
+      //   // For example, you could update a database field with the WhatsApp link
+      //   // that your frontend can then use to redirect the user
+      // }
     }
-
     return Response.json({ message: "Webhook received" });
   } catch (error) {
     console.error(error);
