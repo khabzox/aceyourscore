@@ -56,6 +56,7 @@ export async function POST(req) {
           product_options: {
             redirect_url: "https://www.aceyourscore.com/dashboard",
           },
+          // user_email:  reqData.userEmail,
         },
         relationships: {
           store: {

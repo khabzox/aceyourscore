@@ -1,58 +1,91 @@
 {
-    "Navbar": {
-        "link1": "Préparez-vous à l'examen",
-        "link2": "Enseignants",
-        "link3": "Communauté",
-        "link4": "Blog",
-        "login": "Se Connecter"
-    },
-    "Hero": {
-        "title": "Donner aux étudiants les moyens de réussir à l'échelle mondiale.",
-        "description": "Nos enseignants experts et nos ressources innovantes vous permettent de réaliser vos rêves. Rejoignez-nous pour façonner un avenir meilleur !",
-        "GetStartedBtn": "Commencer"
-    },
-    "Exams": {
-        "notification": "ET PLUS À VENIR..."
-    },
-    "About": {
-        "q": "Pourquoi AceYourScore ?",
-        "title": "Atteignez l'excellence dans vos examens",
-        "description": "Excellez au TOEFL, TOEIC, SAT, IELTS et plus encore avec nos enseignants experts et nos ressources conçues pour assurer votre succès.",
-        "GetNowBtn": "Obtenez maintenant",
-        "Cards": {
-            "title1": "Excellence",
-            "desc1": "Nous vous mettons en relation avec les meilleurs enseignants pour offrir une éducation exceptionnelle.",
-            "title2": "Dévouement",
-            "desc2": "Nous sommes profondément engagés à soutenir votre parcours vers la réussite.",
-            "title3": "Innovation",
-            "desc3": "Nous utilisons les dernières techniques pour rendre l'apprentissage engageant et efficace.",
-            "title4": "Transparence",
-            "desc4": "Nous offrons des conseils clairs et honnêtes pour vous aider à naviguer et à exceller."
-        }
-    },
-    "HowAceYourScoreWorks": {
-        "title": "Comment fonctionne AceYourScore ?",
-        "desc": "Nous sommes engagés envers les étudiants qui prennent leur avenir au sérieux et croient en leur potentiel. Voici pourquoi Ace Your Score se distingue :",
-        "card1": "Orientation complète – Nous commençons par vous aider à comprendre chaque examen et ce dont vous avez besoin pour réussir.",
-        "card2": "Cours en ligne engageants – Nos enseignants de premier ordre rendent l'apprentissage interactif et agréable.",
-        "card3": "Soutien continu – Nous suivons vos progrès et vous fournissons des retours pour vous maintenir motivé et sur la bonne voie."
-    },
-    "OurBlog": {
-        "title": "Notre"
-    },
-    "CTA": {
-        "title": "Libérez votre potentiel avec une préparation experte aux examens",
-        "desc": "Préparez-vous pour le TOEFL, le TOEIC, l'IELTS, le SAT et plus encore avec nos instructeurs chevronnés et nos ressources adaptées. Nous nous engageons à vous aider à atteindre l'excellence et à réaliser vos objectifs. Rejoignez-nous pour transformer vos aspirations en réussites.",
-        "button": "En savoir plus"
-    },
-    "Blog": {
-        "title": "Découvrez les dernières histoires et idées",
-        "description": "Explorez un monde de perspectives et d'idées diverses sur AceYourScore.",
-        "GetStartedBtn": "Commencer"
-    },
-    "dashboard": {
-        "navigation": {
-            "LinkNav": "/fr/dashboard"
-        }
+  "Navbar": {
+    "link1": "Préparez-vous à l'examen",
+    "link2": "Enseignants",
+    "link3": "Communauté",
+    "link4": "Blog",
+    "login": "Se connecter"
+  },
+  "Hero": {
+    "title": "Permettre aux étudiants de réussir à l'échelle mondiale.",
+    "description": "Nos enseignants experts et nos ressources innovantes vous permettent de réaliser vos rêves. Rejoignez-nous pour façonner un avenir meilleur !",
+    "GetStartedBtn": "Commencer"
+  },
+  "Exams": {
+    "notification": "ET PLUS À VENIR..."
+  },
+  "About": {
+    "q": "Pourquoi AceYourScore ?",
+    "title": "Réussissez brillamment vos examens",
+    "description": "Excellez au TOEFL, TOEIC, SAT, IELTS et plus encore avec nos enseignants experts et des ressources conçues pour garantir votre succès.",
+    "GetNowBtn": "Obtenez maintenant",
+    "Cards": {
+      "title1": "Excellence",
+      "desc1": "Nous vous mettons en relation avec les meilleurs enseignants pour offrir une éducation exceptionnelle.",
+      "title2": "Dévouement",
+      "desc2": "Nous nous engageons profondément à soutenir votre parcours vers la réussite.",
+      "title3": "Innovation",
+      "desc3": "Nous utilisons les dernières techniques pour rendre l'apprentissage engageant et efficace.",
+      "title4": "Transparence",
+      "desc4": "Nous offrons des conseils clairs et honnêtes pour vous aider à naviguer et à exceller."
     }
+  },
+  "HowAceYourScoreWorks": {
+    "title": "Comment fonctionne AceYourScore ?",
+    "desc": "Nous nous engageons envers les étudiants qui sont sérieux au sujet de leur avenir et croient en leur potentiel. Voici pourquoi Ace Your Score se distingue :",
+    "card1": "Guidance complète – Nous commençons par vous aider à comprendre chaque examen et ce dont vous avez besoin pour réussir.",
+    "card2": "Cours en ligne engageants – Nos enseignants de premier plan rendent l'apprentissage interactif et agréable.",
+    "card3": "Soutien continu – Nous suivons vos progrès et vous fournissons des commentaires pour vous maintenir motivé et sur la bonne voie."
+  },
+  "Pricing": {
+    "title": "Tarification",
+    "card1": {
+      "title": "PRÉPARATION POUR L'EXAMEN TOEFL",
+      "f1": "Préparation TOEFL approfondie.",
+      "f2": "Sessions de pratique interactives.",
+      "f3": "Matériel d'étude exclusif.",
+      "f4": "Et plus encore..."
+    },
+    "card2": {
+      "title": "PRÉPARATION POUR L'EXAMEN TOEIC",
+      "f1": "Techniques pour un score élevé.",
+      "f2": "Matériel d'étude exclusif.",
+      "f3": "Sessions de révision expertes.",
+      "f4": "Et plus encore..."
+    },
+    "card3": {
+      "title": "PRÉPARATION POUR L'EXAMEN SAT",
+      "f1": "Stratégies de test SAT.",
+      "f2": "Examens de pratique étendus.",
+      "f3": "Sessions de révision expertes.",
+      "f4": "Et plus encore..."
+    },
+    "card4": {
+      "title": "PRÉPARATION POUR L'EXAMEN IELTS",
+      "f1": "Préparation IELTS complète.",
+      "f2": "Tests de pratique et conseils.",
+      "f3": "Techniques pour un score élevé.",
+      "f4": "Et plus encore..."
+    },
+    "payBtn": "Payer Maintenant"
+  },
+  "OurBlog": {
+    "title": "Notre",
+    "underlineTitle": "Blog"
+  },
+  "CTA": {
+    "title": "Libérez votre potentiel avec une préparation experte aux examens",
+    "desc": "Préparez-vous pour TOEFL, TOEIC, IELTS, SAT et plus encore avec nos instructeurs chevronnés et des ressources adaptées. Nous nous engageons à vous aider à atteindre l'excellence et à réaliser vos objectifs. Rejoignez-nous pour transformer vos aspirations en réalisations.",
+    "button": "En savoir plus"
+  },
+  "Blog": {
+    "title": "Découvrez les dernières histoires et idées",
+    "description": "Explorez un monde de perspectives et d'idées diverses sur AceYourScore.",
+    "GetStartedBtn": "Commencer"
+  },
+  "dashboard": {
+    "navigation": {
+      "LinkNav": "/fr/dashboard"
+    }
+  }
 }

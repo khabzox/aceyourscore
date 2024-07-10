@@ -30,7 +30,7 @@ export default function Footer() {
 
             <li>
               <a
-                href="https://www.instagram.com/fahd.aceyourscore"
+                href="https://www.instagram.com/fahd.aceyourscore "
                 rel="noreferrer"
                 target="_blank"
                 className="text-gray-700 transition hover:opacity-75"

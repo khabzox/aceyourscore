@@ -1,58 +1,91 @@
 {
-    "Navbar": {
-        "link1": "Prepare for the exam",
-        "link2": "Teachers",
-        "link3": "Community",
-        "link4": "Blog",
-        "login": "Log in"
-    },
-    "Hero": {
-        "title": "Empowering students to excel globally.",
-        "description": "Our expert teachers and innovative resources enable you to achieve your dreams. Join us to shape a brighter future!",
-        "GetStartedBtn": "Get started"
-    },
-    "Exams": {
-        "notification": "AND MORE IS COMING..."
-    },
-    "About": {
-        "q": "Why AceYourScore ?",
-        "title": "Achieve Excellence in Your Exams",
-        "description": "Excel in TOEFL, TOEIC, SAT, IELTS, and more with our expert teachers and resources designed to ensure your success.",
-        "GetNowBtn": "Get Now",
-        "Cards": {
-            "title1": "Excellence ",
-            "desc1": "We connect you with the best teachers to provide exceptional education.",
-            "title2": "Dedication",
-            "desc2": "We are deeply committed to supporting your journey to success.",
-            "title3": "Innovation",
-            "desc3": "We utilize the latest techniques to make learning engaging and effective.",
-            "title4": "Transparency",
-            "desc4": "We offer clear, honest guidance to help you navigate and excel."
-        }
-    },
-    "HowAceYourScoreWorks": {
-        "title": "How AceYourScore works ?",
-        "desc": "We are committed to students who are serious about their future and believe in their potential. Here’s why Ace Your Score stands out:",
-        "card1": "Comprehensive Guidance – We start by helping you understand each exam and what you need to succeed.",
-        "card2": "Engaging Online Classes – Our top-notch teachers make learning interactive and enjoyable.",
-        "card3": "Continuous Support – We track your progress and provide feedback to keep you motivated and on course."
-    },
-    "OurBlog": {
-        "title": "Our"
-    },
-    "CTA": {
-        "title": "Unlock Your Potential with Expert Exam Prep",
-        "desc": "Prepare for TOEFL, TOEIC, IELTS, SAT, and more with our seasoned instructors and tailored resources. We’re committed to helping you achieve excellence and reach your goals. Join us to turn your aspirations into achievements.",
-        "button": "Learn More"
-    },
-    "Blog":{
-        "title": "Discover the latest stories and ideas",
-        "description": "Explore a world of diverse perspectives and insights on AceYourScore.",
-        "GetStartedBtn":"Get started"
-    },
-    "dashboard": {
-        "navigation": {
-            "LinkNav": "/en/dashboard"
-        }
+  "Navbar": {
+    "link1": "Prepare for the exam",
+    "link2": "Teachers",
+    "link3": "Community",
+    "link4": "Blog",
+    "login": "Log in"
+  },
+  "Hero": {
+    "title": "Empowering students to excel globally.",
+    "description": "Our expert teachers and innovative resources enable you to achieve your dreams. Join us to shape a brighter future!",
+    "GetStartedBtn": "Get started"
+  },
+  "Exams": {
+    "notification": "AND MORE IS COMING..."
+  },
+  "About": {
+    "q": "Why AceYourScore ?",
+    "title": "Achieve Excellence in Your Exams",
+    "description": "Excel in TOEFL, TOEIC, SAT, IELTS, and more with our expert teachers and resources designed to ensure your success.",
+    "GetNowBtn": "Get Now",
+    "Cards": {
+      "title1": "Excellence ",
+      "desc1": "We connect you with the best teachers to provide exceptional education.",
+      "title2": "Dedication",
+      "desc2": "We are deeply committed to supporting your journey to success.",
+      "title3": "Innovation",
+      "desc3": "We utilize the latest techniques to make learning engaging and effective.",
+      "title4": "Transparency",
+      "desc4": "We offer clear, honest guidance to help you navigate and excel."
     }
+  },
+  "HowAceYourScoreWorks": {
+    "title": "How AceYourScore works ?",
+    "desc": "We are committed to students who are serious about their future and believe in their potential. Here’s why Ace Your Score stands out:",
+    "card1": "Comprehensive Guidance – We start by helping you understand each exam and what you need to succeed.",
+    "card2": "Engaging Online Classes – Our top-notch teachers make learning interactive and enjoyable.",
+    "card3": "Continuous Support – We track your progress and provide feedback to keep you motivated and on course."
+  },
+  "Pricing": {
+    "title": "Pricing",
+    "card1": {
+      "title": "PREP FOR TOEFL EXAM",
+      "f1": "In-depth TOEFL preparation.",
+      "f2": "Interactive practice sessions.",
+      "f3": "Exclusive study materials.",
+      "f4": "And More..."
+    },
+    "card2": {
+      "title": "PREP FOR TOEIC EXAM",
+      "f1": "High score techniques.",
+      "f2": "Exclusive study materials.",
+      "f3": "Expert review sessions.",
+      "f4": "And More..."
+    },
+    "card3": {
+      "title": "PREP FOR SAT EXAM",
+      "f1": "SAT test strategies.",
+      "f2": "Extensive practice exams.",
+      "f3": "Expert review sessions.",
+      "f4": "And More..."
+    },
+    "card4": {
+      "title": "PREP FOR IELTS EXAM",
+      "f1": "Comprehensive IELTS prep.",
+      "f2": "Practice tests and tips.",
+      "f3": "High score techniques.",
+      "f4": "And More..."
+    },
+    "payBtn": "Pay Now"
+  },
+  "OurBlog": {
+    "title": "Our",
+    "underlineTitle": "Blog"
+  },
+  "CTA": {
+    "title": "Unlock Your Potential with Expert Exam Prep",
+    "desc": "Prepare for TOEFL, TOEIC, IELTS, SAT, and more with our seasoned instructors and tailored resources. We’re committed to helping you achieve excellence and reach your goals. Join us to turn your aspirations into achievements.",
+    "button": "Learn More"
+  },
+  "Blog": {
+    "title": "Discover the latest stories and ideas",
+    "description": "Explore a world of diverse perspectives and insights on AceYourScore.",
+    "GetStartedBtn": "Get started"
+  },
+  "dashboard": {
+    "navigation": {
+      "LinkNav": "/en/dashboard"
+    }
+  }
 }

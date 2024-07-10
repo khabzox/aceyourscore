@@ -47,5 +47,6 @@ export const config = {
     "/",
     "/(api|trpc)(.*)",
     "/(fr|en)/:path*",
+    // "/((?!api|_next/static|_next/image|favicon.ico|images/books|icons|manifest).*)"
   ],
 };

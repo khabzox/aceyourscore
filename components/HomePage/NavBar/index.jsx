@@ -1,3 +1,4 @@
+"use client";
 import { useTranslations } from "next-intl";
 
 import Image from "next/image";
@@ -9,6 +10,15 @@ import { Menu } from "lucide-react";
 import { BtnOfLogIn } from "@/components/shared/CustmsBtns";
 
 import {
+  ClerkProvider,
+  SignInButton,
+  SignedIn,
+  SignedOut,
+  UserButton,
+  useAuth,
+} from "@clerk/nextjs";
+
+import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
@@ -18,6 +28,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function NavBar() {
+  const { userId } = useAuth();
   const t = useTranslations("Navbar");
   return (
     <>
@@ -36,7 +47,7 @@ export default function NavBar() {
             <div className="hidden md:block">
               <ul className="flex gap-3 font-semibold">
                 <li>
-                  <Link href={"/"}>{t("link1")}</Link>
+                  <Link href={"/#prep"}>{t("link1")}</Link>
                 </li>
                 <li>
                   <Link href={"/"}>{t("link3")}</Link>
@@ -62,7 +73,20 @@ export default function NavBar() {
               </DropdownMenuContent>
             </DropdownMenu>
             <span className=" hidden sm:block">
-              <BtnOfLogIn text={t("login")} linkto={"/sign-in"} />
+              {userId ? (
+                <div className="flex gap-4 items-center border-2 border-accent rounded-full p-[2px]">
+                  {/* <Link href='/dashboard'>Dashboard</Link> */}
+                  <UserButton afterSignOutUrl="/" />
+                </div>
+              ) : (
+                <>
+                  {/* <SignedOut>
+                    <SignInButton mode="modal">
+                    </SignInButton>
+                  </SignedOut> */}
+                  <BtnOfLogIn text={t("login")} linkto={"/sign-in"} />
+                </>
+              )}
             </span>
             <Menu size={32} className="block md:hidden" />
           </div>

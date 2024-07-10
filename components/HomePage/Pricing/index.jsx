@@ -1,6 +1,9 @@
 "use client";
 
+import { useTranslations } from "next-intl";
+
 import axios from "axios";
+
 import {
   ClerkProvider,
   SignInButton,
@@ -31,6 +34,8 @@ const ubuntu = Ubuntu({
 });
 
 export default function Pricing() {
+  const t = useTranslations("Pricing");
+
   const router = useRouter();
   const { user } = useUser();
   const userId = user ? user.id : null;
@@ -62,137 +67,180 @@ export default function Pricing() {
     }
   };
   return (
-    <section>
+    <section id="prep">
       <div className="flex flex-col justify-center max-w-6xl mx-auto mt-16">
         <h1
           className={`${ubuntu.className} text-center text-4xl sm:text-5xl md:text-6xl font-extrabold text-accent mb-6 `}
         >
-          Pricing
+          {t("title")}
         </h1>
         <div className="px-2 sm:px-5 md:px-10 py-9">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             <div className="bg-transparent border-2 border-accent text-accent rounded-lg p-6 max-w-full md:max-w-sm">
-              <p className={`${ubuntu.className} font-bold text-2xl uppercase`}>
-                Prep for TOEFL Exam
-              </p>
-              <div className="py-4 pl-2">
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
+              <div className="mb-4">
+                <h5
+                  className={`${ubuntu.className} font-bold text-xl uppercase`}
+                >
+                  {t("card1.title")}
+                </h5>
+                {/* <p>Prepare effectively for the TOEFL exam with our comprehensive course. Improve your reading, listening, speaking, and writing skills with tailored lessons and practice tests.</p> */}
               </div>
-              <BtnOfPay
-                text={"Pay Now"}
-                py={3}
-                px={10}
-                examId={"442338"}
-                handleExamPurchase={handleExamPurchase}
-              />
+              <div className="flex flex-col justify-between text-center gap-1">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold">1,500 MAD</span>
+                  <span className=" text-accent">/30h</span>
+                </div>
+
+                <div className="pt-2 pb-4 pl-2 text-md text-start">
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card1.f1")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card1.f2")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card1.f3")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card1.f4")}</p>
+                  </div>
+                </div>
+                <BtnOfPay
+                  text={t("payBtn")}
+                  py={3}
+                  examId={"442338"}
+                  handleExamPurchase={handleExamPurchase}
+                />
+              </div>
             </div>
 
             <div className="bg-transparent border-2 border-accent text-accent rounded-lg p-6 max-w-full md:max-w-sm">
-              <p className={`${ubuntu.className} font-bold text-2xl uppercase`}>
-                Prep for TOEIC Exam
-              </p>
-              <div className="py-4 pl-2">
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
+              <div className="mb-4">
+                <h5
+                  className={`${ubuntu.className} font-bold text-xl uppercase`}
+                >
+                  {t("card2.title")}
+                </h5>
               </div>
-              <BtnOfPay
-                text={"Pay Now"}
-                py={3}
-                px={10}
-                examId={"443228"}
-                handleExamPurchase={handleExamPurchase}
-              />
+              <div className="flex flex-col justify-between text-center gap-1">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold">1,600 MAD</span>
+                  <span className=" text-accent">/30h</span>
+                </div>
+
+                <div className="pt-2 pb-4 pl-2 text-md text-start">
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card2.f1")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card2.f2")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card2.f3")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card2.f4")}</p>
+                  </div>
+                </div>
+                <BtnOfPay
+                  text={t("payBtn")}
+                  py={3}
+                  examId={"443228"}
+                  handleExamPurchase={handleExamPurchase}
+                />
+              </div>
             </div>
 
             <div className="bg-transparent border-2 border-accent text-accent rounded-lg p-6 max-w-full md:max-w-sm">
-              <p className={`${ubuntu.className} font-bold text-2xl uppercase`}>
-                Prep for SAT Exam
-              </p>
-              <div className="py-4 pl-2">
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
+              <div className="mb-4">
+                <h5
+                  className={`${ubuntu.className} font-bold text-xl uppercase`}
+                >
+                  {t("card3.title")}
+                </h5>
+                {/* <p>Lorem ipsum dolor sit amet.</p> */}
               </div>
-              <BtnOfPay
-                text={"Pay Now"}
-                py={3}
-                px={10}
-                examId={"443229"}
-                handleExamPurchase={handleExamPurchase}
-              />
+              <div className="flex flex-col justify-between text-center gap-1">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold">3,500 MAD</span>
+                  <span className=" text-accent">/30h</span>
+                </div>
+
+                <div className="pt-2 pb-4 pl-2 text-md text-start">
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card3.f1")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card3.f2")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card3.f3")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card3.f4")}</p>
+                  </div>
+                </div>
+                <BtnOfPay
+                  text={t("payBtn")}
+                  py={3}
+                  examId={"443229"}
+                  handleExamPurchase={handleExamPurchase}
+                />
+              </div>
             </div>
 
             <div className="bg-transparent border-2 border-accent text-accent rounded-lg p-6 max-w-full md:max-w-sm">
-              <p className={`${ubuntu.className} font-bold text-2xl uppercase`}>
-                Prep for IELTS Exam
-              </p>
-              <div className="py-4 pl-2">
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
-                <div className="flex gap-2 py-1 font-medium">
-                  <SquareCheckBig />
-                  <p>Lorem ipsum dolor sit.</p>
-                </div>
+              <div className="mb-4">
+                <h5
+                  className={`${ubuntu.className} font-bold text-xl uppercase`}
+                >
+                  {t("card4.title")}
+                </h5>
+                {/* <p>Lorem ipsum dolor sit amet.</p> */}
               </div>
-              <BtnOfPay
-                text={"Pay Now"}
-                py={3}
-                px={10}
-                examId={"443230"}
-                handleExamPurchase={handleExamPurchase}
-              />
+              <div className="flex flex-col justify-between text-center gap-1">
+                <div className="flex items-baseline gap-2">
+                  <span className="text-4xl font-bold">1,800 MAD</span>
+                  <span className=" text-accent">/30h</span>
+                </div>
+
+                <div className="pt-2 pb-4 pl-2 text-md text-start">
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card4.f1")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card4.f2")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card4.f3")}</p>
+                  </div>
+                  <div className="flex gap-2 py-1 font-normal">
+                    <SquareCheckBig />
+                    <p>{t("card4.f4")}</p>
+                  </div>
+                </div>
+                <BtnOfPay
+                  text={t("payBtn")}
+                  py={3}
+                  examId={"443230"}
+                  handleExamPurchase={handleExamPurchase}
+                />
+              </div>
             </div>
           </div>
         </div>

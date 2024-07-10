@@ -30,7 +30,7 @@ export default function Hero() {
               {t("title")}
             </h1>
             <p className="text-sm sm:text-base md:text-lg font-semibold mb-8">{t("description")}</p>
-            <BtnOfHero text={t("GetStartedBtn")} linkto={"/"}/>
+            <BtnOfHero text={t("GetStartedBtn")} linkto={"/dashboard"}/>
           </div>
           <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center md:justify-end">
             <Image
