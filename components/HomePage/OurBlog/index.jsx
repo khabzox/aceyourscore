@@ -2,7 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
-import ArticleCards from "@/components/blog/articles";
+// import ArticleCards from "@/components/blog/articles";
 
 import { Ubuntu } from "next/font/google";
 
@@ -29,7 +29,7 @@ export default function OurBlog() {
         >
           {t("title")}{" "}<span className="underline">{t("underlineTitle")}</span>
         </h1>
-        <ArticleCards />
+        {/* <ArticleCards /> */}
       </div>
     </section>
   );
