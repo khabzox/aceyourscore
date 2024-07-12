@@ -12,6 +12,7 @@ import {
 import { LayoutDashboard } from "lucide-react";
 import { FileText } from "lucide-react";
 import { Info } from "lucide-react";
+import {  UsersRound } from "lucide-react"
 export default function Sidebar() {
   return (
     <>
@@ -30,13 +31,18 @@ export default function Sidebar() {
         </Link>
         <div className="flex flex-col flex-wrap content-center justify-center gap-2 text-primary">
           <Link href={"/admin"}>
-            <Button variant="fourth" className="p-2">
+            <Button variant="fourth" className="p-2 bg-white/10">
               <LayoutDashboard />
             </Button>
           </Link>
           <Link href={"/admin/articles"}>
-            <Button variant="fourth" className="p-2">
+            <Button variant="fourth" className="p-2 bg-white/10">
               <FileText />
+            </Button>
+          </Link>
+          <Link href={"/admin/students"}>
+            <Button variant="fourth" className="p-2 bg-white/10">
+              <UsersRound />
             </Button>
           </Link>
         </div>

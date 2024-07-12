@@ -4,9 +4,9 @@ export const profileNavLinks = [
     Link: "General",
     LinkTo: "/dashboard/settings",
   },
-  {
-    id: 2,
-    Link: "Profile",
-    LinkTo: "/dashboard/settings/profile",
-  },
+  // {
+  //   id: 2,
+  //   Link: "Profile",
+  //   LinkTo: "/dashboard/settings/profile",
+  // },
 ];

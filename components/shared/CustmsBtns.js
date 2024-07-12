@@ -44,6 +44,15 @@ export function BtnOfCTA({ text, linkto }) {
 }
 
 
+export function BtnOfGetLessons({ text, linkto }) {
+  return (
+    <Link href={linkto} className="py-2 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-[#e1d8c9] hover:transition w-full md:mx-auto text-center">
+      {text}
+    </Link>
+  );
+}
+
+
 
 
 

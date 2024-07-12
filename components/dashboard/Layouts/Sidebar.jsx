@@ -7,7 +7,7 @@ import {
   TooltipContent,
 } from "@/components/ui/tooltip";
 
-import { LayoutDashboard, Book, Settings } from "lucide-react";
+import { LayoutDashboard, FilePenLine, PenLine, Book, Settings } from "lucide-react";
 
 import { cn } from "@/libs/utils";
 import { useTranslations } from "next-intl";
@@ -20,12 +20,19 @@ export default function Sidebar() {
   const pathName = usePathname();
   const t = useTranslations("dashboard.navigation");
   const SashboardLinks = [
+    // {
+    //   id: 1,
+    //   Link: "Level Test",
+    //   LinkMob: "Level Test",
+    //   LinkTo: `/leveltest`,
+    //   LinkIco: FilePenLine,
+    // },
     {
-      id: 1,
-      Link: "Courses",
-      LinkMob: "Courses",
-      LinkTo: `/courses`,
-      LinkIco: Book,
+      id: 2,
+      Link: "Quizzes",
+      LinkMob: "Quizzes",
+      LinkTo: `/quizzes`,
+      LinkIco: PenLine,
     },
     {
       id: 3,
@@ -62,7 +69,7 @@ export default function Sidebar() {
                     <Link
                       href={NavigationLink}
                       className={cn(
-                        "flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8 bg-transparent text-primary",
+                        "flex h-9 w-9 items-center justify-center rounded-lg transition-colors md:h-8 md:w-8 bg-white/10 text-primary",
                         isActive &&
                           "flex h-9 w-9 items-center justify-center rounded-lg md:h-8 md:w-8 bg-primary text-accent"
                       )}

@@ -29,7 +29,7 @@ export default function OurBlog() {
         >
           {t("title")}{" "}<span className="underline">{t("underlineTitle")}</span>
         </h1>
-        {/* <ArticleCards /> */}
+        <ArticleCards />
       </div>
     </section>
   );

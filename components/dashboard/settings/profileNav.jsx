@@ -17,7 +17,7 @@ export default function ProfileNav() {
             <Link
               key={`${link.Link}-${link.LinkTo}`}
               className={cn(
-                "text-[hsl(var(--muted-foreground))]",
+                "text-muted-foreground",
                 isActive && "font-semibold text-primary"
               )}
               href={link.LinkTo}

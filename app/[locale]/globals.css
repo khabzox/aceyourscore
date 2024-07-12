@@ -6,6 +6,22 @@
 html {
   scroll-behavior: smooth;
 }
+h1, h2 {
+  margin: 0;
+}
+
+/* Define font size and other properties */
+h1 {
+  font-size: 2.5rem; /* Adjust as needed */
+  font-weight: bold;
+  /* Add other styles such as color, margin, etc. */
+}
+
+h2 {
+  font-size: 2rem; /* Adjust as needed */
+  font-weight: bold;
+  /* Add other styles such as color, margin, etc. */
+}
 
 /* *,
 *:before,
