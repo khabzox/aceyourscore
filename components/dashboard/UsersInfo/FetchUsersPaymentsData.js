@@ -1,7 +1,7 @@
 import config from "@/config";
 export const getUsersPaymentsData = async () => {
   try {
-    const res = await fetch(`http://localhost:3000/en/api/payments`, {
+    const res = await fetch(`${config.domainNameProduction}/en/api/payments`, {
       cache: "no-store",
     });
 
