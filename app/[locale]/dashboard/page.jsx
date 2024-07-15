@@ -2,8 +2,6 @@ import { currentUser } from "@clerk/nextjs/server";
 
 import Image from "next/image";
 
-import { BtnOfGetLessons } from "@/components/shared/CustmsBtns";
-
 import UsersInfo from "@/components/dashboard/UsersInfo";
 
 import { GetLessons } from "@/components/dashboard/getLessons";
@@ -24,7 +22,6 @@ export default async function Dashboard() {
               Get Your Lessons
             </h2>
             <GetLessons>Get</GetLessons>
-            <BtnOfGetLessons text={"Get Now"} linkto={"#"} />
           </div>
           <div className="col-span-2 bg-secondary rounded-lg p-10 flex max-sm:flex-col justify-start gap-3 items-center overflow-hidden">
             <Image

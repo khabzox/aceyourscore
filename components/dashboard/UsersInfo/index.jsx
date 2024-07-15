@@ -1,11 +1,13 @@
+"use server"
 import { getUsersPaymentsData } from "./FetchUsersPaymentsData";
 import { currentUser } from "@clerk/nextjs/server";
 
 export default async function UsersInfo() {
   try {
+    // Get data of user payments
     const data = await getUsersPaymentsData();
 
-    // Ensure currentUser is fetched correctly
+    // Get data of the current user from Clerk
     const user = await currentUser();
 
     if (!user) {
@@ -19,16 +21,16 @@ export default async function UsersInfo() {
       );
     }
 
-    // Extract only the necessary, serializable information
+    // Serialize user data from Clerk
     const serializedUser = {
       id: user.id,
       fullName: user.fullName,
       primaryEmailAddress: user.primaryEmailAddress?.emailAddress,
     };
 
-    let userStatusPayments = data.payments.find(
-      (payment) =>
-        payment.clerkUser && payment.clerkUser.userID === serializedUser.id
+    // Check if the current user has data in the database by userID
+    const userStatusPayments = data.payments.find(
+      (payment) => payment.clerkUser?.userID === serializedUser.id
     );
 
     if (!userStatusPayments) {
@@ -44,6 +46,7 @@ export default async function UsersInfo() {
       );
     }
 
+    // If everything is good and the user is found, return his data and show it
     return (
       <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
         <p className="text-navy-900">

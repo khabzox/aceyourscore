@@ -38,7 +38,7 @@ export async function GetLessons({ children }) {
   );
 
   if (!userStatusPayments) {
-    return "User Not Paid!";
+    return <button className="py-2 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-[#e1d8c9] hover:transition w-full md:mx-auto text-center" disabled>GET</button>
   }
 
   const status = userStatusPayments.lemonsqueezyUser.paymentsInfo.status;
@@ -58,5 +58,5 @@ export async function GetLessons({ children }) {
     const message = `*This is my information for verification:* \nStatus: ${status}\nExam: ${examName}\nFullName: ${userFullName}\nEmail: ${userEmail}`;
     return baseUrl + encodeURIComponent(message);
   }
-  return <Link href={sendMessageToWhatsApp} target="_blank">{children}</Link>;
+  return <Link href={sendMessageToWhatsApp} target="_blank" className="py-2 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-[#e1d8c9] hover:transition w-full md:mx-auto text-center">{children}</Link>;
 }
