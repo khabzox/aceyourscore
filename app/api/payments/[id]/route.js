@@ -1,4 +1,4 @@
-import Payments from "@/models/Payments";
+// import Payments from "@/models/Payments";
 import { NextResponse } from "next/server";
 import clientPromise from "@/utils/mongodb";
 
@@ -27,31 +27,3 @@ export async function GET(req, { params }) {
     );
   }
 }
-
-
-// import Payments from "@/models/Payments";
-// import { NextResponse } from "next/server";
-
-// export async function GET(req, { params }) {
-//   const { id } = params;
-
-//   // Ensure you have a valid MongoDB connection established
-
-//   try {
-//     const foundPayments = await Payments.findOne({ "clerkUser.userID": id });
-
-//     if (!foundPayments) {
-//       return NextResponse.json(
-//         { message: "Error: Payments Information Not Found" },
-//         { status: 404 }
-//       );
-//     }
-
-//     return NextResponse.json({ foundPayments }, { status: 200 });
-//   } catch (error) {
-//     return NextResponse.json(
-//       { message: "Server Error", error: error.message },
-//       { status: 500 }
-//     );
-//   }
-// }

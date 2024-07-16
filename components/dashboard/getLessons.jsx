@@ -39,7 +39,7 @@ export async function GetLessons({ params, children }) {
   );
 
   function generateWhatsAppUrl(status, examName, userFullName, userEmail) {
-    const baseUrl = "https://wa.me/+212697998010?text=";
+    const baseUrl = `https://wa.me/${process.env.NEXT_PHONE_NUMBER}?text=`;
     const message = `*This is my information for verification:* \nStatus: ${status}\nExam: ${examName}\nFullName: ${userFullName}\nEmail: ${userEmail}`;
     return baseUrl + encodeURIComponent(message);
   }

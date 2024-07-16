@@ -1,4 +1,4 @@
-import Articles from "@/components/blog/articles/oldArticlesDesign/articles";
+import Articles from "@/components/blog/articles";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import Link from "next/link";
@@ -21,7 +21,7 @@ export default function ArticlesPage() {
           required={true}
           // onChange={(e) => setQuery(e.target.value)}
         />
-        <Button className="m-4  text-white">Send</Button>
+        <Button className="m-4 text-white">Send</Button>
         <Card className="flex justify-center h-10 max-w-1xl mx-auto m-2 md:max-w-5xl">
           <Link href={"/admin/articles/new"}>
             <CardContent className="p-2">
