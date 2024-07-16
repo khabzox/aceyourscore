@@ -1,72 +1,118 @@
-"use server"
 import { getUsersPaymentsData } from "./FetchUsersPaymentsData";
 import { currentUser } from "@clerk/nextjs/server";
 
-export default async function UsersInfo() {
-  try {
-    // Get data of user payments
-    const data = await getUsersPaymentsData();
+export default async function UsersInfo({ params }) {
+  const { id } = params;
+  // console.log("Received ID: ", id); // Output: it's working, ID is received
 
-    // Get data of the current user from Clerk
-    const user = await currentUser();
+  const ClerkUser = await currentUser();
 
-    if (!user) {
-      return (
-        <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
-          <p className="text-navy-900">Status: User not found</p>
-          <p className="text-navy-900">Exam: N/A</p>
-          <p className="text-navy-900">FullName: N/A</p>
-          <p className="text-navy-900">Email: N/A</p>
-        </div>
-      );
-    }
+  const serializedUser = {
+    id: ClerkUser.id,
+    fullName: ClerkUser.fullName,
+    primaryEmailAddress: ClerkUser.primaryEmailAddress?.emailAddress,
+  };
 
-    // Serialize user data from Clerk
-    const serializedUser = {
-      id: user.id,
-      fullName: user.fullName,
-      primaryEmailAddress: user.primaryEmailAddress?.emailAddress,
-    };
+  const userData = await getUsersPaymentsData(id);
+  // console.log("Fetched User Data:", userData); // Output: undefined or actual data
 
-    // Check if the current user has data in the database by userID
-    const userStatusPayments = data.payments.find(
-      (payment) => payment.clerkUser?.userID === serializedUser.id
-    );
-
-    if (!userStatusPayments) {
-      return (
-        <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
-          <p className="text-navy-900">Status: FREE</p>
-          <p className="text-navy-900">Exam: No Specified</p>
-          <p className="text-navy-900">FullName: {serializedUser.fullName}</p>
-          <p className="text-navy-900">
-            Email: {serializedUser.primaryEmailAddress}
-          </p>
-        </div>
-      );
-    }
-
-    // If everything is good and the user is found, return his data and show it
+  if (!userData || !userData.foundPayments) {
     return (
       <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
-        <p className="text-navy-900">
-          Status: {userStatusPayments.lemonsqueezyUser.paymentsInfo.status}
-        </p>
-        <p className="text-navy-900">Exam: {userStatusPayments.examName}</p>
-        <p className="text-navy-900">
-          FullName: {userStatusPayments.clerkUser.userFullName}
-        </p>
-        <p className="text-navy-900">
-          Email: {userStatusPayments.clerkUser.userEmail}
-        </p>
-      </div>
-    );
-  } catch (error) {
-    console.log("Error loading user payment info: ", error);
-    return (
-      <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
-        <p className="text-navy-900">Status: Error loading data</p>
+        <p className="text-navy-900">Status: FREE</p>
+        <p className="text-navy-900">Exam: No Specified</p>
+        <p className="text-navy-900">FullName: {serializedUser.fullName}</p>
+        <p className="text-navy-900">Email: {serializedUser.primaryEmailAddress}</p>
       </div>
     );
   }
+
+  const user = userData.foundPayments;
+  // console.log("Found Payments: ", user); // For debugging
+
+  return (
+    <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
+      <p className="text-navy-900">
+        Status: {user.lemonsqueezyUser.paymentsInfo.status}
+      </p>
+      <p className="text-navy-900">Exam: {user.examName}</p>
+      <p className="text-navy-900">FullName: {user.clerkUser.userFullName}</p>
+      <p className="text-navy-900">
+        Email: {user.lemonsqueezyUser.customerEmail}
+      </p>
+    </div>
+  );
 }
+
+// "use server"
+// import { getUsersPaymentsData } from "./FetchUsersPaymentsData";
+// import { currentUser } from "@clerk/nextjs/server";
+
+// export default async function UsersInfo() {
+//   try {
+//     // Get data of user payments
+//     const data = await getUsersPaymentsData();
+
+//     // Get data of the current user from Clerk
+//     const user = await currentUser();
+
+//     if (!user) {
+//       return (
+//         <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
+//           <p className="text-navy-900">Status: User not found</p>
+//           <p className="text-navy-900">Exam: N/A</p>
+//           <p className="text-navy-900">FullName: N/A</p>
+//           <p className="text-navy-900">Email: N/A</p>
+//         </div>
+//       );
+//     }
+
+//     // Serialize user data from Clerk
+//     const serializedUser = {
+//       id: user.id,
+//       fullName: user.fullName,
+//       primaryEmailAddress: user.primaryEmailAddress?.emailAddress,
+//     };
+
+//     // Check if the current user has data in the database by userID
+//     const userStatusPayments = data.payments.find(
+//       (payment) => payment.clerkUser.userID === serializedUser.id
+//     );
+
+//     if (!userStatusPayments) {
+//       return (
+//         <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
+//           <p className="text-navy-900">Status: FREE</p>
+//           <p className="text-navy-900">Exam: No Specified</p>
+//           <p className="text-navy-900">FullName: {serializedUser.fullName}</p>
+//           <p className="text-navy-900">
+//             Email: {serializedUser.primaryEmailAddress}
+//           </p>
+//         </div>
+//       );
+//     }
+
+//     // If everything is good and the user is found, return his data and show it
+//     return (
+//       <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
+//         <p className="text-navy-900">
+//           Status: {userStatusPayments.lemonsqueezyUser.paymentsInfo.status}
+//         </p>
+//         <p className="text-navy-900">Exam: {userStatusPayments.examName}</p>
+//         <p className="text-navy-900">
+//           FullName: {userStatusPayments.clerkUser.userFullName}
+//         </p>
+//         <p className="text-navy-900">
+//           Email: {userStatusPayments.clerkUser.userEmail}
+//         </p>
+//       </div>
+//     );
+//   } catch (error) {
+//     console.log("Error loading user payment info: ", error);
+//     return (
+//       <div className="border-t-2 sm:border-t-0 sm:border-l-2 border-accent pt-4 sm:pt-0 sm:pl-4">
+//         <p className="text-navy-900">Status: Error loading data</p>
+//       </div>
+//     );
+//   }
+// }

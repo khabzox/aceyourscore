@@ -1,6 +1,6 @@
 import ArticleForm from "@/components/blog/admin/ArticleForm";
 import config from "@/config";
-async function getTicketById(id) {
+async function getArticleById(id) {
   try {
     const res = await fetch(`${config.domainNameProduction}/en/api/Articles/${id}`, {
       cache: "no-store",
@@ -19,7 +19,7 @@ export default async function ArticlePage({ params }) {
   let updateArticleData = {};
 
   if (EDITMODE) {
-    updateArticleData = await getTicketById(params.id);
+    updateArticleData = await getArticleById(params.id);
     updateArticleData = updateArticleData.foundArticle;
     // console.log(updateArticleData);
   } else {

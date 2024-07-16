@@ -1,20 +1,26 @@
 import config from "@/config";
 
-export const getUsersPaymentsData = async () => {
+export async function getUsersPaymentsData(id) {
   try {
-    const res = await fetch(`${config.domainNameProduction}/en/api/payments`, {
-      cache: "no-store",
-    });
+    const res = await fetch(
+      `${config.domainNameProduction}/en/api/payments/${id}`,
+      {
+        cache: "no-store",
+      }
+    );
 
     if (!res.ok) {
-      throw new Error("Failed to fetch topics");
+      throw new Error("Failed to fetch payments data");
     }
 
-    return res.json();
+    const data = await res.json(); // Await the response
+    return data;
   } catch (error) {
-    console.log("Error loading topics: ", error);
+    console.error("Error fetching payment data:", error); // Improved error logging
+    return null; // Return null in case of error
   }
-};
+}
+
 
 // import config from "@/config";
 // export const getUsersPaymentsData = async () => {

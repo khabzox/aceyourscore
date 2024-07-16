@@ -4,47 +4,32 @@ import { currentUser } from "@clerk/nextjs/server";
 
 import Link from "next/link";
 
-// What We Need to create link that redirect to whatsapp with some info to verfication
+export async function GetLessons({ params, children }) {
+  const { id } = params;
+  console.log("Received ID: ", id); // Output: it's working, ID is received
 
-// Status: paid //db
-
-// Exam: IELTS //db
-
-// FullName: OUADOUKOU ABDELKABIR //clerk
-
-// Email: abdelkabir.ouadoukou@gmail.com /db
-
-export async function GetLessons({ children }) {
   // Get Data from getUsersPayments
-  const data = await getUsersPaymentsData();
+  const data = await getUsersPaymentsData(id);
 
-  // Ensure currentUser is fetched correctly
-  const user = await currentUser();
-
-  if (!user) {
-    return "USER NOT FOUND";
+  if (!data) {
+    return (
+      <button
+        className="py-2 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-[#e1d8c9] hover:transition w-full md:mx-auto text-center"
+        disabled
+      >
+        Pay For It
+      </button>
+    );
   }
 
-  // Extract only the necessary, serializable information
-  const serializedUser = {
-    id: user.id,
-    fullName: user.fullName,
-    // primaryEmailAddress: user.primaryEmailAddress?.emailAddress,
-  };
+  console.log(data);
 
-  let userStatusPayments = data.payments.find(
-    (payment) =>
-      payment.clerkUser && payment.clerkUser.userID === serializedUser.id
-  );
+  const DataForGenerateLink = data.foundPayments;
 
-  if (!userStatusPayments) {
-    return <button className="py-2 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-[#e1d8c9] hover:transition w-full md:mx-auto text-center" disabled>GET</button>
-  }
-
-  const status = userStatusPayments.lemonsqueezyUser.paymentsInfo.status;
-  const examName = userStatusPayments.examName;
-  const userFullName = userStatusPayments.clerkUser.userFullName;
-  const userEmail = userStatusPayments.clerkUser.userEmail;
+  const status = DataForGenerateLink.lemonsqueezyUser.paymentsInfo.status;
+  const examName = DataForGenerateLink.examName;
+  const userFullName = DataForGenerateLink.clerkUser.userFullName;
+  const userEmail = DataForGenerateLink.lemonsqueezyUser.customerEmail;
 
   const sendMessageToWhatsApp = generateWhatsAppUrl(
     status,
@@ -58,5 +43,13 @@ export async function GetLessons({ children }) {
     const message = `*This is my information for verification:* \nStatus: ${status}\nExam: ${examName}\nFullName: ${userFullName}\nEmail: ${userEmail}`;
     return baseUrl + encodeURIComponent(message);
   }
-  return <Link href={sendMessageToWhatsApp} target="_blank" className="py-2 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-[#e1d8c9] hover:transition w-full md:mx-auto text-center">{children}</Link>;
+  return (
+    <Link
+      href={sendMessageToWhatsApp}
+      target="_blank"
+      className="py-2 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-[#e1d8c9] hover:transition w-full md:mx-auto text-center"
+    >
+      {children}
+    </Link>
+  );
 }
