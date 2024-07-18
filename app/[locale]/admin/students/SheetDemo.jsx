@@ -12,11 +12,11 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 
-export function SheetDemo({ data }) {
+export function SheetDemo({ data, children }) {
   return (
     <Sheet>
       <SheetTrigger asChild>
-        <Button variant="outline">Open</Button>
+        <Button variant="viewCus" >{children}</Button>
       </SheetTrigger>
       <SheetContent>
         <SheetHeader>

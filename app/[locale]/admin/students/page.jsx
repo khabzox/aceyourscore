@@ -62,7 +62,7 @@ export default function DataTableDemo() {
 
   return (
     <>
-      <div className="w-full">
+      <div className="w-full px-10 mx-auto">
         <div className="flex items-center py-4">
           <Input
             placeholder="Filter emails..."
@@ -70,11 +70,11 @@ export default function DataTableDemo() {
             onChange={(event) =>
               table.getColumn("email")?.setFilterValue(event.target.value)
             }
-            className="max-w-sm"
+            className="max-w mr-4"
           />
           <DropdownMenu>
             <DropdownMenuTrigger asChild>
-              <Button variant="outline" className="ml-auto">
+              <Button variant="custom" className="ml-auto">
                 Columns <ChevronDown className="ml-2 h-4 w-4" />
               </Button>
             </DropdownMenuTrigger>

@@ -8,6 +8,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
 import RichTextEditor from "./RichTextEditor";
+import { Loader } from "lucide-react";
 
 export default function ArticleForm({ article }) {
   const EDITMODE = article._id === "new" ? false : true;
@@ -15,6 +16,7 @@ export default function ArticleForm({ article }) {
   const router = useRouter();
   const { edgestore } = useEdgeStore();
 
+  const [loading, setLoading] = useState(false);
   const [progressViwerDisplyoFIMG, setProgressViwerDisplyoFIMG] = useState(0);
   const [alrtFileUploadIMG, setAlrtFileUploadIMG] = useState();
   const [isSubmitDisabled, setIsSubmitDisabled] = useState(!EDITMODE);
@@ -83,6 +85,9 @@ export default function ArticleForm({ article }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    setLoading(true);
+    setIsSubmitDisabled(true);
+
     const method = EDITMODE ? "PUT" : "POST";
     const url = EDITMODE ? `/api/Articles/${article._id}` : "/api/Articles";
 
@@ -94,7 +99,10 @@ export default function ArticleForm({ article }) {
       },
     });
 
+    setLoading(false);
+
     if (!res.ok) {
+      setIsSubmitDisabled(false);
       throw new Error("Failed to save article.");
     }
 
@@ -152,9 +160,9 @@ export default function ArticleForm({ article }) {
           <Button
             type="submit"
             className="text-white bg-accent"
-            disabled={EDITMODE ? false : isSubmitDisabled}
+            disabled={loading || isSubmitDisabled}
           >
-            {EDITMODE ? "Update your Article" : "Create Your Article"}
+            {loading ? <Loader className="animate-spin" /> : EDITMODE ? "Update your Article" : "Create Your Article"}
           </Button>
         </form>
       </div>
