@@ -1,7 +1,6 @@
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react";
-
+// columns.jsx
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { SheetDemo } from "./SheetDemo";
-
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -11,9 +10,7 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-
 import { Button } from "@/components/ui/button";
-
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const columns = [
@@ -60,11 +57,11 @@ export const columns = [
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   },
   {
-    accessorKey: "Exam",
+    accessorKey: "examName", // Changed to match your data structure
     header: () => <div className="text-right">Exam</div>,
-    cell: ({ row }) => {
-      return <div className="text-right font-medium">{row.getValue("Exam")}</div>;
-    },
+    cell: ({ row }) => (
+      <div className="text-right font-medium">{row.getValue("examName")}</div>
+    ),
   },
   {
     id: "actions",
@@ -83,14 +80,12 @@ export const columns = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment.id)}
+              onClick={() => navigator.clipboard.writeText(payment._id)}
             >
               Copy payment ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <SheetDemo>
-              <DropdownMenuItem>View customer</DropdownMenuItem>
-            </SheetDemo>
+            <SheetDemo>View customer</SheetDemo>
           </DropdownMenuContent>
         </DropdownMenu>
       );

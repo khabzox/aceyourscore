@@ -3,6 +3,7 @@ import Hero from "@/components/HomePage/Hero";
 import Exams from "@/components/HomePage/Exams";
 import About from "@/components/HomePage/About";
 import HowAceYourScoreWorks from "@/components/HomePage/HowAceYourScoreWorks";
+import OurTeachers from "@/components/HomePage/our-teachers";
 import Pricing from "@/components/HomePage/Pricing";
 import OurBlog from "@/components/HomePage/OurBlog";
 import CTA from "@/components/HomePage/CTA";
@@ -11,13 +12,16 @@ export default function Home() {
   return (
     <>
       <NavBar />
-      <Hero />
-      <Exams />
-      <About />
-      <HowAceYourScoreWorks />
-      <Pricing />
-      {/* <OurBlog /> */}
-      <CTA />
+      <main>
+        <Hero />
+        <Exams />
+        <About />
+        <HowAceYourScoreWorks />
+        {/* <OurTeachers/> */}
+        <Pricing />
+        {/* <OurBlog /> */}
+        <CTA />
+      </main>
       <Footer />
     </>
   );

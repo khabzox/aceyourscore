@@ -28,17 +28,28 @@ export function BtnOfHero({ text, linkto }) {
 
 export function BtnOfBlog({ text, linkto }) {
   return (
-    <Link href={linkto} className="py-2 px-4 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-accent-Hover">
+    <Link
+      href={linkto}
+      className="py-2 px-4 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-accent-Hover"
+    >
       {text}
     </Link>
   );
 }
 
-
 export function BtnOfCTA({ text, linkto }) {
   return (
-    <Link href={linkto} className="py-2 px-5 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-primary hover:transition w-52 md:mx-auto text-center">
+    <Link
+      href={linkto}
+      className="py-2 px-5 font-bold border-2 border-accent rounded-lg pt-2 hover:bg-primary hover:transition w-52 md:mx-auto text-center"
+    >
       {text}
     </Link>
   );
+}
+
+export function BtnOfAbout({ linkto, children }) {
+  return(
+    <Link href={linkto} className="flex justify-center items-center max-w-xs bg-accent text-primary text-lg py-3 px-6 rounded-lg hover:opacity-95 transition duration-300">{children}</Link>
+  )
 }

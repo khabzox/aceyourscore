@@ -1,6 +1,8 @@
 import { useTranslations } from "next-intl";
 import SlideShowFeatures from "./SlideShowFeatures";
 
+import { BtnOfAbout } from "@/components/shared/CustmsBtns";
+
 import { Ubuntu } from "next/font/google";
 
 const ubuntu = Ubuntu({
@@ -36,7 +38,7 @@ export default function About() {
             <p className="text-sm sm:text-base md:text-lg font-semibold mb-8">
               {t("description")}
             </p>
-            {/* <BtnOfHero text={t("GetStartedBtn")} linkto={"/"} /> */}
+            <BtnOfAbout linkto={"/#our-teachers"}>Our Teachers</BtnOfAbout>
           </div>
           <div className="px-32 md:w-1/2 mt-10 md:mt-0 flex justify-center md:justify-end bg-accent h-40 md:h-96 rounded-lg">
             {/* <Image

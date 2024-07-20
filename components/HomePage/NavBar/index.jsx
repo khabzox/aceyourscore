@@ -72,9 +72,9 @@ export default function NavBar() {
                 <Link href={"/en"}>
                   <DropdownMenuItem>English</DropdownMenuItem>
                 </Link>
-                <Link href={"/fr"}>
+                {/* <Link href={"/fr"}>
                   <DropdownMenuItem>French</DropdownMenuItem>
-                </Link>
+                </Link> */}
               </DropdownMenuContent>
             </DropdownMenu>
             <span className=" hidden sm:block">

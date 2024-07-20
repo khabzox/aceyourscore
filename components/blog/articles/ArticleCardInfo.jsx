@@ -60,13 +60,13 @@ export default async function ArticleCardInfo({ article }) {
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black to-transparent"></div>
         <div className="absolute bottom-4 left-4 flex items-center gap-3">
-          <div className="bg-white rounded-full mb-1 flex items-center justify-center">
+          <div className=" rounded-full mb-1 flex items-center justify-center">
             <Image
               src={article.avatarImg}
               alt="Avatar Img"
               width={48}
               height={48}
-              className="rounded-full"
+              className="rounded-full aspect-square"
             />
           </div>
           <div className="text-white">

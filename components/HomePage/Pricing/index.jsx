@@ -112,7 +112,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={"442338"}
+                  examId={process.env.LEMON_SQUEEZY_TOEFL_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
@@ -153,7 +153,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={"443228"}
+                  examId={process.env.LEMON_SQUEEZY_TOEIC_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
@@ -195,7 +195,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={"443229"}
+                  examId={process.env.LEMON_SQUEEZY_SAT_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
@@ -237,7 +237,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={"443230"}
+                  examId={process.env.LEMON_SQUEEZY_IELTS_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
