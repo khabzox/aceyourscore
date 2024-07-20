@@ -4,6 +4,8 @@ import { useTranslations } from "next-intl";
 
 import axios from "axios";
 
+import config from "@/config";
+
 import {
   ClerkProvider,
   SignInButton,
@@ -112,7 +114,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={process.env.LEMON_SQUEEZY_TOEFL_ID}
+                  examId={config.LemonSqueezy.LEMON_SQUEEZY_TOEFL_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
@@ -153,7 +155,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={process.env.LEMON_SQUEEZY_TOEIC_ID}
+                  examId={config.LemonSqueezy.LEMON_SQUEEZY_TOEIC_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
@@ -195,7 +197,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={process.env.LEMON_SQUEEZY_SAT_ID}
+                  examId={config.LemonSqueezy.LEMON_SQUEEZY_SAT_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
@@ -237,7 +239,7 @@ export default function Pricing() {
                 <BtnOfPay
                   text={t("payBtn")}
                   py={3}
-                  examId={process.env.LEMON_SQUEEZY_IELTS_ID}
+                  examId={config.LemonSqueezy.LEMON_SQUEEZY_IELTS_ID}
                   handleExamPurchase={handleExamPurchase}
                 />
               </div>
