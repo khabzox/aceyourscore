@@ -31,7 +31,7 @@ export function SheetDemo({ data }) {
                 Name
               </Label>
               <div id="name" className="col-span-3">
-                {data?.name || "N/A"}
+                {data?.userFullName || "N/A"}
               </div>
             </div>
             <div className="grid grid-cols-4 items-center gap-4 mb-2">
@@ -63,7 +63,7 @@ export function SheetDemo({ data }) {
                 Total Paid
               </Label>
               <div id="total" className="col-span-3">
-                {data?.total || "N/A"}
+                {data?.total_formatted || "N/A"}
               </div>
             </div>
           </div>

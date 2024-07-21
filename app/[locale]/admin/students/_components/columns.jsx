@@ -1,4 +1,3 @@
-// columns.jsx
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { SheetDemo } from "./SheetDemo";
 import {
@@ -57,7 +56,7 @@ export const columns = [
     cell: ({ row }) => <div className="lowercase">{row.getValue("email")}</div>,
   },
   {
-    accessorKey: "examName", // Changed to match your data structure
+    accessorKey: "examName",
     header: () => <div className="text-right">Exam</div>,
     cell: ({ row }) => (
       <div className="text-right font-medium">{row.getValue("examName")}</div>
@@ -80,12 +79,12 @@ export const columns = [
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
             <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText(payment._id)}
+              onClick={() => navigator.clipboard.writeText(payment.customerID)}
             >
-              Copy payment ID
+              Copy Customer ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <SheetDemo>View customer</SheetDemo>
+            <SheetDemo data={payment}>View customer</SheetDemo>
           </DropdownMenuContent>
         </DropdownMenu>
       );
