@@ -1,13 +1,18 @@
 "use client";
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useUser } from "@clerk/nextjs";
+
 import { useEdgeStore } from "@/libs/edgestore";
+
+import RichTextEditor from "./RichTextEditor";
+
 import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
 import { Button } from "@/components/ui/button";
 import { Progress } from "@/components/ui/progress";
-import RichTextEditor from "./RichTextEditor";
+import { Textarea } from "@/components/ui/textarea";
+
 import { Loader } from "lucide-react";
 
 export default function ArticleForm({ article }) {
@@ -16,10 +21,10 @@ export default function ArticleForm({ article }) {
   const router = useRouter();
   const { edgestore } = useEdgeStore();
 
-  const [loading, setLoading] = useState(false);
-  const [progressViwerDisplyoFIMG, setProgressViwerDisplyoFIMG] = useState(0);
-  const [alrtFileUploadIMG, setAlrtFileUploadIMG] = useState();
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(!EDITMODE);
+  const [loading, setLoading] = useState(false); // costum loading btn
+  const [progressViwerDisplyoFIMG, setProgressViwerDisplyoFIMG] = useState(0); // follow upload img
+  const [alrtFileUploadIMG, setAlrtFileUploadIMG] = useState(); // set alrt when img is uploaded
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(!EDITMODE); // make btn disable after click on it to send data
   const [formData, setFormData] = useState({
     title: "",
     postImg: "",
@@ -35,17 +40,21 @@ export default function ArticleForm({ article }) {
       description: article.description,
       postBody: article.postBody,
     }),
-  });
+  }); // data structure of all inputs
 
+  // upload img to edgestore
   const FileUploadPostImg = async (e) => {
     const file = e.target.files?.[0];
+    // check if file is here to send it
     if (file) {
       try {
         const res = await edgestore.publicFiles.upload({
           file,
           onProgressChange: (progress) => {
+            // that for Follow progress of uploading img and post it on frontend
             setProgressViwerDisplyoFIMG(progress);
             if (progress === 100) {
+              // after img uploaded show message of success
               setAlrtFileUploadIMG(
                 <h1 className="text-green-800">Upload Img Success</h1>
               );
@@ -53,11 +62,13 @@ export default function ArticleForm({ article }) {
           },
         });
 
+        // set img on his input
         const FileUrlPostImg = res.url;
         setFormData((prev) => ({
           ...prev,
           postImg: FileUrlPostImg,
         }));
+        // check if img is uploaded to enable btn of send data
         setIsSubmitDisabled(false);
       } catch (error) {
         console.error("Failed to upload file:", error);
@@ -65,6 +76,7 @@ export default function ArticleForm({ article }) {
     }
   };
 
+  // get and set all data for every input
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -75,6 +87,7 @@ export default function ArticleForm({ article }) {
     }));
   };
 
+  // save changes of text editor
   const handleBodyChange = (value) => {
     setFormData((prev) => ({
       ...prev,
@@ -82,15 +95,18 @@ export default function ArticleForm({ article }) {
     }));
   };
 
+  // submit data: if EDITMODE => PUT && if new one => POST
   const handleSubmit = async (e) => {
     e.preventDefault();
 
+    // disable btn && set loading btn
     setLoading(true);
     setIsSubmitDisabled(true);
 
     const method = EDITMODE ? "PUT" : "POST";
     const url = EDITMODE ? `/api/Articles/${article._id}` : "/api/Articles";
 
+    // send data
     const res = await fetch(url, {
       method,
       body: JSON.stringify({ formData }),
@@ -99,6 +115,7 @@ export default function ArticleForm({ article }) {
       },
     });
 
+    // after send data, the btn will be enable (to send data agin)
     setLoading(false);
 
     if (!res.ok) {
@@ -106,6 +123,7 @@ export default function ArticleForm({ article }) {
       throw new Error("Failed to save article.");
     }
 
+    // redirect user
     router.refresh();
     router.push("/admin/articles");
   };

@@ -21,7 +21,8 @@ export function SheetDemo({ data }) {
         <SheetHeader>
           <SheetTitle>Payment Information</SheetTitle>
           <SheetDescription>
-            Here is the detailed payment information. Click unsubscribe if you wish to cancel.
+            Here is the detailed payment information. Click unsubscribe if you
+            wish to cancel.
           </SheetDescription>
         </SheetHeader>
         <div className="grid gap-4 py-4">
@@ -63,15 +64,30 @@ export function SheetDemo({ data }) {
                 Total Paid
               </Label>
               <div id="total" className="col-span-3">
-                {data?.total_formatted || "N/A"}
+                {data?.totalFormatted || "N/A"}
+              </div>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4 mb-2">
+              <Label htmlFor="total" className="text-start font-semibold">
+                Total Refunded
+              </Label>
+              <div id="refunded" className="col-span-3">
+                {data?.refunded ? "Refunded" : "Not Refunded"}
+              </div>
+            </div>
+            <div className="grid grid-cols-4 items-center gap-4 mb-2">
+              <Label htmlFor="total" className="text-start font-semibold">
+                Order Number
+              </Label>
+              <div id="orderNumber" className="col-span-3">
+                #{data?.orderNumber || "N/A"}
               </div>
             </div>
           </div>
         </div>
         <SheetFooter>
-          <SheetClose asChild>
-            <Button variant="destructive">Unsubscribe</Button>
-          </SheetClose>
+          <Button variant="custom">Cencel</Button>
+          <Button variant="destructive">Refunded</Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>

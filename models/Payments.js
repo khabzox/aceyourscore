@@ -5,27 +5,25 @@ mongoose.Promise = global.Promise;
 
 const paymentsSchema = new Schema(
   {
-    clerkUser: {
-      userID: String,
-      userFullName: String,
-      userEmail: String,
+    registeredUser: {
+      id: String,
+      fullName: String,
+      email: String,
     },
-    lemonsqueezyUser: {
-      customerInfo: {
-        identifier: String,
-        customerID: Number,
-        created_at: String,
-        updated_at: String,
+    paymentUser: {
+      customer: {
+        id: Number,
+        name: String,
+        email: String,
+        examName: String,
       },
-      paymentsInfo: {
+      payment: {
         status: String,
-        refunded_at: String || null,
-        total_formatted: String,
+        refunded: Boolean,
+        orderNumber: Number,
+        totalFormatted: String,
       },
-      customerName: String,
-      customerEmail: String,
     },
-    examName: String,
   },
   {
     timestamps: true,

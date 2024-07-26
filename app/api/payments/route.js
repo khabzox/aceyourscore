@@ -1,4 +1,4 @@
-import Payments from "@/models/Payments";
+import Payments from "@/models/payments";
 import { NextResponse } from "next/server";
 
 export async function GET() {

@@ -1,8 +1,8 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
 import { EdgeStoreProvider } from "@/libs/edgestore";
-import Header from "@/components/admin/Layouts/Header";
-import Sidebar from "@/components/admin/Layouts/Sidebar";
+import Header from "@/app/[locale]/admin/_components/Layouts/Header";
+import Sidebar from "@/app/[locale]/admin/_components/Layouts/Sidebar";
 export default function layout({ children }) {
   const { sessionClaims } = auth();
 
@@ -10,6 +10,7 @@ export default function layout({ children }) {
   if (sessionClaims?.metadata.role !== "admin") {
     redirect("/");
   }
+
   return (
     <>
       <div className="flex h-screen showScren">

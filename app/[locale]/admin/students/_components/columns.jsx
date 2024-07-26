@@ -1,5 +1,6 @@
 import { ArrowUpDown, MoreHorizontal } from "lucide-react";
 import { SheetDemo } from "./SheetDemo";
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuCheckboxItem,
@@ -9,7 +10,6 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
-import { Button } from "@/components/ui/button";
 import { Checkbox } from "@/components/ui/checkbox";
 
 export const columns = [
@@ -67,7 +67,7 @@ export const columns = [
     enableHiding: false,
     cell: ({ row }) => {
       const payment = row.original;
-
+      console.log("This PAyments here", payment);
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>
@@ -81,7 +81,14 @@ export const columns = [
             <DropdownMenuItem
               onClick={() => navigator.clipboard.writeText(payment.customerID)}
             >
-              Copy Customer ID
+              <Button variant="viewCus">Copy Customer ID</Button>
+            </DropdownMenuItem>
+            <DropdownMenuItem
+ 
+            >
+              <Button              onClick={() =>
+                navigator.clipboard.writeText("#" + payment.orderNumber)
+              } variant="viewCus">Copy Order Number</Button>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <SheetDemo data={payment}>View customer</SheetDemo>

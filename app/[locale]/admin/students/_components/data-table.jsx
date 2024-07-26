@@ -27,13 +27,15 @@ export async function getFormattedData() {
   }
 
   const formattedData = fetchedData.map((item) => ({
-    id: item.clerkUser.userID,
-    examName: item.examName,
-    userFullName: item.clerkUser.userFullName,
-    customerID: item.lemonsqueezyUser.customerInfo.customerID,
-    status: item.lemonsqueezyUser.paymentsInfo.status,
-    email: item.lemonsqueezyUser.customerEmail,
-    total_formatted: item.lemonsqueezyUser.paymentsInfo.total_formatted,
+    id: item.registeredUser.id,
+    examName: item.paymentUser.customer.examName,
+    userFullName: item.registeredUser.fullName,
+    customerID: item.paymentUser.customer.id,
+    status: item.paymentUser.payment.status,
+    email: item.paymentUser.customer.email,
+    refunded: item.paymentUser.payment.refunded,
+    orderNumber: item.paymentUser.payment.orderNumber,
+    totalFormatted: item.paymentUser.payment.totalFormatted
   }));
 
   return formattedData;

@@ -26,10 +26,10 @@ export async function GetLessons({ params, children }) {
 
   const DataForGenerateLink = data.foundPayments;
 
-  const status = DataForGenerateLink.lemonsqueezyUser.paymentsInfo.status;
-  const examName = DataForGenerateLink.examName;
-  const userFullName = DataForGenerateLink.clerkUser.userFullName;
-  const userEmail = DataForGenerateLink.lemonsqueezyUser.customerEmail;
+  const status = DataForGenerateLink.paymentUser.payment.status;
+  const examName = DataForGenerateLink.paymentUser.customer.examName;
+  const userFullName = DataForGenerateLink.registeredUser.fullName;
+  const userEmail = DataForGenerateLink.paymentUser.customer.email;
 
   const sendMessageToWhatsApp = generateWhatsAppUrl(
     status,
@@ -38,6 +38,7 @@ export async function GetLessons({ params, children }) {
     userEmail
   );
 
+  // make link
   function generateWhatsAppUrl(status, examName, userFullName, userEmail) {
     const baseUrl = `https://wa.me/${process.env.NEXT_PHONE_NUMBER}?text=`;
     const message = `*This is my information for verification:* \nStatus: ${status}\nExam: ${examName}\nFullName: ${userFullName}\nEmail: ${userEmail}`;
