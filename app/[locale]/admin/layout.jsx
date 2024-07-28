@@ -3,6 +3,11 @@ import { redirect } from "next/navigation";
 import { EdgeStoreProvider } from "@/libs/edgestore";
 import Header from "@/app/[locale]/admin/_components/Layouts/Header";
 import Sidebar from "@/app/[locale]/admin/_components/Layouts/Sidebar";
+
+export const metadata = {
+  title: 'AceYourScore | admin',
+}
+
 export default function layout({ children }) {
   const { sessionClaims } = auth();
 

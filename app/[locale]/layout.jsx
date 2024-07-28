@@ -16,6 +16,11 @@ const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
 });
 
+export const metadata = {
+  title: 'AceYourScore | Home',
+  description: '...',
+}
+
 export default async function RootLayout({ children, params: { locale } }) {
   const messages = await getMessages();
 

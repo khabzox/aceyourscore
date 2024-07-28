@@ -88,6 +88,7 @@ export function SheetDemo({ data }) {
         <SheetFooter>
           <Button variant="custom">Cencel</Button>
           <Button variant="destructive">Refunded</Button>
+          <Button variant="custom">Invoice</Button>
         </SheetFooter>
       </SheetContent>
     </Sheet>

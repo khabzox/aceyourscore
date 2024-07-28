@@ -1,7 +1,10 @@
 // import { auth } from "@clerk/nextjs/server";
-
+import config from "@/config";
 import Header from "@/components/dashboard/Layouts/Header";
 import Sidebar from "@/components/dashboard/Layouts/Sidebar";
+import { generateMetadataDashboard } from "@/libs/metadata";
+
+export const metadata = generateMetadataDashboard
 
 export default function RootLayoutOfDashboard({ children }) {
   return (
