@@ -30,7 +30,7 @@ export function PrimaryCardltr({ title, desc, imgSrc, imgAlt }) {
             >
               {title}
             </h1>
-            <p className="mt-4 text-gray-600 md:text-lg">{desc}</p>
+            <p className="mt-4 text-accent/5 opacity-85 md:text-lg">{desc}</p>
           </div>
           <div className="flex items-center justify-center">
             <Image
