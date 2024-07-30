@@ -2,7 +2,7 @@ import ArticleForm from "@/components/blog/admin/ArticleForm";
 import config from "@/config";
 async function getArticleById(id) {
   try {
-    const res = await fetch(`${config.domainNameProduction}/en/api/Articles/${id}`, {
+    const res = await fetch(`${config.domainNameProduction}/en/api/articles/${id}`, {
       cache: "no-store",
     });
     if (!res.ok) {

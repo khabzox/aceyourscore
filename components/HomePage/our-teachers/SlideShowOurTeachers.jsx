@@ -98,26 +98,6 @@ export default function SlideShowOurTeachers() {
           </div>
         </CarouselItem>
 
-        <CarouselItem className="md:basis-1/2 lg:basis-1/3">
-          <div className="flex flex-col items-center justify-center space-y-4">
-            <Image
-              src="/placeholder.jpg"
-              alt="Teacher Name"
-              width={200}
-              height={200}
-              className="rounded-full w-32 h-32 object-cover"
-            />
-            <div className="space-y-2 text-center">
-              <h3 className="text-xl font-semibold">John Doe</h3>
-              <p className="text-muted-foreground">Mathematics</p>
-              <p className="text-sm text-muted-foreground">
-                John has been teaching mathematics for over 10 years and is
-                passionate about helping students develop a strong foundation in
-                the subject.
-              </p>
-            </div>
-          </div>
-        </CarouselItem>
       </CarouselContent>
 
       <div className="m-8">

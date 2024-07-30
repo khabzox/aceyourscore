@@ -104,7 +104,7 @@ export default function ArticleForm({ article }) {
     setIsSubmitDisabled(true);
 
     const method = EDITMODE ? "PUT" : "POST";
-    const url = EDITMODE ? `/api/Articles/${article._id}` : "/api/Articles";
+    const url = EDITMODE ? `/api/articles/${article._id}` : "/api/articles";
 
     // send data
     const res = await fetch(url, {

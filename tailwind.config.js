@@ -25,13 +25,16 @@ module.exports = {
         foreground: "hsl(var(--foreground))",
         primary: {
           DEFAULT: "var(--primary)",
-          text: "",
-          hov: "",
+          foreground: "var(--primary-foreground)"
         },
         secondary: {
           DEFAULT: "var(--secondary)",
-          text: "",
-          foreground: "",
+          foreground: "var(--secondary-foreground)"
+        },
+        yellow: {
+          400: '#FBBF24', // Custom light yellow
+          500: '#F59E0B', // Custom medium yellow
+          600: '#D97706', // Custom dark yellow
         },
         destructive: {
           DEFAULT: "var(--destructive)",
@@ -54,6 +57,9 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+      },
+      ringColor: {
+        'yellow-300': '#FBBF24', // Example ring color
       },
       borderRadius: {
         lg: "var(--radius)",

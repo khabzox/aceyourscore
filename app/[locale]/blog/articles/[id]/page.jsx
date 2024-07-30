@@ -2,6 +2,11 @@ import Image from "next/image";
 import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import styles from "./style.module.css";
 import { getArticlesById } from "./getArticlesById";
+import { MetadataArticles } from "@/libs/metadata";
+
+export async function Metadata({ params }) {
+  return MetadataArticles({ params });
+}
 
 export default async function ArticlePage({ params }) {
   const { id } = params;
@@ -24,53 +29,49 @@ export default async function ArticlePage({ params }) {
     };
 
     const date = new Date(timestamp);
-    const formattedDate = date.toLocaleString("en-US", options);
-
-    return formattedDate;
+    return date.toLocaleString("en-US", options);
   }
 
   const createdDateTime = formatTimestamp(post.createdAt);
 
   return (
-    <>
-      <div className="max-w-6xl w-full mx-auto justify-center">
-        <div className="py-12 md:py-16 lg:py-20">
-          <div className="container px-4 md:px-6">
-            <div className="mx-auto max-w-5xl space-y-6">
-              <div className="space-y-2">
-                <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
-                  {post.title}
-                </h1>
-                <div className="flex items-center space-x-4">
-                  <Avatar>
-                    <AvatarImage src={post.avatarImg} />
-                  </Avatar>
-                  <div>
-                    <p className="text-sm font-medium">{post.avatarName}</p>
-                    <p className="text-sm text-muted-foreground">
-                      Published on {createdDateTime}
-                    </p>
-                  </div>
+    <div className="max-w-6xl w-full mx-auto justify-center">
+      <div className="py-12 md:py-16 lg:py-20">
+        <div className="container px-4 md:px-6">
+          <div className="mx-auto max-w-5xl space-y-6">
+            <div className="space-y-2">
+              <h1 className="text-3xl font-bold tracking-tighter sm:text-4xl md:text-5xl lg:text-6xl">
+                {post.title}
+              </h1>
+              <div className="flex items-center space-x-4">
+                <Avatar>
+                  <AvatarImage src={post.avatarImg} alt="Author avatar" />
+                </Avatar>
+                <div>
+                  <p className="text-sm font-medium">{post.avatarName}</p>
+                  <p className="text-sm text-muted-foreground">
+                    Published on {createdDateTime}
+                  </p>
                 </div>
               </div>
-              <Image
-                src={post.postImg}
-                width={1200}
-                height={600}
-                alt="Cover image"
-                className="mx-auto aspect-video overflow-hidden rounded-2xl object-cover"
-              />
             </div>
-          </div>
-        </div>
-        <div className="container px-4 md:px-6 py-2 mb-4">
-          <div
-            className={`mx-auto max-w-5xl prose prose-gray dark:prose-invert ${styles.preResponsive}`}
-          >
-            <div dangerouslySetInnerHTML={{ __html: post.postBody }} />
+            <Image
+              src={post.postImg}
+              width={1200}
+              height={600}
+              alt="Cover image"
+              className="mx-auto aspect-video overflow-hidden rounded-2xl object-cover"
+            />
           </div>
         </div>
       </div>
-    </>
+      <div className="container px-4 md:px-6 py-2 mb-4">
+        <div
+          className={`mx-auto max-w-5xl prose prose-gray dark:prose-invert ${styles.preResponsive}`}
+        >
+          <div dangerouslySetInnerHTML={{ __html: post.postBody }} />
+        </div>
+      </div>
+    </div>
   );
 }

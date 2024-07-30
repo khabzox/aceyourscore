@@ -2,9 +2,9 @@
 import config from "@/config";
 import Header from "@/components/dashboard/Layouts/Header";
 import Sidebar from "@/components/dashboard/Layouts/Sidebar";
-import { generateMetadataDashboard } from "@/libs/metadata";
+import { MetadataDashboard } from "@/libs/metadata";
 
-export const metadata = generateMetadataDashboard
+export const metadata = MetadataDashboard
 
 export default function RootLayoutOfDashboard({ children }) {
   return (

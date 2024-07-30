@@ -23,25 +23,25 @@ export default function Exams() {
     <section className={`${ubuntu.className} py-20 uppercase`}>
       <div className="container mx-auto flex flex-col items-center">
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full max-w-7xl mb-8">
-          <Link href="/#prep">
+          <Link href="/Toefl">
             <div className="bg-accent text-primary flex items-center justify-center py-6 px-4 rounded-lg">
               <CircleCheckBig className="mr-2" />
               <span className="text-xl font-bold">TOEFL</span>
             </div>
           </Link>
-          <Link href="/#prep">
+          <Link href="/Toeic">
             <div className="bg-accent text-primary flex items-center justify-center py-6 px-4 rounded-lg">
               <CircleCheckBig className="mr-2" />
               <span className="text-xl font-bold">TOEIC</span>
             </div>
           </Link>
-          <Link href="/#prep">
+          <Link href="/Ielts">
             <div className="bg-accent text-primary flex items-center justify-center py-6 px-4 rounded-lg">
               <CircleCheckBig className="mr-2" />
               <span className="text-xl font-bold">IELTS</span>
             </div>
           </Link>
-          <Link href="/#prep">
+          <Link href="/Sat">
             <div className="bg-accent text-primary flex items-center justify-center py-6 px-4 rounded-lg">
               <CircleCheckBig className="mr-2" />
               <span className="text-xl font-bold">SAT</span>

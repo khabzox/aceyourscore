@@ -1,34 +1,161 @@
 import config from "@/config";
+import { getArticlesById } from "@/app/[locale]/blog/articles/[id]/getArticlesById";
 
-export const generateMetadataAboutUS = {
-  title: "AceYourScore | About US",
-  description: "AceYourScore | About US",
+export async function MetadataArticles({ params }, parent) {
+  const { id } = params;
+
+  // Fetch article data
+  const article = await getArticlesById(id);
+
+  if (!article || !article.foundArticle) {
+    return {
+      title: "Article Not Found",
+      description: "The article you are looking for does not exist.",
+      openGraph: {
+        title: "Article Not Found",
+        description: "The article you are looking for does not exist.",
+        images: ["/logo.png"],
+        url: `${config.domainNameProduction}/articles/${id}`,
+      },
+    };
+  }
+
+  const articleInfo = article.foundArticle;
+
+  // Safely handle parent metadata
+  const previousImages = parent?.openGraph?.images || [];
+
+  return {
+    title: articleInfo.title || "Untitled Article",
+    description: articleInfo.description || "No description available.",
+    openGraph: {
+      title: articleInfo.title || "Untitled Article",
+      description: articleInfo.description || "No description available.",
+      images: [articleInfo.postImg || "/logo.png", ...previousImages],
+      url: `${config.domainNameProduction}/articles/${id}`,
+    },
+  };
+}
+
+// Static metadata for other pages
+
+export const MetadataHome = {
+  title: "AceYourScore | Home",
+  description: "Learn more about AceYourScore and our mission.",
   openGraph: {
-    title: "AceYourScore | About US",
-    description: "AceYourScore | About US",
-    images: "articleInfo.postImg",
+    title: "AceYourScore | Home",
+    description: "Learn more about AceYourScore and our mission.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/`,
+  },
+};
+
+export const MetadataAboutUS = {
+  title: "AceYourScore | About Us",
+  description: "Learn more about AceYourScore and our mission.",
+  openGraph: {
+    title: "AceYourScore | About Us",
+    description: "Learn more about AceYourScore and our mission.",
+    images: ["/logo.png"],
     url: `${config.domainNameProduction}/about-us`,
   },
 };
 
-export const generateMetadataContactUS = {
-  title: "AceYourScore | Contact US",
-  description: "AceYourScore | Contact US",
+export const MetadataContactUS = {
+  title: "AceYourScore | Contact Us",
+  description: "Get in touch with AceYourScore.",
   openGraph: {
-    title: "AceYourScore | Contact US",
-    description: "AceYourScore | Contact US",
-    images: "articleInfo.postImg",
+    title: "AceYourScore | Contact Us",
+    description: "Get in touch with AceYourScore.",
+    images: ["/logo.png"],
     url: `${config.domainNameProduction}/contact-us`,
   },
 };
 
-export const generateMetadataDashboard = {
+export const MetadataDashboard = {
   title: "AceYourScore | Dashboard",
-  description: "AceYourScore | Dashboard",
+  description: "Your personal AceYourScore dashboard.",
   openGraph: {
     title: "AceYourScore | Dashboard",
-    description: "AceYourScore | Dashboard",
-    images: "articleInfo.postImg",
+    description: "Your personal AceYourScore dashboard.",
+    images: ["/logo.png"],
     url: `${config.domainNameProduction}/dashboard`,
   },
 };
+export const MetadataToefl = {
+  title: "AceYourScore | TOEFL",
+  description: "Achieve your best TOEFL score with AceYourScore.",
+  openGraph: {
+    title: "AceYourScore | TOEFL",
+    description: "Achieve your best TOEFL score with AceYourScore.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/toefl`,
+  },
+};
+
+export const MetadataToeic = {
+  title: "AceYourScore | TOEIC",
+  description: "Prepare effectively for the TOEIC exam with AceYourScore.",
+  openGraph: {
+    title: "AceYourScore | TOEIC",
+    description: "Prepare effectively for the TOEIC exam with AceYourScore.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/toeic`,
+  },
+};
+
+export const MetadataSat = {
+  title: "AceYourScore | SAT",
+  description: "Boost your SAT performance with AceYourScore.",
+  openGraph: {
+    title: "AceYourScore | SAT",
+    description: "Boost your SAT performance with AceYourScore.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/sat`,
+  },
+};
+
+export const MetadataIelts = {
+  title: "AceYourScore | IELTS",
+  description: "Maximize your IELTS score with AceYourScore.",
+  openGraph: {
+    title: "AceYourScore | IELTS",
+    description: "Maximize your IELTS score with AceYourScore.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/ielts`,
+  },
+};
+
+export const MetadataOurTeacher = {
+  title: "AceYourScore | Our Teachers",
+  description: "Meet the expert teachers at AceYourScore.",
+  openGraph: {
+    title: "AceYourScore | Our Teachers",
+    description: "Meet the expert teachers at AceYourScore.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/our-teachers`,
+  },
+};
+
+export const MetadataLearningArabic = {
+  title: "AceYourScore | Learn Arabic",
+  description: "Start your Arabic learning journey with AceYourScore.",
+  openGraph: {
+    title: "AceYourScore | Learn Arabic",
+    description: "Start your Arabic learning journey with AceYourScore.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/learn-arabic`,
+  },
+};
+
+export const MetadataTos = {
+  title: "AceYourScore | Tearm of Conditions",
+  description: "Review the Tearm of Conditions for using AceYourScore.",
+  openGraph: {
+    title: "AceYourScore | Tearm of Conditions",
+    description: "Review the Tearm of Conditions for using AceYourScore.",
+    images: ["/logo.png"],
+    url: `${config.domainNameProduction}/tos`,
+  },
+};
+

@@ -1,7 +1,7 @@
 import { SignIn } from '@clerk/nextjs';
 export const metadata = {
-  title: "AceYourScore | Blog",
-  description: "AceYourScore Blog Sign In Page",
+  title: "AceYourScore | Sign In",
+  description: "AceYourScore Sign In Page",
 };
 export default function Page() {
   return (

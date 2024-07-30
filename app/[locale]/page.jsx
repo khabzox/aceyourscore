@@ -16,8 +16,8 @@ export default function Home() {
         <Hero />
         <Exams />
         <About />
+        <OurTeachers/>
         <HowAceYourScoreWorks />
-        {/* <OurTeachers/> */}
         <Pricing />
         {/* <OurBlog /> */}
         <CTA />

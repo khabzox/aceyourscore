@@ -1,6 +1,6 @@
-import { generateMetadataArticles } from "@/libs/metadata";
+import { MetadataArticles } from "@/libs/metadata";
 
-export { generateMetadataArticles };
+export { MetadataArticles };
 
 export default function Layout({ children }) {
   return children;

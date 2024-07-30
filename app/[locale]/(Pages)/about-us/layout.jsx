@@ -1,6 +1,6 @@
-import { generateMetadataAboutUS } from "@/libs/metadata";
+import { MetadataAboutUS } from "@/libs/metadata";
 
-export const metadata = generateMetadataAboutUS
+export const metadata = MetadataAboutUS
 
 export default function Layout({ children }) {
   return children
