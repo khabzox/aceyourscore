@@ -1,5 +1,5 @@
 import config from "@/config";
-import { getArticlesById } from "@/app/[locale]/blog/articles/[id]/getArticlesById";
+import { getArticlesById } from "@/app/blog/articles/[id]/getArticlesById";
 
 export async function MetadataArticles({ params }, parent) {
   const { id } = params;
@@ -15,7 +15,7 @@ export async function MetadataArticles({ params }, parent) {
         title: "Article Not Found",
         description: "The article you are looking for does not exist.",
         images: ["/logo.png"],
-        url: `${config.domainNameProduction}/articles/${id}`,
+        url: `${config.domainName}/articles/${id}`,
       },
     };
   }
@@ -32,7 +32,7 @@ export async function MetadataArticles({ params }, parent) {
       title: articleInfo.title || "Untitled Article",
       description: articleInfo.description || "No description available.",
       images: [articleInfo.postImg || "/logo.png", ...previousImages],
-      url: `${config.domainNameProduction}/articles/${id}`,
+      url: `${config.domainName}/articles/${id}`,
     },
   };
 }
@@ -46,7 +46,7 @@ export const MetadataHome = {
     title: "AceYourScore | Home",
     description: "Learn more about AceYourScore and our mission.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/`,
+    url: `${config.domainName}/`,
   },
 };
 
@@ -57,7 +57,7 @@ export const MetadataAboutUS = {
     title: "AceYourScore | About Us",
     description: "Learn more about AceYourScore and our mission.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/about-us`,
+    url: `${config.domainName}/about-us`,
   },
 };
 
@@ -68,7 +68,7 @@ export const MetadataContactUS = {
     title: "AceYourScore | Contact Us",
     description: "Get in touch with AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/contact-us`,
+    url: `${config.domainName}/contact-us`,
   },
 };
 
@@ -79,7 +79,7 @@ export const MetadataDashboard = {
     title: "AceYourScore | Dashboard",
     description: "Your personal AceYourScore dashboard.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/dashboard`,
+    url: `${config.domainName}/dashboard`,
   },
 };
 export const MetadataToefl = {
@@ -89,7 +89,7 @@ export const MetadataToefl = {
     title: "AceYourScore | TOEFL",
     description: "Achieve your best TOEFL score with AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/toefl`,
+    url: `${config.domainName}/toefl`,
   },
 };
 
@@ -100,7 +100,7 @@ export const MetadataToeic = {
     title: "AceYourScore | TOEIC",
     description: "Prepare effectively for the TOEIC exam with AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/toeic`,
+    url: `${config.domainName}/toeic`,
   },
 };
 
@@ -111,7 +111,7 @@ export const MetadataSat = {
     title: "AceYourScore | SAT",
     description: "Boost your SAT performance with AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/sat`,
+    url: `${config.domainName}/sat`,
   },
 };
 
@@ -122,7 +122,7 @@ export const MetadataIelts = {
     title: "AceYourScore | IELTS",
     description: "Maximize your IELTS score with AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/ielts`,
+    url: `${config.domainName}/ielts`,
   },
 };
 
@@ -133,7 +133,7 @@ export const MetadataOurTeacher = {
     title: "AceYourScore | Our Teachers",
     description: "Meet the expert teachers at AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/our-teachers`,
+    url: `${config.domainName}/our-teachers`,
   },
 };
 
@@ -144,7 +144,7 @@ export const MetadataLearningArabic = {
     title: "AceYourScore | Learn Arabic",
     description: "Start your Arabic learning journey with AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/learn-arabic`,
+    url: `${config.domainName}/learn-arabic`,
   },
 };
 
@@ -155,7 +155,7 @@ export const MetadataTos = {
     title: "AceYourScore | Tearm of Conditions",
     description: "Review the Tearm of Conditions for using AceYourScore.",
     images: ["/logo.png"],
-    url: `${config.domainNameProduction}/tos`,
+    url: `${config.domainName}/tos`,
   },
 };
 

@@ -1,52 +1,22 @@
 import { clerkMiddleware, createRouteMatcher } from "@clerk/nextjs/server";
-import createMiddleware from "next-intl/middleware";
 
-const intlMiddleware = createMiddleware({
-  locales: ["en", "fr"],
-  // defaultLocale: "en",
-});
-
-const isProtectedRoute = createRouteMatcher([
-  "/dashboard(.*)",
-  "/dashboard/settings/profile(.*)",
-  "/en/dashboard(.*)",
-  "/en/dashboard/settings/profile(.*)",
-  "/fr/dashboard(.*)",
-  "/fr/dashboard/settings/profile(.*)",
-  "/en/pay(.*)",
-  "/fr/pay(.*)",
-]);
+const isProtectedRoute = createRouteMatcher(["/dashboard(.*)", "/api(.*)"]);
 
 const isPublicRoute = createRouteMatcher([
   "/",
   "/blog(.*)",
-  "/api(.*)",
-  "/en/api/webhook(.*)",
+  "/api/articles(.*)",
+  // "/api/webhook(.*)",
   "/sign-in(.*)",
   "/sign-up(.*)",
 ]);
 
-const apiRoutes = createRouteMatcher([
-  "/api(.*)",
-  "/api/Articles(.*)",
-  "/en/api/webhook(.*)",
-  "/en/api/payments(.*)"
-]);
-
 export default clerkMiddleware((auth, req) => {
-  if (!isPublicRoute(req) && !apiRoutes(req) && isProtectedRoute(req)) {
-    auth().protect(); // Protect all routes except public routes
+  if (!isPublicRoute(req) && isProtectedRoute(req)) {
+    auth().protect();
   }
-
-  return intlMiddleware(req);
 });
 
 export const config = {
-  matcher: [
-    "/((?!.*\\..*|_next).*)",
-    "/",
-    "/(api|trpc)(.*)",
-    "/(fr|en)/:path*",
-    // "/((?!api|_next/static|_next/image|favicon.ico|images/books|icons|manifest).*)"
-  ],
+  matcher: ["/((?!.*\\..*|_next).*)", "/", "/(api|trpc)(.*)",],
 };

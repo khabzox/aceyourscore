@@ -4,6 +4,7 @@ import Image from "next/image";
 import PropTypes, { func } from "prop-types";
 
 import { CardBtnPrimary } from "./CustmsBtns";
+import { PayBtnExams } from "./payBtnExams";
 
 import { Ubuntu } from "next/font/google";
 
@@ -85,7 +86,7 @@ export function PrimaryCardrtl({
 
 export function QuestionsAnswers({ questions }) {
   return (
-    <section className="py-12 md:py-24">
+    <div className="py-12 md:py-24">
       <div className="container mx-auto px-4 md:px-6 max-w-6xl">
         <h2 className="text-2xl font-bold mb-8 md:text-3xl lg:text-4xl">
           Questions and Answers
@@ -103,7 +104,7 @@ export function QuestionsAnswers({ questions }) {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
 
@@ -116,13 +117,13 @@ QuestionsAnswers.propTypes = {
   ).isRequired,
 };
 
-export function CardRegister({ title, desc, textLink, linkTo }) {
+export function CardRegister({ title, desc, textLink, linkTo, handleExamPurchase, examId }) {
   return (
     <div className="bg-accent text-white py-12 md:py-24">
       <div className="container mx-auto px-4 md:px-6 text-center">
         <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">{title}</h2>
         <p className="mt-4 text-gray-300 md:text-lg">{desc}</p>
-        {CardBtnPrimary({ linkTo, textLink })}
+        {PayBtnExams({ linkTo, textLink, handleExamPurchase, examId })}
       </div>
     </div>
   );

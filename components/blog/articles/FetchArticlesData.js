@@ -1,7 +1,7 @@
 import config from "@/config";
 export const getArticles = async () => {
   try {
-    const res = await fetch(`${config.domainNameProduction}/en/api/articles`, {
+    const res = await fetch(`${config.domainName}/api/articles`, {
       cache: "no-store",
     });
 

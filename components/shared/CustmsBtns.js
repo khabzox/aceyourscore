@@ -59,17 +59,6 @@ export function BtnOfAbout({ linkto, children }) {
   );
 }
 
-// export function CardBtnPrimary({ linkTo, textLink }) {
-//   return (
-//     <Link
-//       href={linkTo}
-//       className="inline-flex mt-6 items-center justify-center rounded-md bg-destructive px-4 py-2 text-sm font-medium text-white transition-colors hover:bg-destructive focus:outline-none focus:ring-2 focus:ri focus:destructive/30"
-//       prefetch={true}
-//     >
-//       {textLink}
-//     </Link>
-//   );
-// }
 
 export function CardBtnPrimary({ linkTo, textLink }) {
 
