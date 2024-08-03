@@ -16,10 +16,10 @@ const ubuntu = Ubuntu({
 export default function WhyAceYourScore() {
   return (
     <div className="my-48">
-      <div className="flex flex-col px-10 3xl:px-0">
-        <div>
+      <div className="flex flex-col">
+        <div className="px-10 3xl:px-0">
           <h1
-            className={`text-4xl sm:text-5xl md:text-7xl font-bold`}
+            className={`text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-bold`}
           >
             Why AceYourScore?
           </h1>

@@ -6,7 +6,7 @@ export function CardsProcess() {
       <div className="w-full 2xl:w-[476px] h-full 2xl:h-[500px] bg-yellow rounded-3xl p-8">
         <Goal size={75} />
         <div className="">
-          <h3 className="text-3xl 2xl:text-4xl font-extrabold py-6">
+          <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-extrabold py-6">
             Comprehensive
             <br />
             Guidance
@@ -22,7 +22,7 @@ export function CardsProcess() {
       <div className="w-full 2xl:w-[476px] h-full 2xl:h-[500px] bg-destructive rounded-3xl p-8">
         <LaptopMinimal size={75} className="text-yellow" />
         <div className="">
-          <h3 className="text-3xl 2xl:text-4xl font-extrabold py-6">
+          <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-extrabold py-6">
             Comprehensive
             <br />
             Guidance
@@ -38,7 +38,7 @@ export function CardsProcess() {
       <div className="w-full 2xl:w-[476px] h-full 2xl:h-[500px] bg-accent rounded-3xl p-8">
         <MessagesSquare size={75} className="text-destructive" />
         <div className="">
-          <h3 className="text-3xl 2xl:text-4xl text-primary font-extrabold py-6">
+          <h3 className="text-2xl sm:text-3xl 2xl:text-4xl text-primary font-extrabold py-6">
             Comprehensive
             <br />
             Guidance

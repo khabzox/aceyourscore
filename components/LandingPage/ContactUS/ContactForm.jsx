@@ -51,11 +51,11 @@ export default function ContactForm() {
      
       <div className="w-1/2">
         <h2>Contact Details:</h2>
-        <div className="pl-2 text-lg font-medium">
-          <h3>Email: contact@aceyourscore.com</h3>
-          <h3>Phone Number: +123-456-7890</h3>
-          <div className="my-6 w-72 border-2 border-accent"></div>
-          <div className="sm:flex sm:items-center sm:justify-between">
+        <div className="pl-2 pt-2 text-lg font-medium">
+          <h3 className=" text-md sm:text-lg">Email:<br className="block md:hidden" />info@aceyourscore.com</h3>
+          <h3 className="w-full">Phone Number:<br className="block md:hidden" />{"+123 456-7890"}</h3>
+          {/* <div className="my-6 max-[15rem]:w-72 sm:w-56 md:w-72 border-2 border-accent"></div> */}
+          <div className="sm:flex sm:items-center sm:justify-between pt-4">
           <ul className="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
             <li>
               <a
