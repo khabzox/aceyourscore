@@ -10,6 +10,7 @@ import Pricing from "@/components/LandingPage/Pricing";
 import OurBlog from "@/components/LandingPage/OurBlog";
 import CTA from "@/components/LandingPage/CTA";
 import Footer from "@/components/LandingPage/Footer";
+import ContactUs from "@/components/LandingPage/ContactUS";
 // import LanguageSwitcher from "@/components/LanguageSwitcher";
 export default function Home() {
   return (
@@ -38,13 +39,18 @@ export default function Home() {
         </section>
 
         <Testimonials />
+
+        <section className="max-w-[95rem] mx-auto">
+          <ContactUs />
+          <CTA />
+        </section>
+        <Footer />
       </main>
       {/* <main>
         <Pricing />
          <OurBlog /> 
-        <CTA />
       </main>
-      <Footer /> */}
+      */}
     </>
   );
 }

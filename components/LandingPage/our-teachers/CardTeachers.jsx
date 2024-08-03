@@ -60,13 +60,13 @@ export default function CardTeachers() {
           src={"/images/home/our-teachers/siham.png"}
           width={438}
           height={501}
-          alt="Our Teacher Sabik ( Profile Image)"
+          alt="Our Teacher Sabik ( Profile Image )"
         />
         <div className="flex flex-col justify-center items-center pt-10">
           <h3
             className={`${ubuntu.className} text-3xl font-semibold uppercase`}
           >
-            siham
+            Assemmar Sihame
           </h3>
           <p className="text-accent-TextHoverDark text-2xl py-4 pb-8">
             +11 years of experience

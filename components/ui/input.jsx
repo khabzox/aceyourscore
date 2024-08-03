@@ -42,5 +42,4 @@ const SearchInput = React.forwardRef(({ className, placeholder, type, icon: Icon
 SearchInput.displayName = "SearchInput";
 
 
-
 export { Input, SearchInput }
