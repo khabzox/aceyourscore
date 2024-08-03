@@ -17,7 +17,7 @@ export default function HowAceYourScoreWorks() {
   return (
     <div className="my-48">
       <div className="flex flex-col">
-        <div>
+        <div className="px-10">
           <h1
             className={`text-4xl sm:text-5xl md:text-7xl font-bold`}
           >

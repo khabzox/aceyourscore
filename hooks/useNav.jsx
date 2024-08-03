@@ -4,8 +4,8 @@ import { useState } from "react";
 
 export function useNav() {
   const [open, setOpen] = useState(false);
-  function boxOpen() {
+  function MenuOpen() {
     setOpen((prev) => !prev);
   }
-  return { open, boxOpen };
+  return [ open, MenuOpen ];
 }

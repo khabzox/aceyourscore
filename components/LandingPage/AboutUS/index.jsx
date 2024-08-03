@@ -19,7 +19,7 @@ const ubuntu = Ubuntu({
 export default function AboutUS() {
   return (
     <div className="bg-yellow w-full">
-      <div className="max-w-[95rem] mx-auto py-32">
+      <div className="max-w-[95rem] mx-auto py-32 px-10 3xl:px-0">
         <div>
           <h1
             className={` text-4xl sm:text-5xl md:text-6xl font-bold`}
@@ -33,7 +33,7 @@ export default function AboutUS() {
               preparation effective and engaging.
             </p>
 
-            <div className="px-20 pb-10">
+            <div className="px-20 pb-10 hidden md:block">
               <Link href={"#"}>
                 <div className="relative">
                   <Image
@@ -52,11 +52,12 @@ export default function AboutUS() {
           </div>
         </div>
         <div>
-          <div className="bg-muted rounded-3xl w-full h-[50rem] flex justify-center items-center">
-            <div className="bg-accent text-primary w-16 h-16 rounded-full flex justify-center items-center">
-              <Play />
-            </div>
-          </div>
+        <div className="bg-muted rounded-3xl w-full h-full flex justify-center items-center">
+  <div className="bg-accent text-primary w-16 h-16 rounded-full flex justify-center items-center">
+    <Play />
+  </div>
+</div>
+
         </div>
       </div>
     </div>

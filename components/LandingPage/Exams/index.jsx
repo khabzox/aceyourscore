@@ -20,7 +20,7 @@ import SlideShowExamsCards from "./SlideShowExamsCards";
 export default function Exams() {
   const t = useTranslations("Exams");
   return (
-    <div className="mt-56 mb-28">
+    <div className="mt-56 mb-28 px-10 3xl:px-0">
       <div className="flex flex-col items-center">
         <div>
           <h1

@@ -13,7 +13,7 @@ import { Facebook, Instagram, Youtube, AtSign } from "lucide-react";
 
 export default function ContactForm() {
   return (
-    <div className="py-10 flex flex-col items-start md:flex-row gap-20">
+    <div className="py-10 flex flex-col-reverse items-start md:flex-row gap-20">
       
         <form action="" className="w-full space-y-3">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">

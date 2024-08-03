@@ -1,4 +1,7 @@
 "use client";
+
+import { useDropMenu } from "@/hooks/useDropMenu";
+
 import { useTranslations } from "next-intl";
 
 import { useNav } from "@/hooks/useNav";
@@ -37,7 +40,8 @@ export default function NavBar() {
   const { userId } = useAuth();
   const t = useTranslations("Navbar");
 
-  const { open, boxOpen } = useNav();
+  const [toggleDropdown, closeDropdown, isOpen] = useDropMenu();
+  const [open, MenuOpen] = useNav();
 
   return (
     <>
@@ -53,19 +57,38 @@ export default function NavBar() {
                 className="hover:opacity-95"
               />
             </Link>
-            <div className="hidden md:block">
+            <div className="hidden min-[1190px]:block">
               <ul className="flex gap-3 font-semibold">
-                <li>
-                  <Link href={"/#prep"} className="flex items-center">
+                <li className="dropdown-container">
+                  <Link
+                    href={"/#prep"}
+                    className="flex relative items-center"
+                    onClick={toggleDropdown}
+                  >
                     {t("link1")}
                     <ChevronDown size={20} />
                   </Link>
+                  {isOpen && (
+                    <div className="dropdown-content w-44 p-5 rounded-lg bg-primary border-2 border-accent absolute z-50">
+                      <ul className="space-y-3">
+                        <li>
+                          <Link href={"/Toefl"}>TOEFL Exam</Link>
+                        </li>
+                        <li>
+                          <Link href={"/Toefl"}>SAT Exam</Link>
+                        </li>
+                        <li>
+                          <Link href={"/Toefl"}>IELTS Exam</Link>
+                        </li>
+                        <li>
+                          <Link href={"/Toefl"}>TOEIC Exam</Link>
+                        </li>
+                      </ul>
+                    </div>
+                  )}
                 </li>
                 <li>
-                  <Link href={"/"} className="flex items-center">
-                    {t("link2")}
-                    <ChevronDown size={20} />
-                  </Link>
+                  <Link href={"/"}>{t("link2")}</Link>
                 </li>
                 <li>
                   <Link href={"/"}>{t("link3")}</Link>
@@ -81,11 +104,14 @@ export default function NavBar() {
           </div>
           <div className="flex items-center gap-4">
             {/* <div className="p-4"> */}
+            <div className="hidden md:block">
+
             <SearchInput
               icon={Search} // Pass the Search icon component
               placeholder="Search..."
               className="max-w-56 rounded-3xl text-accent"
-            />
+              />
+              </div>
             {/* </div> */}
             <DropdownMenu>
               <DropdownMenuTrigger>
@@ -100,7 +126,7 @@ export default function NavBar() {
                 </Link> */}
               </DropdownMenuContent>
             </DropdownMenu>
-            <span className=" hidden sm:block">
+            <span className="hidden sm:block">
               {userId ? (
                 <div className="flex gap-4 items-center border-2 border-accent rounded-full p-[2px]">
                   {/* <Link href='/dashboard'>Dashboard</Link> */}
@@ -116,11 +142,11 @@ export default function NavBar() {
                 </>
               )}
             </span>
-            <div className="block md:hidden" onClick={boxOpen}>
-              <Menu size={32} />
+            <div className="block md:hidden">
+              <Menu size={32} onClick={MenuOpen} className="cursor-pointer" />
             </div>
             {open && (
-              <div className="absolute right-[15px] mt-52 sm:mt-44 w-[50%] bg-primary border-2 border-accent rounded-lg block md:hidden">
+              <div className="absolute right-[25px] mt-56 sm:mt-48 z-30 w-[50%] bg-primary border-2 border-accent rounded-lg block md:hidden">
                 <ul className="flex flex-col justify-center gap-3 font-semibold p-4">
                   <li>
                     <Link href={"/#prep"}>{t("link1")}</Link>

@@ -23,8 +23,8 @@ export default function Hero() {
   return (
     <>
       <section className="py-20">
-        <div className="flex flex-col md:flex-row items-center justify-between relative">
-          <div className=" relative z-10">
+        <div className="flex flex-col xl:flex-row items-center justify-between relative px-10 3xl:px-0">
+          <div className="xl:relative z-10">
             <h1
               className={`${ubuntu.className} text-4xl sm:text-5xl md:text-8xl font-bold mb-6 md:mb-8`}
             >
@@ -39,7 +39,7 @@ export default function Hero() {
             </p>
             <BtnOfHero text={t("GetStartedBtn")} linkto={"/dashboard"} />
           </div>
-          <div className="mt-10 flex justify-center  absolute right-0">
+          <div className="mt-10 flex justify-center xl:absolute right-0">
             <Image
               src="/images/home/hero/hero-img.svg"
               alt="Students"

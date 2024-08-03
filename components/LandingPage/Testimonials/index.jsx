@@ -20,7 +20,7 @@ const ubuntu = Ubuntu({
 export default function Testimonials() {
   return (
     <div className="bg-destructive w-full">
-      <div className="max-w-[95rem] mx-auto py-32">
+      <div className="max-w-[95rem] mx-auto py-32 px-10 3xl:px-0">
         <div>
           <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold`}>
             Hear From Our Success Stories

@@ -16,7 +16,7 @@ const ubuntu = Ubuntu({
 
 export default function CardTeachers() {
   return (
-    <div className="py-28 flex justify-between w-full">
+    <div className="py-28 flex flex-col 2xl:flex-row justify-center items-center 2xl:justify-between w-full space-y-20 2xl:space-y-0">
       <div className="max-w-[438px]">
         <Image
           src={"/images/home/our-teachers/sabik.png"}

@@ -32,7 +32,7 @@ export default function SlideShowExamsCards() {
         className="bg-transparent"
       >
         <CarouselContent>
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem className=" lg:basis-1/2 xl:basis-1/3">
             <Card>
               <CardContent className={"w-[438px] h-[501px]"}>
                 <ExamsCard
@@ -47,7 +47,7 @@ export default function SlideShowExamsCards() {
             </Card>
           </CarouselItem>
 
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem className=" md:basis-1/2 xl:basis-1/3">
             <Card>
               <CardContent className={"w-[438px] h-[501px]"}>
                 <ExamsCard
@@ -62,7 +62,7 @@ export default function SlideShowExamsCards() {
             </Card>
           </CarouselItem>
 
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem className=" md:basis-1/2 xl:basis-1/3">
             <Card>
               <CardContent className={"w-[438px] h-[501px]"}>
                 <ExamsCard
@@ -77,7 +77,7 @@ export default function SlideShowExamsCards() {
             </Card>
           </CarouselItem>
 
-          <CarouselItem className="md:basis-1/2 lg:basis-1/3">
+          <CarouselItem className=" md:basis-1/2 xl:basis-1/3">
             <Card>
               <CardContent className={"w-[438px] h-[501px]"}>
                 <ExamsCard

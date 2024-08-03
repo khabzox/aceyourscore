@@ -15,7 +15,7 @@ const ubuntu = Ubuntu({
 
 export default function ContactUs() {
   return (
-    <div className="my-48">
+    <div className="mt-48 mb-28 px-10 3xl:px-0">
       <div className="flex flex-col">
         <div>
           <h1 className={`text-4xl sm:text-5xl md:text-7xl font-bold`}>
