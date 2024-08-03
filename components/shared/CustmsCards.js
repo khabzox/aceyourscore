@@ -8,6 +8,8 @@ import { PayBtnExams } from "./payBtnExams";
 
 import { Ubuntu } from "next/font/google";
 
+import { ChevronRight } from "lucide-react";
+
 const ubuntu = Ubuntu({
   subsets: [
     "latin",
@@ -117,7 +119,14 @@ QuestionsAnswers.propTypes = {
   ).isRequired,
 };
 
-export function CardRegister({ title, desc, textLink, linkTo, handleExamPurchase, examId }) {
+export function CardRegister({
+  title,
+  desc,
+  textLink,
+  linkTo,
+  handleExamPurchase,
+  examId,
+}) {
   return (
     <div className="bg-accent text-white py-12 md:py-24">
       <div className="container mx-auto px-4 md:px-6 text-center">
@@ -128,3 +137,27 @@ export function CardRegister({ title, desc, textLink, linkTo, handleExamPurchase
     </div>
   );
 }
+
+export function ExamsCard({ linkTo, title, subTitle, desc }) {
+  return (
+    <>
+        <div className="GradientCard p-8 relative">
+          <div>
+            <h1 className="text-white text-5xl font-bold">{title}</h1>
+            <p className="text-white my-4 text-2xl">{subTitle}</p>
+          </div>
+          <hr />
+          <p className="text-white mt-4 text-2xl">{desc}</p>
+      <Link href={linkTo}>
+          <div className="mt-6 p-8 BorderCard flex items-center justify-between absolute left-0 bottom-0 pb-10">
+            <h2 className="text-white font-semibold text-2xl">
+              Start Your Preparation
+            </h2>
+            <ChevronRight className="bg-white/20 rounded-full text-white p-3 w-14 h-14 ml-2" />
+          </div>
+      </Link>
+        </div>
+    </>
+  );
+}
+

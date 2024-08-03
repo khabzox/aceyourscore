@@ -1,14 +1,17 @@
 {
   "Navbar": {
     "link1": "Prepare for the exam",
-    "link2": "Teachers",
+    "link2": "Our Teachers",
     "link3": "Community",
-    "link4": "Blog",
+    "link4": "About",
+    "link5": "Blog",
     "login": "Log in"
   },
   "Hero": {
-    "title": "Empowering students to excel globally.",
-    "description": "Our expert teachers and innovative resources enable you to achieve your dreams. Join us to shape a brighter future!",
+    "titleP1": "Empower Your Exam",
+    "titleP2": "Success with",
+    "titleP3": "AceYourScore",
+    "description": "Prepare for the future with confidence. Our expert teachers and innovative resources are here to guide you towards your best scores. Join us and unlock your potential today.",
     "GetStartedBtn": "Get started"
   },
   "Exams": {

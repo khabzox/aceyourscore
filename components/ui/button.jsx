@@ -19,7 +19,8 @@ const buttonVariants = cva(
         ghost: " text-muted-foreground",
         link: "text-primary underline-offset-4 hover:underline",
         custom: "border border-input bg-accent text-primary hover:bg-accent/5",
-        viewCus: "text-accent text-start hover:text-accent hover:bg-none"
+        viewCus: "text-accent text-start hover:text-accent hover:bg-none",
+        CarsoulBtn: "bg-accent hover:opacity-95 transition duration-300 text-primary"
       },
       size: {
         default: "h-10 px-4 py-2",

@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
 html {
   scroll-behavior: smooth;
 }
-h1, h2 {
+h1,
+h2 {
   margin: 0;
 }
 
@@ -31,14 +31,14 @@ h2 {
   box-sizing: border-box;
 }
 */
- body {
+body {
   overscroll-behavior-y: none;
   /* user-select: none;
   font-size: 16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale; */
-} 
+}
 /*
 .scroll-container {
   position: fixed;
@@ -55,6 +55,24 @@ h2 {
   height: 100vh;
 }
 
+.GradientCard {
+  position: absolute;
+  width: 438px;
+  height: 501px;
+  background: linear-gradient(147.06deg, #487bd5 26.28%, #e85556 121.24%);
+  border-radius: 41px;
+}
+
+.BorderCard {
+  box-sizing: border-box;
+
+  position: absolute;
+  width: 438px;
+  height: 115px;
+
+  border: 1px solid #ffffff;
+  border-radius: 41px;
+}
 
 @layer base {
   :root {
@@ -67,19 +85,19 @@ h2 {
     --popover: 0 0% 100%;
     --popover-foreground: 20 14.3% 4.1%;
 
-    --primary: #F9F5EB;
+    --primary: #f9f5eb;
     --primary-foreground: 60 9.1% 97.8%;
 
-    --secondary: #E4DCCF;
+    --secondary: #e4dccf;
     --secondary-foreground: 24 9.8% 10%;
 
-    --muted: #CBC4BA;
+    --muted: #cbc4ba;
     --muted-foreground: 25 5.3% 44.7%;
 
-    --accent: #002B5B;
+    --accent: #002b5b;
     --accent-foreground: 24 9.8% 10%;
 
-    --destructive: #EA5455;
+    --destructive: #ea5455;
     --destructive-foreground: 60 9.1% 97.8%;
 
     --border: 20 5.9% 90%;
@@ -125,7 +143,7 @@ h2 {
     @apply border-border;
   }
 
-  body { 
+  body {
     @apply bg-background text-foreground;
   }
 }

@@ -1,5 +1,5 @@
 import { Ubuntu } from "next/font/google";
-import { CardsProcess } from "./CardsProcess";
+import { GridCards } from "./GridCards";
 
 const ubuntu = Ubuntu({
   subsets: [
@@ -13,7 +13,7 @@ const ubuntu = Ubuntu({
   weight: ["300", "400", "500", "700"],
 });
 
-export default function HowAceYourScoreWorks() {
+export default function WhyAceYourScore() {
   return (
     <div className="my-48">
       <div className="flex flex-col">
@@ -21,15 +21,15 @@ export default function HowAceYourScoreWorks() {
           <h1
             className={`text-4xl sm:text-5xl md:text-7xl font-bold`}
           >
-            Master Your Exams:<br />Our Proven Success Formula
+            Why AceYourScore?
           </h1>
 
-          <p className="text-sm sm:text-base md:text-2xl text-accent-TextHover font-semibold py-10">
-            Explore Our Seamless Process: Tailored Guidance, Interactive
-            Classes, and Unmatched Support
+          <p className="text-sm sm:text-base md:text-xl text-accent-TextHover font-semibold py-10">
+            Achieve Your Best with Our Expert Support and Personalized
+            Preparation Strategies <br /> Designed to Maximize Your Exam Success
           </p>
         </div>
-        <CardsProcess/>
+        <GridCards />
       </div>
     </div>
   );

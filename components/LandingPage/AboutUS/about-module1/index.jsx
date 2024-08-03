@@ -1,5 +1,5 @@
 import { useTranslations } from "next-intl";
-import SlideShowFeatures from "./SlideShowFeatures";
+import SlideShowFeatures from "../SlideShowFeatures";
 
 import { BtnOfAbout } from "@/components/shared/CustmsBtns";
 
@@ -51,7 +51,7 @@ export default function About() {
           </div>
         </div>
       </div>
-      <div className="max-w-7xl mx-auto px-4 sm:px-16">
+      <div className="max-w-7xl mx-auto">
       <SlideShowFeatures />
       </div>
     </section>

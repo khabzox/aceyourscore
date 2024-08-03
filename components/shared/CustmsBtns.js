@@ -7,7 +7,7 @@ export function BtnOfLogIn({ text, linkto }) {
   return (
     <Link
       href={linkto}
-      className="flex px-4 py-2 border-4 border-accent rounded-lg gap-2 font-semibold hover:bg-accent-Hover hover:transition"
+      className="flex px-4 py-2 border-2 border-accent rounded-lg gap-2 font-semibold hover:bg-accent-Hover hover:transition"
     >
       <LogIn />
       {text}
@@ -69,6 +69,18 @@ export function CardBtnPrimary({ linkTo, textLink }) {
       prefetch={true}
     >
       {textLink}
+    </Link>
+  );
+}
+
+export function CardBtnOurTeachers({ linkTo, children }) {
+
+  return (
+    <Link
+      href={linkTo}
+      className="flex justify-center gap-2 items-center max-w-xs bg-destructive border-4 text-primary font-semibold text-lg py-3 px-8 rounded-lg hover:opacity-90 transition duration-300"
+    >
+      {children} <ArrowRight />
     </Link>
   );
 }

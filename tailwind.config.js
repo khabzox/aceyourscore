@@ -32,22 +32,26 @@ module.exports = {
           foreground: "var(--secondary-foreground)"
         },
         yellow: {
-          400: '#FBBF24', // Custom light yellow
-          500: '#F59E0B', // Custom medium yellow
-          600: '#D97706', // Custom dark yellow
+          DEFAULT: "rgb(255, 170, 72)"
         },
         destructive: {
           DEFAULT: "var(--destructive)",
           foreground: "hsl(var(--destructive-foreground))",
+          Card: "rgb(232, 85, 86)"
         },
         muted: {
           DEFAULT: "var(--muted)",
+          Hover: "#D9D9D9",
           foreground: "hsl(var(--muted-foreground))",
         },
         accent: {
           DEFAULT: "var(--accent)",
           foreground: "hsl(var(--accent-foreground))",
           Hover: "#e2ded4",
+          TextHover: "rgb(30, 62, 118)",
+          TextHoverDark: "rgba(255, 255, 255, 0.74)",
+          Card: "rgb(72, 123, 212)",
+          CardHover: "rgba(22, 70, 154, 0.38)"
         },
         popover: {
           DEFAULT: "hsl(var(--popover))",
@@ -90,6 +94,7 @@ module.exports = {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         spotlight: "spotlight 2s ease .75s 1 forwards",
+        "spin-slow": "spin 20s linear infinite",
       },
     },
   },
