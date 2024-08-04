@@ -9,8 +9,9 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@clerk/elements": "^0.12.1",
     "@clerk/localizations": "^2.4.5",
-    "@clerk/nextjs": "^5.1.6",
+    "@clerk/nextjs": "^5.2.12",
     "@edgestore/react": "^0.1.6",
     "@edgestore/server": "^0.1.6",
     "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",

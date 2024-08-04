@@ -57,7 +57,7 @@ export default function NavBar() {
                 className="hover:opacity-95"
               />
             </Link>
-            <div className="hidden min-[1190px]:block">
+            <div className="hidden xl:block">
               <ul className="flex gap-3 font-semibold">
                 <li className="dropdown-container">
                   <Link
