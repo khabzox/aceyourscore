@@ -6,21 +6,9 @@ import PropTypes, { func } from "prop-types";
 import { CardBtnPrimary } from "./CustmsBtns";
 import { PayBtnExams } from "./payBtnExams";
 
-import { Ubuntu } from "next/font/google";
-
 import { ChevronRight } from "lucide-react";
 
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
+import { ubuntu } from "@/libs/font";
 
 export function PrimaryCardltr({ title, desc, imgSrc, imgAlt }) {
   return (
@@ -141,23 +129,22 @@ export function CardRegister({
 export function ExamsCard({ linkTo, title, subTitle, desc }) {
   return (
     <>
-        <div className="GradientCard p-8 relative">
-          <div>
-            <h1 className="text-white text-5xl font-bold">{title}</h1>
-            <p className="text-white my-4 text-2xl">{subTitle}</p>
-          </div>
-          <hr />
-          <p className="text-white mt-4 text-2xl">{desc}</p>
-      <Link href={linkTo}>
+      <div className="GradientCard p-8 relative">
+        <div>
+          <h1 className="text-white text-3xl md:text-5xl font-bold">{title}</h1>
+          <p className="text-white my-4 text-xl md:text-2xl">{subTitle}</p>
+        </div>
+        <hr />
+        <p className="text-white mt-4 text-xl md:text-2xl">{desc}</p>
+        <Link href={linkTo}>
           <div className="mt-6 p-8 BorderCard flex items-center justify-between absolute left-0 bottom-0 pb-10">
-            <h2 className="text-white font-semibold text-2xl">
+            <h2 className="text-white font-semibold text-xl md:text-2xl">
               Start Your Preparation
             </h2>
-            <ChevronRight className="bg-white/20 rounded-full text-white p-3 w-14 h-14 ml-2" />
+            <ChevronRight className="bg-white/20 rounded-full text-white p-3 w-14 h-14 ml-2 hidden md:block" />
           </div>
-      </Link>
-        </div>
+        </Link>
+      </div>
     </>
   );
 }
-

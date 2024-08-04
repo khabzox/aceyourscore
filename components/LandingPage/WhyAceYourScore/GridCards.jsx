@@ -1,15 +1,4 @@
-import { Ubuntu } from "next/font/google";
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
+import { ubuntu } from "@/libs/font";
 
 import Image from "next/image";
 
@@ -19,7 +8,9 @@ export function GridCards() {
       <div>
         <div className="grid grid-cols-6 grid-rows-4 lg:grid-rows-2 gap-5 2xl:gap-x-20 px-2 sm:px-10 3xl:px-0">
           <div className="col-start-1 col-end-7 row-start-1 lg:col-start-1 lg:col-end-4 2xl:col-start-1 lg:row-start-1 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-accent-CardHover">
-            <h3 className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}>
+            <h3
+              className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
+            >
               Tailored Preparation
             </h3>
             <p className="pt-5 text-xl text-accent-TextHover font-medium">
@@ -28,7 +19,9 @@ export function GridCards() {
             </p>
           </div>
           <div className="col-start-1 col-end-7 row-start-2 lg:col-start-4 lg:col-end-7 2xl:col-start-3 2xl:col-end-5 lg:row-start-1 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-yellow">
-            <h3 className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}>
+            <h3
+              className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
+            >
               Proven Success
             </h3>
             <p className="pt-5 text-xl text-accent-TextHover font-medium">
@@ -48,7 +41,9 @@ export function GridCards() {
             </p>
           </div>
           <div className="col-start-1 col-end-7 row-start-4 lg:col-start-4 lg:col-end-7 2xl:col-start-3 2xl:col-end-7 lg:row-start-2 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-muted-Hover">
-            <h3 className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}>
+            <h3
+              className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
+            >
               Comprehensive Resources
             </h3>
             <p className="pt-5 text-xl text-accent-TextHover font-medium">
@@ -66,7 +61,7 @@ export function GridCards() {
             />
           </div>
         </div>
-      </div>  
+      </div>
       <div className="grid grid-cols-6 grid-rows-1 mt-5 lg:space-x-5 px-2 sm:px-10 3xl:px-0">
         <div className="col-start-1 hidden lg:block">
           <Image
@@ -78,7 +73,9 @@ export function GridCards() {
           />
         </div>
         <div className="col-start-1 col-end-7 lg:col-start-2 lg:col-end-7 2xl:col-end-4 rounded-3xl p-5 min-h-[220px] 2xl:h-full bg-destructive">
-          <h3 className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}>
+          <h3
+            className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
+          >
             Comprehensive Resources
           </h3>
           <p className="pt-5 text-xl text-accent-TextHover font-medium">

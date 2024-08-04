@@ -3,20 +3,7 @@ import SlideShowFeatures from "../SlideShowFeatures";
 
 import { BtnOfAbout } from "@/components/shared/CustmsBtns";
 
-import { Ubuntu } from "next/font/google";
-
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
-
+import { ubuntu } from "@/libs/font";
 
 export default function About() {
   const t = useTranslations("About");
@@ -52,7 +39,7 @@ export default function About() {
         </div>
       </div>
       <div className="max-w-7xl mx-auto">
-      <SlideShowFeatures />
+        <SlideShowFeatures />
       </div>
     </section>
   );

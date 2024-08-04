@@ -32,16 +32,14 @@ export default function SlideShowExamsCards() {
         className="bg-transparent"
       >
         <CarouselContent>
-          <CarouselItem className=" lg:basis-1/2 xl:basis-1/3">
+          <CarouselItem className="">
             <Card>
-              <CardContent className={"w-[438px] h-[501px]"}>
+              <CardContent className="w-[389px] md:w-[470px] h-[501px]">
                 <ExamsCard
-                  linkTo={"#"}
-                  title={"TOEFL"}
-                  subTitle={"Test Your English Language Proficiency"}
-                  desc={
-                    "Boost your English skills with interactive practice tests and expert guidance. Perfect for university admissions and more."
-                  }
+                  linkTo="#"
+                  title="TOEFL"
+                  subTitle="Test Your English Language Proficiency"
+                  desc="Boost your English skills with interactive practice tests and expert guidance. Perfect for university admissions and more."
                 />
               </CardContent>
             </Card>
@@ -49,7 +47,7 @@ export default function SlideShowExamsCards() {
 
           <CarouselItem className=" md:basis-1/2 xl:basis-1/3">
             <Card>
-              <CardContent className={"w-[438px] h-[501px]"}>
+              <CardContent className={"w-[389px] md:w-[470px] h-[501px]"}>
                 <ExamsCard
                   linkTo={"#"}
                   title={"SAT"}
@@ -64,7 +62,7 @@ export default function SlideShowExamsCards() {
 
           <CarouselItem className=" md:basis-1/2 xl:basis-1/3">
             <Card>
-              <CardContent className={"w-[438px] h-[501px]"}>
+              <CardContent className={"w-[389px] md:w-[470px] h-[501px]"}>
                 <ExamsCard
                   linkTo={"#"}
                   title={"IELTS"}
@@ -79,7 +77,7 @@ export default function SlideShowExamsCards() {
 
           <CarouselItem className=" md:basis-1/2 xl:basis-1/3">
             <Card>
-              <CardContent className={"w-[438px] h-[501px]"}>
+              <CardContent className={"w-[389px] md:w-[470px] h-[501px]"}>
                 <ExamsCard
                   linkTo={"#"}
                   title={"TOEIC"}
@@ -94,8 +92,16 @@ export default function SlideShowExamsCards() {
         </CarouselContent>
 
         <div className="flex justify-end p-12 gap-2">
-          <CarouselPrevious size={35} variant='CarsoulBtn' className="bg-accent h-16 w-16 " />
-          <CarouselNext size={35} variant='CarsoulBtn' className="bg-accent h-16 w-16" />
+          <CarouselPrevious
+            size={35}
+            variant="CarsoulBtn"
+            className="bg-accent h-14 w-14 md:h-16 md:w-16"
+          />
+          <CarouselNext
+            size={35}
+            variant="CarsoulBtn"
+            className="bg-accent h-14 w-14 md:h-16 md:w-16"
+          />
         </div>
       </Carousel>
     </>

@@ -3,27 +3,14 @@ import { Sparkles, Play, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Ubuntu } from "next/font/google";
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
+import { ubuntu } from "@/libs/font";
 
 export default function AboutUS() {
   return (
     <div className="bg-yellow w-full">
       <div className="max-w-[95rem] mx-auto py-32 px-10 3xl:px-0">
         <div>
-          <h1
-            className={` text-4xl sm:text-5xl md:text-6xl font-bold`}
-          >
+          <h1 className={` text-4xl sm:text-5xl md:text-6xl font-bold`}>
             Get to Know Us: Our Mission and Vision
           </h1>
           <div className="flex">
@@ -52,12 +39,11 @@ export default function AboutUS() {
           </div>
         </div>
         <div>
-        <div className="bg-muted rounded-3xl w-full h-full flex justify-center items-center">
-  <div className="bg-accent text-primary w-16 h-16 rounded-full flex justify-center items-center">
-    <Play />
-  </div>
-</div>
-
+          <div className="bg-muted rounded-3xl w-full h-full flex justify-center items-center">
+            <div className="bg-accent text-primary w-16 h-16 rounded-full flex justify-center items-center">
+              <Play />
+            </div>
+          </div>
         </div>
       </div>
     </div>

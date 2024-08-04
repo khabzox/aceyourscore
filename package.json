@@ -33,6 +33,7 @@
     "clsx": "^2.1.1",
     "crypto": "^1.0.1",
     "embla-carousel-react": "^8.1.6",
+    "firebase": "^10.12.5",
     "framer-motion": "^11.2.12",
     "lucide-react": "^0.395.0",
     "mini-svg-data-uri": "^1.4.4",

@@ -1,18 +1,6 @@
 import { useTranslations } from "next-intl";
 
-import { Ubuntu } from "next/font/google";
-
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
+import { ubuntu } from "@/libs/font";
 
 import Image from "next/image";
 
@@ -29,8 +17,10 @@ export default function Hero() {
             >
               {t("title")}
             </h1>
-            <p className="text-sm sm:text-base md:text-lg font-semibold mb-8">{t("description")}</p>
-            <BtnOfHero text={t("GetStartedBtn")} linkto={"/blog/articles"}/>
+            <p className="text-sm sm:text-base md:text-lg font-semibold mb-8">
+              {t("description")}
+            </p>
+            <BtnOfHero text={t("GetStartedBtn")} linkto={"/blog/articles"} />
           </div>
           <div className="md:w-1/2 mt-10 md:mt-0 flex justify-center md:justify-end">
             <Image

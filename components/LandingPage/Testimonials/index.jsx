@@ -3,20 +3,8 @@ import { Sparkles, Play, ArrowUpRight } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 
-import { Ubuntu } from "next/font/google";
 import TestimonialsCards from "./TestimonialscCards";
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
-
+import { ubuntu } from "@/libs/font";
 export default function Testimonials() {
   return (
     <div className="bg-destructive w-full">

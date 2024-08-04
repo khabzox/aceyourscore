@@ -1,16 +1,4 @@
-import { Ubuntu } from "next/font/google";
 import CardTeachers from "./CardTeachers";
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
 
 export default function OurTeachers() {
   return (

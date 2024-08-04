@@ -56,9 +56,9 @@ body {
 }
 
 .GradientCard {
-  position: absolute;
-  width: 438px;
-  height: 501px;
+  /* position: absolute; */
+  max-width: 438px;
+  min-height: 501px;
   background: linear-gradient(147.06deg, #487bd5 26.28%, #e85556 121.24%);
   border-radius: 41px;
 }

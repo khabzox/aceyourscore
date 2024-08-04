@@ -2,19 +2,7 @@
 
 import { useTranslations } from "next-intl";
 
-import { Ubuntu } from "next/font/google";
-
-const ubuntu = Ubuntu({
-  subsets: [
-    "latin",
-    "cyrillic",
-    "cyrillic-ext",
-    "greek",
-    "greek-ext",
-    "latin-ext",
-  ],
-  weight: ["300", "400", "500", "700"],
-});
+import { ubuntu } from "@/libs/font";
 
 export default function HowAceYourScoreWorks() {
   const t = useTranslations("HowAceYourScoreWorks");

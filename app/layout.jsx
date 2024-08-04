@@ -12,8 +12,9 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { frFR, enUS } from "@clerk/localizations";
 
 const poppins = Poppins({
-  subsets: ["latin", "latin-ext"],
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
+  style: ["normal"],
+  subsets: ["latin"]
 });
 
 export const metadata = {
