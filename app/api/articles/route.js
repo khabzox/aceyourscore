@@ -1,26 +1,63 @@
-import Article from "@/models/article";
+import { db, storage } from "@/config/firebase";
+import {
+  getDocs,
+  collection,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
 import { NextResponse } from "next/server";
 
-export async function GET() {
+const articlesCollectionRef = collection(db, "articles");
+
+export async function GET(req) {
   try {
-    const articles = await Article.find();
+    const querySnapshot = await getDocs(articlesCollectionRef);
+    const articles = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
+
     return NextResponse.json({ articles }, { status: 200 });
-  } catch (err) {
-    console.log(err);
-    return NextResponse.json({ message: "Error", err }, { status: 500 });
+  } catch (error) {
+    console.error("Error fetching articles:", error);
+    return NextResponse.json(
+      { message: "Failed to fetch articles", error },
+      { status: 500 }
+    );
   }
 }
 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const articleData = body.formData;
+    const timestamp = new Date().toISOString();
 
-    await Article.create(articleData);
+    const articleData = {
+      title: body.title,
+      articleImg: body.articleImg,
+      authorProfileImg: body.authorProfileImg,
+      authorFullName: body.authorFullName,
+      articleDescription: body.articleDescription,
+      articleContent: body.articleContent,
+      createdAt: timestamp,
+      updatedAt: timestamp,
+    };
 
-    return NextResponse.json({ message: "Article Created" }, { status: 201 });
+    // Add document to Firestore
+    const newArticleRef = await addDoc(articlesCollectionRef, articleData);
+
+    return NextResponse.json(
+      { message: "Article Created", id: newArticleRef.id },
+      { status: 201 }
+    );
   } catch (err) {
-    console.log(err);
-    return NextResponse.json({ message: "Error", err }, { status: 500 });
+    console.error("Error:", err);
+    return NextResponse.json(
+      { message: "Error", error: err.message || "Internal Server Error" },
+      { status: 500 }
+    );
   }
 }

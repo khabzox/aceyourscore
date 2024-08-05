@@ -1,6 +1,5 @@
 import { auth } from "@clerk/nextjs/server";
 import { redirect } from "next/navigation";
-import { EdgeStoreProvider } from "@/libs/edgestore";
 import Header from "@/app/admin/_components/Layouts/Header";
 import Sidebar from "@/app/admin/_components/Layouts/Sidebar";
 
@@ -23,7 +22,7 @@ export default function layout({ children }) {
         <div className="flex flex-col flex-1">
           <Header />
           <div className="contentOfdashboard">
-            <EdgeStoreProvider>{children}</EdgeStoreProvider>
+            {children}
           </div>
         </div>
       </div>

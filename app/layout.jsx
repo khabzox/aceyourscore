@@ -53,11 +53,11 @@ export default async function RootLayout({ children }) {
             `,
             }}
           />
-        </head>
-        <body className={`${poppins.className} text-accent bg-primary`}>
           {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
             <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
           ) : null}
+        </head>
+        <body className={`${poppins.className} text-accent bg-primary`}>
           <NextIntlClientProvider messages={messages}>
             {children}
           </NextIntlClientProvider>

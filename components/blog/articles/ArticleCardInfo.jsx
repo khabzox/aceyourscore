@@ -40,7 +40,7 @@ export default async function ArticleCardInfo({ article }) {
     <div className="border-2 border-accent rounded-2xl max-w-sm relative">
       <div className="relative h-56 rounded-2xl overflow-hidden bg-accent">
         <Image
-          src={article.postImg}
+          src={article.articleImg}
           layout="fill"
           objectFit="cover"
           alt="Post Image"
@@ -50,7 +50,7 @@ export default async function ArticleCardInfo({ article }) {
         <div className="absolute bottom-4 left-4 flex items-center gap-3">
           <div className=" rounded-full mb-1 flex items-center justify-center">
             <Image
-              src={article.avatarImg}
+              src={article.authorProfileImg}
               alt="Avatar Img"
               width={48}
               height={48}
@@ -58,7 +58,7 @@ export default async function ArticleCardInfo({ article }) {
             />
           </div>
           <div className="text-white">
-            <p className="font-bold text-lg">{article.avatarName}</p>
+            <p className="font-bold text-lg">{article.authorFullName}</p>
             <p className="text-sm">{createdDateTime}</p>
           </div>
         </div>
@@ -68,26 +68,26 @@ export default async function ArticleCardInfo({ article }) {
         <h2 className={`${ubuntu.className} font-bold text-xl`}>
           {article.title}
         </h2>
-        <p className="mt-2 mb-6">{article.description}</p>
+        <p className="mt-2 mb-6">{article.articleDescription}</p>
 
         <div className="flex items-end justify-between">
           <div>
             <BtnOfBlog
               text={"Learn More"}
-              linkto={`/blog/articles/${article._id}`}
+              linkto={`/blog/articles/${article.id}`}
             />
           </div>
           <div className="flex justify-end">
             {admin ? (
               <div className="flex justify-end m-2">
-                <EditBlock id={article._id} />
+                <EditBlock id={article.id} />
               </div>
             ) : (
               <div className="pb-6"></div>
             )}
             {admin ? (
               <div className="flex justify-end m-2">
-                <DeleteBlock id={article._id} />
+                <DeleteBlock id={article.id} />
               </div>
             ) : (
               <div className="pb-6"></div>

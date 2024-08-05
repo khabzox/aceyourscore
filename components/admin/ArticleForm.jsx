@@ -1,132 +1,148 @@
 "use client";
-
-import { useState } from "react";
-import { useRouter } from "next/navigation";
-import { useUser } from "@clerk/nextjs";
-
-import { useEdgeStore } from "@/libs/edgestore";
-
-import RichTextEditor from "./RichTextEditor";
-
-import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
 import { Textarea } from "@/components/ui/textarea";
 
+import { useState, useEffect } from "react";
+import { useRouter } from "next/navigation";
+
+import { useUser } from "@clerk/nextjs";
+
+import { ref, uploadBytesResumable } from "firebase/storage";
+import { storage } from "@/config/firebase";
+
 import { Loader } from "lucide-react";
 
-export default function ArticleForm({ article }) {
-  const EDITMODE = article._id === "new" ? false : true;
+import RichTextEditor from "./RichTextEditor";
+import Tiptap from "./Tiptap";
+
+export default function ArticleForm({ article, articleId }) {
+  const EDITMODE = article.id === "new" ? false : true;
   const { user } = useUser();
   const router = useRouter();
-  const { edgestore } = useEdgeStore();
+  console.log("d", EDITMODE);
 
-  const [loading, setLoading] = useState(false); // costum loading btn
-  const [progressViwerDisplyoFIMG, setProgressViwerDisplyoFIMG] = useState(0); // follow upload img
-  const [alrtFileUploadIMG, setAlrtFileUploadIMG] = useState(); // set alrt when img is uploaded
-  const [isSubmitDisabled, setIsSubmitDisabled] = useState(!EDITMODE); // make btn disable after click on it to send data
+  const [loading, setLoading] = useState(false);
+  const [alertImgIsUploaded, setAlertImgIsUploaded] = useState("");
+  const [progressViewerOfImg, setProgressViewerOfImg] = useState(0);
+  const [isSubmitDisabled, setIsSubmitDisabled] = useState(EDITMODE);
   const [formData, setFormData] = useState({
     title: "",
-    postImg: "",
-    avatarImg: "",
-    avatarName: "",
-    description: "",
-    postBody: "",
+    articleImg: "",
+    authorProfileImg: "",
+    authorFullName: "",
+    articleDescription: "",
+    articleContent: "",
     ...(EDITMODE && {
       title: article.title,
-      postImg: article.postImg,
-      avatarImg: article.avatarImg,
-      avatarName: article.avatarName,
-      description: article.description,
-      postBody: article.postBody,
+      articleImg: article.articleImg,
+      articleDescription: article.articleDescription,
+      articleContent: article.articleContent,
     }),
-  }); // data structure of all inputs
+  });
 
-  // upload img to edgestore
-  const FileUploadPostImg = async (e) => {
-    const file = e.target.files?.[0];
-    // check if file is here to send it
-    if (file) {
-      try {
-        const res = await edgestore.publicFiles.upload({
-          file,
-          onProgressChange: (progress) => {
-            // that for Follow progress of uploading img and post it on frontend
-            setProgressViwerDisplyoFIMG(progress);
-            if (progress === 100) {
-              // after img uploaded show message of success
-              setAlrtFileUploadIMG(
-                <h1 className="text-green-800">Upload Img Success</h1>
-              );
-            }
-          },
-        });
+  useEffect(() => {
+    setIsSubmitDisabled(
+      EDITMODE &&
+        !(
+          formData.title &&
+          formData.articleDescription &&
+          formData.articleContent
+        )
+    );
+  }, [formData, EDITMODE]);
 
-        // set img on his input
-        const FileUrlPostImg = res.url;
-        setFormData((prev) => ({
-          ...prev,
-          postImg: FileUrlPostImg,
-        }));
-        // check if img is uploaded to enable btn of send data
-        setIsSubmitDisabled(false);
-      } catch (error) {
-        console.error("Failed to upload file:", error);
-      }
+  async function uploadPostImg(file) {
+    const storageRef = ref(storage, `blog/${file.name}`);
+    try {
+      const uploadTask = uploadBytesResumable(storageRef, file);
+
+      setLoading(true);
+
+      uploadTask.on(
+        "state_changed",
+        (snapshot) => {
+          const progress =
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+          setProgressViewerOfImg(progress);
+        },
+        (error) => {
+          console.error(error);
+          setAlertImgIsUploaded("Error uploading file!");
+        },
+        () => {
+          setAlertImgIsUploaded("File uploaded successfully!");
+          setProgressViewerOfImg(100);
+
+          const uploadedPostImg = `https://firebasestorage.googleapis.com/v0/b/aceyourscore-819b2.appspot.com/o/blog%2F${encodeURIComponent(
+            file.name
+          )}?alt=media`;
+
+          setFormData((prev) => ({
+            ...prev,
+            articleImg: uploadedPostImg,
+          }));
+
+          setLoading(false);
+        }
+      );
+    } catch (err) {
+      console.error(err);
     }
-  };
+  }
 
-  // get and set all data for every input
-  const handleChange = (e) => {
-    const { name, value } = e.target;
+  function handleChange(e) {
+    const { name, value, files } = e.target;
+    if (files && files[0]) {
+      uploadPostImg(files[0]);
+    }
     setFormData((prev) => ({
       ...prev,
-      avatarImg: user ? user.imageUrl : null,
-      avatarName: user ? user.fullName : null,
+      authorProfileImg: user ? user.imageUrl : null,
+      authorFullName: user ? user.fullName : null,
       [name]: value,
     }));
-  };
+  }
 
   // save changes of text editor
   const handleBodyChange = (value) => {
     setFormData((prev) => ({
       ...prev,
-      postBody: value,
+      articleContent: value,
     }));
   };
 
-  // submit data: if EDITMODE => PUT && if new one => POST
-  const handleSubmit = async (e) => {
+  console.log("Data", formData);
+  console.log(article);
+  async function handleSubmit(e) {
     e.preventDefault();
-
-    // disable btn && set loading btn
-    setLoading(true);
     setIsSubmitDisabled(true);
 
     const method = EDITMODE ? "PUT" : "POST";
-    const url = EDITMODE ? `/api/articles/${article._id}` : "/api/articles";
+    const url = EDITMODE ? `/api/articles/${articleId}` : "/api/articles";
 
-    // send data
-    const res = await fetch(url, {
-      method,
-      body: JSON.stringify({ formData }),
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    try {
+      const res = await fetch(url, {
+        method: method,
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
 
-    // after send data, the btn will be enable (to send data agin)
-    setLoading(false);
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status`);
+      }
 
-    if (!res.ok) {
-      setIsSubmitDisabled(false);
-      throw new Error("Failed to save article.");
+      // Handle response as needed
+      router.refresh();
+      router.push("/admin/articles");
+    } catch (error) {
+      console.error("Fetch error:", error);
+      // Handle error state or retry logic
     }
-
-    // redirect user
-    router.refresh();
-    router.push("/admin/articles");
-  };
+  }
 
   return (
     <section>
@@ -141,38 +157,39 @@ export default function ArticleForm({ article }) {
             id="title"
             name="title"
             type="text"
-            onChange={handleChange}
-            required={true}
-            value={formData.title}
             className="text-slate-900 bg-slate-500"
+            onChange={handleChange}
+            value={formData.title}
+            required
           />
           <label>Post Image: </label>
           <Input
             id="postImg"
             name="postImg"
             type="file"
-            required={!EDITMODE}
-            className="text-slate-900 pb-4 bg-slate-500"
-            onChange={FileUploadPostImg}
             accept="image/*"
+            className="text-slate-900 pb-4 bg-slate-500"
+            onChange={handleChange}
+            required={!EDITMODE}
           />
-          {progressViwerDisplyoFIMG > 0 && (
-            <Progress value={progressViwerDisplyoFIMG} />
+          {progressViewerOfImg > 0 && <Progress value={progressViewerOfImg} />}
+          {alertImgIsUploaded && (
+            <p className="text-green-700">{alertImgIsUploaded}</p>
           )}
-          {alrtFileUploadIMG}
           <label>Description: </label>
           <Textarea
-            id="description"
-            name="description"
-            onChange={handleChange}
-            required={true}
-            value={formData.description}
+            id="articleDescription"
+            name="articleDescription"
+            required
             className="text-slate-900 bg-slate-500"
-            rows="5"
+            onChange={handleChange}
+            value={formData.articleDescription}
+            rows="2"
           />
           <label>Article: </label>
+          {/* <Tiptap /> */}
           <RichTextEditor
-            value={formData.postBody}
+            value={formData.articleContent}
             onChange={handleBodyChange}
           />
           <Button
@@ -180,7 +197,13 @@ export default function ArticleForm({ article }) {
             className="text-white bg-accent"
             disabled={loading || isSubmitDisabled}
           >
-            {loading ? <Loader className="animate-spin" /> : EDITMODE ? "Update your Article" : "Create Your Article"}
+            {loading ? (
+              <Loader className="animate-spin" />
+            ) : EDITMODE ? (
+              "Update your Article"
+            ) : (
+              "Create Your Article"
+            )}
           </Button>
         </form>
       </div>

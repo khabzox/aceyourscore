@@ -4,8 +4,8 @@ import { useRouter } from "next/navigation";
 import config from "@/config";
 export default function DeleteBlog({ id }) {
   const router = useRouter();
-  async function deleteTicket() {
-    const res = await fetch(`${config.domainName}/en/api/articles/${id}`, {
+  async function deleteArticle() {
+    const res = await fetch(`${config.domainName}/api/articles/${id}`, {
       method: "DELETE",
     });
     if (res.ok) {
@@ -17,7 +17,7 @@ export default function DeleteBlog({ id }) {
       <div>
         <CircleX
           className="text-red-400 hover:cursor-pointer hover:text-red-200"
-          onClick={deleteTicket}
+          onClick={deleteArticle}
         />
       </div>
     </>

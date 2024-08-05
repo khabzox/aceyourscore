@@ -3,13 +3,13 @@ import config from "@/config";
 async function getArticleById(id) {
   try {
     const res = await fetch(
-      `${config.domainName}/en/api/articles/${id}`,
+      `${config.domainName}/api/articles/${id}`,
       {
         cache: "no-store",
       }
     );
     if (!res.ok) {
-      throw new Error("Failed to get ticket.");
+      throw new Error("Failed to get article.");
     }
     return res.json();
   } catch (error) {
@@ -18,7 +18,8 @@ async function getArticleById(id) {
 }
 
 export default async function ArticlePage({ params }) {
-  const EDITMODE = params.id === "new" ? false : true;
+  const EDITMODE = params.id == "new" ? false : true;
+const articleId = params.id
   let updateArticleData = {};
 
   if (EDITMODE) {
@@ -27,9 +28,9 @@ export default async function ArticlePage({ params }) {
     // console.log(updateArticleData);
   } else {
     updateArticleData = {
-      _id: "new",
+      id: "new",
     };
   }
   console.log(EDITMODE, updateArticleData);
-  return <ArticleForm article={updateArticleData} />;
+  return <ArticleForm article={updateArticleData} articleId={articleId} />;
 }

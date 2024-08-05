@@ -1,48 +1,92 @@
-import Article from "@/models/article";
+import { db, storage } from "@/config/firebase";
+import {
+  getDocs,
+  getDoc,
+  collection,
+  addDoc,
+  deleteDoc,
+  updateDoc,
+  doc,
+} from "firebase/firestore";
+import { ref, uploadBytes } from "firebase/storage";
 import { NextResponse } from "next/server";
+import { articlesCollectionRef } from "@/config/firebase";
 
 export async function GET(request, { params }) {
-  const { id } = params;
-  const foundArticle = await Article.findOne({ _id: id });
+  try {
+    const { id } = params;
 
-  if (!foundArticle) {
-    return NextResponse.json("Error Article Not Found", { status: 404 });
+    // Fetch document from Firestore
+    const articleDocRef = doc(db, "articles", id);
+    const articleSnapshot = await getDoc(articleDocRef);
+
+    // Check if document exists
+    if (!articleSnapshot.exists()) {
+      return NextResponse.json(
+        { message: "Error: Article Not Found" },
+        { status: 404 }
+      );
+    }
+
+    // Document found, return the document data
+    const foundArticle = articleSnapshot.data();
+
+    return NextResponse.json({ foundArticle }, { status: 200 });
+  } catch (error) {
+    console.error(error);
+    return NextResponse.json({ message: "Error", error }, { status: 500 });
   }
-
-  return NextResponse.json({ foundArticle }, { status: 200 });
 }
 
 export async function PUT(req, { params }) {
   try {
     const { id } = params;
     const body = await req.json();
-    const articleData = body.formData;
+    const timestamp = new Date().toISOString();
 
-    const updateArticleData = await Article.findByIdAndUpdate(id, articleData);
+    const articleRef = doc(db, "articles", id);
 
-    if (!updateArticleData) {
-      return NextResponse.json("Error Article Not Found", { status: 404 });
-    }
+    const updateArticleData = {
+      title: body.title,
+      articleImg: body.articleImg,
+      authorProfileImg: body.authorProfileImg,
+      authorFullName: body.authorFullName,
+      articleDescription: body.articleDescription,
+      articleContent: body.articleContent,
+      updatedAt: timestamp,
+    };
 
-    return NextResponse.json({ message: "Article updated" }, { status: 200 });
+    await updateDoc(articleRef, updateArticleData);
+
+    return NextResponse.json(
+      { message: "Article updated", id },
+      { status: 200 }
+    );
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ message: "Error", error }, { status: 500 });
+    console.error("Error updating article:", error);
+    return NextResponse.json(
+      { message: "Failed to update article", error },
+      { status: 500 }
+    );
   }
 }
 
 export async function DELETE(req, { params }) {
+  const { id } = params;
+
   try {
-    const { id } = params;
-    const articleDelete = await Article.findByIdAndDelete(id);
+    const articleRef = doc(db, "articles", id);
+    await deleteDoc(articleRef);
 
-    if (!articleDelete) {
-      return NextResponse.json("Error Article Not Found", { status: 404 });
-    }
-
-    return NextResponse.json({ message: "Article Deleted" }, { status: 200 });
+    return NextResponse.json(
+      { message: "Article deleted", id },
+      { status: 200 }
+    );
   } catch (error) {
-    console.log(error);
-    return NextResponse.json({ message: "Error", error }, { status: 500 });
+    console.error("Error deleting article:", error);
+    return NextResponse.json(
+      { message: "Failed to delete article", error },
+      { status: 500 }
+    );
   }
 }

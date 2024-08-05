@@ -45,10 +45,10 @@ export default async function ArticlePage({ params }) {
               </h1>
               <div className="flex items-center space-x-4">
                 <Avatar>
-                  <AvatarImage src={post.avatarImg} alt="Author avatar" />
+                  <AvatarImage src={post.authorProfileImg} alt="Author avatar" />
                 </Avatar>
                 <div>
-                  <p className="text-sm font-medium">{post.avatarName}</p>
+                  <p className="text-sm font-medium">{post.authorFullName}</p>
                   <p className="text-sm text-muted-foreground">
                     Published on {createdDateTime}
                   </p>
@@ -56,7 +56,7 @@ export default async function ArticlePage({ params }) {
               </div>
             </div>
             <Image
-              src={post.postImg}
+              src={post.articleImg}
               width={1200}
               height={600}
               alt="Cover image"
@@ -69,7 +69,7 @@ export default async function ArticlePage({ params }) {
         <div
           className={`mx-auto max-w-5xl prose prose-gray dark:prose-invert ${styles.preResponsive}`}
         >
-          <div dangerouslySetInnerHTML={{ __html: post.postBody }} />
+          <div dangerouslySetInnerHTML={{ __html: post.articleContent }} />
         </div>
       </div>
     </div>
