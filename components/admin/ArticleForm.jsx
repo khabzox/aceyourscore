@@ -21,7 +21,6 @@ export default function ArticleForm({ article, articleId }) {
   const EDITMODE = article.id === "new" ? false : true;
   const { user } = useUser();
   const router = useRouter();
-  console.log("d", EDITMODE);
 
   const [loading, setLoading] = useState(false);
   const [alertImgIsUploaded, setAlertImgIsUploaded] = useState("");
@@ -113,8 +112,6 @@ export default function ArticleForm({ article, articleId }) {
     }));
   };
 
-  console.log("Data", formData);
-  console.log(article);
   async function handleSubmit(e) {
     e.preventDefault();
     setIsSubmitDisabled(true);
@@ -188,10 +185,13 @@ export default function ArticleForm({ article, articleId }) {
           />
           <label>Article: </label>
           {/* <Tiptap /> */}
+          <div className=" relative z-10">
+
           <RichTextEditor
             value={formData.articleContent}
             onChange={handleBodyChange}
-          />
+            />
+            </div>
           <Button
             type="submit"
             className="text-white bg-accent"
