@@ -1,11 +1,11 @@
-import Header from "@/components/blog/HomePage/Header";
-import Footer from "@/components/LandingPage/Footer/footer-1";
+import Footer from "@/components/LandingPage/Footer";
 
 export default function Layout({ children }) {
   return (
     <>
-      <Header />
-      {children}
+      <main className="max-w-[95rem] mx-auto">
+        {children}
+      </main>
       <Footer />
     </>
   );

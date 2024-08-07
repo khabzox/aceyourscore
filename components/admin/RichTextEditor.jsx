@@ -1,5 +1,4 @@
-// RichTextEditor.jsx
-import React, { useRef, useState, useCallback, useMemo } from 'react';
+import React, { useRef, useCallback, useMemo } from 'react';
 import ReactQuill from 'react-quill';
 import 'react-quill/dist/quill.snow.css'; // Import Quill styles
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
