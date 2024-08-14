@@ -1,7 +1,7 @@
 import React from 'react';
 import WhyGridCards from './why-gridCards';
 
-const WhyUs = () => {
+const WhyUs = ({examName}) => {
     return (
         <div className="my-48">
         <div className="flex flex-col">
@@ -9,12 +9,11 @@ const WhyUs = () => {
             <h1
               className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold`}
             >
-              Why Choose AceYourScore for TOEFL
-              Preparation?
+              Why Choose AceYourScore for {examName} Preparation?
             </h1>
 
           </div>
-          <WhyGridCards />
+          <WhyGridCards examName={examName} />
         </div>
       </div>
     );

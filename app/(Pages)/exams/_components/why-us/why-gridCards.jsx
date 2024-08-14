@@ -4,7 +4,7 @@ import { ubuntu } from "@/libs/font";
 
 import Image from 'next/image';
 
-const WhyGridCards = () => {
+const WhyGridCards = ({examName}) => {
     return (
         <div className="py-10">
             <div>
@@ -20,7 +20,7 @@ const WhyGridCards = () => {
                         </p>
                     </div>
                     <div className="col-start-1 col-end-7 row-start-2 lg:col-start-4 lg:col-end-7 2xl:col-start-3 2xl:col-end-5 lg:row-start-1 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-yellow">
-                        <h3
+                        <h3 
                             className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
                         >
                             Comprehensive Resources
@@ -37,7 +37,7 @@ const WhyGridCards = () => {
                             Expert Educators:
                         </h3>
                         <p className="pt-5 text-xl text-accent-TextHoverDark font-medium">
-                            Learn from seasoned TOEFL instructors who bring years of experience and proven success. Our teachers provide in-depth knowledge and practical strategies to tackle each section of the test.
+                            Learn from seasoned {examName} instructors who bring years of experience and proven success. Our teachers provide in-depth knowledge and practical strategies to tackle each section of the test.
                         </p>
                     </div>
                     <div className="col-start-1 col-end-7 row-start-4 lg:col-start-4 lg:col-end-7 2xl:col-start-3 2xl:col-end-7 lg:row-start-2 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-muted-Hover">

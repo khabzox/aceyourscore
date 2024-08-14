@@ -1,10 +1,9 @@
 import Link from "next/link";
 import Image from "next/image";
 
-import PropTypes, { func } from "prop-types";
+import PropTypes from "prop-types";
 
 import { CardBtnPrimary } from "./CustmsBtns";
-import { PayBtnExams } from "./payBtnExams";
 
 import { ChevronRight } from "lucide-react";
 
@@ -77,17 +76,17 @@ export function PrimaryCardrtl({
 export function QuestionsAnswers({ questions }) {
   return (
     <div className="py-12 md:py-24">
-      <div className="container mx-auto px-4 md:px-6 max-w-6xl">
+      <div className="container px-4 md:px-6 max-w-[95rem] mx-auto">
         <h2 className="text-2xl font-bold mb-8 md:text-3xl lg:text-4xl">
           Questions and Answers
         </h2>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {questions.map((item, index) => (
             <div key={index} className="p-6 rounded-lg">
-              <h3 className="text-xl font-semibold mb-4 text-accent">
+              <h3 className="text-2xl font-bold mb-4 text-accent">
                 {item.question}
               </h3>
-              <p className="text-accent/5 opacity-75 md:text-lg">
+              <p className="text-accent-TextHover font-semibold md:text-lg">
                 {item.answer}
               </p>
             </div>
@@ -107,24 +106,6 @@ QuestionsAnswers.propTypes = {
   ).isRequired,
 };
 
-export function CardRegister({
-  title,
-  desc,
-  textLink,
-  linkTo,
-  handleExamPurchase,
-  examId,
-}) {
-  return (
-    <div className="bg-accent text-white py-12 md:py-24">
-      <div className="container mx-auto px-4 md:px-6 text-center">
-        <h2 className="text-2xl font-bold md:text-3xl lg:text-4xl">{title}</h2>
-        <p className="mt-4 text-gray-300 md:text-lg">{desc}</p>
-        {PayBtnExams({ linkTo, textLink, handleExamPurchase, examId })}
-      </div>
-    </div>
-  );
-}
 
 export function ExamsCard({ linkTo, title, subTitle, desc }) {
   return (

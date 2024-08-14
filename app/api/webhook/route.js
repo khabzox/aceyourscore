@@ -1,5 +1,5 @@
 import crypto from "crypto";
-import clientPromise from "@/utils/mongodb";
+import clientPromise from "@/libs/mongodb";
 
 export async function POST(req) {
   try {

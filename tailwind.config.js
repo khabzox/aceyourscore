@@ -70,6 +70,9 @@ module.exports = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      boxShadow: {
+        'custom-lg': '0px 20px 30px rgba(0, 0, 0, 0.2)',
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },

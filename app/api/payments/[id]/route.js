@@ -1,6 +1,6 @@
 // import Payments from "@/models/Payments";
 import { NextResponse } from "next/server";
-import clientPromise from "@/utils/mongodb";
+import clientPromise from "@/libs/mongodb";
 
 export async function GET(req, { params }) {
   const { id } = params;
