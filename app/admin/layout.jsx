@@ -7,7 +7,7 @@ export const metadata = {
   title: 'AceYourScore | admin',
 }
 
-export default function layout({ children }) {
+export default function AdminLayout({ children }) {
   const { sessionClaims } = auth();
 
   // If the user does not have the admin role, redirect them to the home page

@@ -1,4 +1,5 @@
 import config from "@/config";
+
 export const getArticles = async () => {
   try {
     const res = await fetch(`${config.domainName}/api/articles`, {
@@ -9,7 +10,9 @@ export const getArticles = async () => {
       throw new Error("Failed to fetch topics");
     }
 
-    return res.json();
+    const articlesData = res.json()
+
+    return articlesData;
   } catch (error) {
     console.log("Error loading topics: ", error);
   }

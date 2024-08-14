@@ -1,4 +1,4 @@
-// import NavBar from "@/components/LandingPage/NavBar";
+import NavBar from "@/components/LandingPage/NavBar";
 import Hero from "@/components/LandingPage/Hero";
 import Exams from "@/components/LandingPage/Exams";
 import AboutUS from "@/components/LandingPage/AboutUS";
@@ -11,17 +11,19 @@ import OurBlog from "@/components/LandingPage/OurBlog";
 import CTA from "@/components/LandingPage/CTA";
 import ContactUs from "@/components/LandingPage/ContactUS";
 // import LanguageSwitcher from "@/components/LanguageSwitcher";
+import FooterPage from "@/components/LandingPage/Footer";
+
 export default function Home() {
   return (
     <>
       {/* <LanguageSwitcher/> */}
-
+      <NavBar />
       <main>
         <section className="max-w-[95rem] mx-auto">
           <Hero />
         </section>
 
-        <section className="max-w-[90rem] mx-auto">
+        <section className="max-w-[95rem] mx-auto">
           <Exams />
         </section>
 
@@ -44,6 +46,7 @@ export default function Home() {
           <CTA />
         </section>
       </main>
+      <FooterPage />
       {/* <main>
         <Pricing />
          <OurBlog /> 

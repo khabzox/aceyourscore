@@ -3,6 +3,8 @@ import Link from "next/link";
 import { LogIn } from "lucide-react";
 import { ArrowRight } from "lucide-react";
 
+import { cn } from "@/libs/utils";
+
 export function BtnOfLogIn({ text, linkto }) {
   return (
     <Link
@@ -15,11 +17,11 @@ export function BtnOfLogIn({ text, linkto }) {
   );
 }
 
-export function BtnOfHero({ text, linkto }) {
+export function BtnOfHero({ text, linkto, className }) {
   return (
     <Link
       href={linkto}
-      className="flex justify-center gap-2 items-center max-w-xs bg-accent text-primary text-lg py-3 px-6 rounded-lg hover:opacity-95 transition duration-300"
+      className={cn("flex justify-center gap-2 items-center max-w-xs bg-accent text-primary text-lg py-3 px-6 rounded-lg hover:opacity-95 transition duration-300", className)}
     >
       {text} <ArrowRight />
     </Link>

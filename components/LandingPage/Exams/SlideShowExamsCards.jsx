@@ -36,7 +36,7 @@ export default function SlideShowExamsCards() {
             <Card>
               <CardContent className="w-[389px] md:w-[470px] h-[501px]">
                 <ExamsCard
-                  linkTo="#"
+                  linkTo="/exams/toefl"
                   title="TOEFL"
                   subTitle="Test Your English Language Proficiency"
                   desc="Boost your English skills with interactive practice tests and expert guidance. Perfect for university admissions and more."
@@ -49,7 +49,7 @@ export default function SlideShowExamsCards() {
             <Card>
               <CardContent className={"w-[389px] md:w-[470px] h-[501px]"}>
                 <ExamsCard
-                  linkTo={"#"}
+                  linkTo={"/Sat"}
                   title={"SAT"}
                   subTitle={"Achieve Top Scores for College Admissions"}
                   desc={
@@ -64,7 +64,7 @@ export default function SlideShowExamsCards() {
             <Card>
               <CardContent className={"w-[389px] md:w-[470px] h-[501px]"}>
                 <ExamsCard
-                  linkTo={"#"}
+                  linkTo={"/Ielts"}
                   title={"IELTS"}
                   subTitle={"Improve Your English for Global Success"}
                   desc={
@@ -79,7 +79,7 @@ export default function SlideShowExamsCards() {
             <Card>
               <CardContent className={"w-[389px] md:w-[470px] h-[501px]"}>
                 <ExamsCard
-                  linkTo={"#"}
+                  linkTo={"/Toeic"}
                   title={"TOEIC"}
                   subTitle={"Excel in International Business English"}
                   desc={

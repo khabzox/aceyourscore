@@ -133,8 +133,8 @@ export default function ArticleForm({ article, articleId }) {
       }
 
       // Handle response as needed
-      router.refresh();
       router.push("/admin/articles");
+      router.refresh();
     } catch (error) {
       console.error("Fetch error:", error);
       // Handle error state or retry logic

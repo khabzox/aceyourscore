@@ -4,7 +4,7 @@ import Image from "next/image";
 
 export function GridCards() {
   return (
-    <div>
+    <>
       <div>
         <div className="grid grid-cols-6 grid-rows-4 lg:grid-rows-2 gap-5 2xl:gap-x-20 px-2 sm:px-10 3xl:px-0">
           <div className="col-start-1 col-end-7 row-start-1 lg:col-start-1 lg:col-end-4 2xl:col-start-1 lg:row-start-1 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-accent-CardHover">
@@ -93,6 +93,6 @@ export function GridCards() {
           />
         </div>
       </div>
-    </div>
+    </>
   );
 }

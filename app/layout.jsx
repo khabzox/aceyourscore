@@ -10,8 +10,6 @@ import { getLocale, getMessages } from "next-intl/server";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import { frFR, enUS } from "@clerk/localizations";
-import NavBar from "@/components/LandingPage/NavBar";
-import FooterPage from "@/components/LandingPage/Footer";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -61,9 +59,7 @@ export default async function RootLayout({ children }) {
         </head>
         <body className={`${poppins.className} text-accent bg-primary`}>
           <NextIntlClientProvider messages={messages}>
-          <NavBar />
             {children}
-        <FooterPage />
           </NextIntlClientProvider>
           <Analytics />
           <SpeedInsights />

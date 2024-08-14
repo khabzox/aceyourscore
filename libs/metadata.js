@@ -39,6 +39,28 @@ export async function MetadataArticles({ params }, parent) {
 
 // Static metadata for other pages
 
+export const MetadataSignIn = {
+  title: "AceYourScore | Sign-In",
+  description: "Access your AceYourScore account by signing in.",
+  openGraph: {
+    title: "AceYourScore | Sign-In",
+    description: "Access your AceYourScore account by signing in.",
+    images: ["/logo.png"],
+    url: `${config.domainName}/sign-in`,
+  },
+};
+
+export const MetadataSignUp = {
+  title: "AceYourScore | Sign-Up",
+  description: "Create a new account with AceYourScore to get started.",
+  openGraph: {
+    title: "AceYourScore | Sign-Up",
+    description: "Create a new account with AceYourScore to get started.",
+    images: ["/logo.png"],
+    url: `${config.domainName}/sign-up`,
+  },
+};
+
 export const MetadataHome = {
   title: "AceYourScore | Home",
   description: "Learn more about AceYourScore and our mission.",

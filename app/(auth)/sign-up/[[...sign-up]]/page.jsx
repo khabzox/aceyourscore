@@ -4,10 +4,11 @@ import React, { useState } from 'react';
 import * as Clerk from '@clerk/elements/common'
 import * as SignUp from '@clerk/elements/sign-up'
 import Link from 'next/link';
-import { ArrowRight, Eye, EyeOff } from 'lucide-react'; // Import eye icons
+import { ArrowRight, Eye, EyeOff } from 'lucide-react';
 
 export default function SignUpPage() {
-  const [showPassword, setShowPassword] = useState(false); // State to toggle password visibility
+  // State to toggle password visibility
+  const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

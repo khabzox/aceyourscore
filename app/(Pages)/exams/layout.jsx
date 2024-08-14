@@ -1,9 +1,11 @@
 import Footer from "@/components/LandingPage/Footer";
+import NavBar from "@/components/LandingPage/NavBar";
 
 export default function Layout({ children }) {
   return (
     <>
-      <main className="max-w-[95rem] mx-auto">
+      <NavBar />
+      <main>
         {children}
       </main>
       <Footer />

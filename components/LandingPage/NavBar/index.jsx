@@ -61,7 +61,7 @@ export default function NavBar() {
               <ul className="flex gap-3 font-semibold">
                 <li className="dropdown-container">
                   <Link
-                    href={"/#prep"}
+                    href={"#prep-exams"}
                     className="flex relative items-center"
                     onClick={toggleDropdown}
                   >
@@ -72,16 +72,16 @@ export default function NavBar() {
                     <div className="dropdown-content w-44 p-5 rounded-lg bg-primary border-2 border-accent absolute z-50">
                       <ul className="space-y-3">
                         <li>
-                          <Link href={"/Toefl"}>TOEFL Exam</Link>
+                          <Link href={"/Toefl"} onClick={closeDropdown}>TOEFL Exam</Link>
                         </li>
                         <li>
-                          <Link href={"/Toefl"}>SAT Exam</Link>
+                          <Link href={"/Toefl"} onClick={closeDropdown}>SAT Exam</Link>
                         </li>
                         <li>
-                          <Link href={"/Toefl"}>IELTS Exam</Link>
+                          <Link href={"/Toefl"} onClick={closeDropdown}>IELTS Exam</Link>
                         </li>
                         <li>
-                          <Link href={"/Toefl"}>TOEIC Exam</Link>
+                          <Link href={"/Toefl"} onClick={closeDropdown}>TOEIC Exam</Link>
                         </li>
                       </ul>
                     </div>
@@ -130,7 +130,7 @@ export default function NavBar() {
               {userId ? (
                 <div className="flex gap-4 items-center border-2 border-accent rounded-full p-[2px]">
                   {/* <Link href='/dashboard'>Dashboard</Link> */}
-                  <UserButton afterSignOutUrl="/" />
+                  <UserButton />
                 </div>
               ) : (
                 <>
