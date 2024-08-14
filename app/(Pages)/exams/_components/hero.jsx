@@ -1,4 +1,4 @@
-import GenerateOfferings from "./GenerateOfferings";
+import { GenerateOfferings } from "./generateOfferings";
 
 const Hero = ({ examName }) => {
     const standardGroup = [

@@ -2,7 +2,7 @@ import useExamPurchase from "@/hooks/useExamPurchase";
 import { ArrowRight, Loader, SquareCheckBig } from "lucide-react";
 import { useState } from "react";
 
-const GenerateOfferings = ({ title, items, specialMessage, examName }) => {
+export const GenerateOfferings = ({ title, items, specialMessage, examName }) => {
     const handleExamPurchase = useExamPurchase(examName);
     const [loading, setLoading] = useState(false);
 
@@ -60,5 +60,3 @@ const GenerateOfferings = ({ title, items, specialMessage, examName }) => {
         </div>
     );
 };
-
-export default GenerateOfferings;
