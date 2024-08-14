@@ -60,28 +60,27 @@ export default function NavBar() {
             <div className="hidden xl:block">
               <ul className="flex gap-3 font-semibold">
                 <li className="dropdown-container">
-                  <Link
-                    href={"#prep-exams"}
+                  <button
                     className="flex relative items-center"
                     onClick={toggleDropdown}
                   >
                     {t("link1")}
                     <ChevronDown size={20} />
-                  </Link>
+                  </button>
                   {isOpen && (
                     <div className="dropdown-content w-44 p-5 rounded-lg bg-primary border-2 border-accent absolute z-50">
                       <ul className="space-y-3">
                         <li>
-                          <Link href={"/Toefl"} onClick={closeDropdown}>TOEFL Exam</Link>
+                          <Link href={"/exams/toefl"} onClick={closeDropdown}>TOEFL Exam</Link>
                         </li>
                         <li>
-                          <Link href={"/Toefl"} onClick={closeDropdown}>SAT Exam</Link>
+                          <Link href={"/exams/sat"} onClick={closeDropdown}>SAT Exam</Link>
                         </li>
                         <li>
-                          <Link href={"/Toefl"} onClick={closeDropdown}>IELTS Exam</Link>
+                          <Link href={"/exams/ielts"} onClick={closeDropdown}>IELTS Exam</Link>
                         </li>
                         <li>
-                          <Link href={"/Toefl"} onClick={closeDropdown}>TOEIC Exam</Link>
+                          <Link href={"/exams/toeic"} onClick={closeDropdown}>TOEIC Exam</Link>
                         </li>
                       </ul>
                     </div>
@@ -106,19 +105,19 @@ export default function NavBar() {
             {/* <div className="p-4"> */}
             <div className="hidden md:block">
 
-            <SearchInput
-              icon={Search} // Pass the Search icon component
-              placeholder="Search..."
-              className="max-w-56 rounded-3xl text-accent"
+              <SearchInput
+                icon={Search} 
+                placeholder="Search..."
+                className="max-w-56 rounded-3xl text-accent"
               />
-              </div>
+            </div>
             {/* </div> */}
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Globe size={32} className="text-accent" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <Link href={"/en"}>
+                <Link href={""}>
                   <DropdownMenuItem>English</DropdownMenuItem>
                 </Link>
                 {/* <Link href={"/fr"}>
