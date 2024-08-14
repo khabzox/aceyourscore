@@ -2,7 +2,7 @@ import config from "@/config";
 
 export async function fetchDataUsersList() {
   try {
-    const res = await fetch(`${config.domainName}/en/api/payments`, {
+    const res = await fetch(`${config.domainName}/api/payments`, {
       cache: "no-store",
     });
 

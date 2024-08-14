@@ -69,7 +69,7 @@ export default function NavBar() {
                 <Globe size={32} className="text-accent" />
               </DropdownMenuTrigger>
               <DropdownMenuContent>
-                <Link href={"/en/blog"}>
+                <Link href={""}>
                   <DropdownMenuItem>English</DropdownMenuItem>
                 </Link>
                 {/* <Link href={"/fr/blog"}>

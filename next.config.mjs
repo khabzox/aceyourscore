@@ -31,14 +31,14 @@ const nextConfig = {
       },
     ],
   },
-  async rewrites() {
-    return [
-      {
-        source: "/en/api/:path*",
-        destination: "/api/:path*",
-      },
-    ];
-  },
+  // async rewrites() {
+  //   return [
+  //     {
+  //       source: "/en/api/:path*",
+  //       destination: "/api/:path*",
+  //     },
+  //   ];
+  // },
 };
 
 export default withNextIntl(nextConfig);

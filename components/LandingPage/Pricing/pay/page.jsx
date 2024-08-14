@@ -23,7 +23,7 @@ export default function Pay() {
 
   const handleExamPurchase = async (productId) => {
     try {
-      const response = await axios.post("/en/api/lemonsqueezy", {
+      const response = await axios.post("/api/lemonsqueezy", {
         productId: productId,
         userId: userId,
         userFullName: userFullName || undefined,
