@@ -1,5 +1,6 @@
 "use client";
 
+import { useState } from "react";
 import { useDropMenu } from "@/hooks/useDropMenu";
 import { useTranslations } from "next-intl";
 import { useNav } from "@/hooks/useNav";
@@ -29,6 +30,14 @@ export default function NavBar() {
 
   const [toggleDropdown, closeDropdown, isOpen] = useDropMenu();
   const [open, MenuOpen] = useNav();
+  const [searchQuery, setSearchQuery] = useState("");
+
+  const handleSearch = () => {
+    if (searchQuery.trim()) {
+      // Perform search action, e.g., redirect to a search results page
+      window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
+    }
+  };
 
   return (
     <>
@@ -94,6 +103,9 @@ export default function NavBar() {
                 icon={Search}
                 placeholder="Search..."
                 className="max-w-56 rounded-3xl text-accent"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onSearch={handleSearch}
               />
             </div>
             <DropdownMenu>

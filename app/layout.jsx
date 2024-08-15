@@ -10,6 +10,7 @@ import { getLocale, getMessages } from "next-intl/server";
 
 import { ClerkProvider } from "@clerk/nextjs";
 import { frFR, enUS } from "@clerk/localizations";
+import { MetadataHome } from "@/libs/metadata";
 
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -17,10 +18,7 @@ const poppins = Poppins({
   subsets: ["latin"]
 });
 
-export const metadata = {
-  title: "AceYourScore | Home",
-  description: "...",
-};
+export const metadata = MetadataHome
 
 export default async function RootLayout({ children }) {
   const locale = await getLocale();

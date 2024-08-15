@@ -75,12 +75,12 @@ export function CardBtnPrimary({ linkTo, textLink }) {
   );
 }
 
-export function CardBtnOurTeachers({ linkTo, children }) {
+export function CardBtnOurTeachers({ linkTo, children, className }) {
 
   return (
     <Link
       href={linkTo}
-      className="flex justify-center gap-2 items-center max-w-xs bg-destructive border-4 text-primary font-semibold text-lg py-3 px-8 rounded-lg hover:opacity-90 transition duration-300"
+      className={cn(`flex justify-center gap-2 items-center max-w-xs bg-destructive border-4 text-primary font-semibold text-lg py-3 px-8 rounded-lg hover:opacity-90 transition duration-300`, className)}
     >
       {children} <ArrowRight />
     </Link>

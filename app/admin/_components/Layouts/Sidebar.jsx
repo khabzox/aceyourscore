@@ -12,7 +12,8 @@ import {
 import { LayoutDashboard } from "lucide-react";
 import { FileText } from "lucide-react";
 import { Info } from "lucide-react";
-import {  UsersRound } from "lucide-react"
+import {  UsersRound, GraduationCap } from "lucide-react"
+
 export default function Sidebar() {
   return (
     <>
@@ -43,6 +44,11 @@ export default function Sidebar() {
           <Link href={"/admin/students"}>
             <Button variant="fourth" className="p-2 bg-white/10">
               <UsersRound />
+            </Button>
+          </Link>
+          <Link href={"/admin/our-teachers"}>
+            <Button variant="fourth" className="p-2 bg-white/10">
+              <GraduationCap />
             </Button>
           </Link>
         </div>

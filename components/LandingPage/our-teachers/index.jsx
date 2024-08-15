@@ -1,3 +1,4 @@
+import { CardBtnOurTeachers } from "@/components/shared/CustmsBtns";
 import CardTeachers from "./CardTeachers";
 
 export default function OurTeachers() {
@@ -17,7 +18,10 @@ export default function OurTeachers() {
             </p>
           </div>
         </div>
-       <CardTeachers />
+        <CardTeachers />
+        <div className="mx-auto max-w-80 mt-10">
+          <CardBtnOurTeachers linkTo={"/our-teachers"} className={"w-full"}>See More Teachers</CardBtnOurTeachers>
+        </div>
       </div>
     </div>
   );

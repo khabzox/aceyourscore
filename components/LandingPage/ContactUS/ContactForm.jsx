@@ -104,7 +104,7 @@ export default function ContactForm() {
           <div>
             <Label className="text-lg text-accent font-medium">Phone Number:</Label>
             <PhoneInput
-              placeholder="Enter phone number"
+              // placeholder="Enter phone number"
               name="phone"
               value={formData.phone}
               onChange={(value) => setFormData(prev => ({ ...prev, phone: value }))}
