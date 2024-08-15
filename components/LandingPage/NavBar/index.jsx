@@ -1,21 +1,12 @@
 "use client";
 
 import { useDropMenu } from "@/hooks/useDropMenu";
-
 import { useTranslations } from "next-intl";
-
 import { useNav } from "@/hooks/useNav";
-
 import Image from "next/image";
 import Link from "next/link";
-
-import { Globe } from "lucide-react";
-import { Menu } from "lucide-react";
-import { ChevronDown } from "lucide-react";
-import { Search } from "lucide-react";
-
+import { Globe, Menu, ChevronDown, Search } from "lucide-react";
 import { BtnOfLogIn } from "@/components/shared/CustmsBtns";
-
 import {
   ClerkProvider,
   SignInButton,
@@ -24,15 +15,11 @@ import {
   UserButton,
   useAuth,
 } from "@clerk/nextjs";
-
 import { SearchInput } from "@/components/ui/input";
-
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 
@@ -45,8 +32,8 @@ export default function NavBar() {
 
   return (
     <>
-      <header>
-        <div className="flex justify-between max-w-[100rem] mx-auto items-center p-7">
+      <header className="fixed top-0 left-0 right-0 bg-primary z-50 h-16 py-12">
+        <div className="flex justify-between max-w-[100rem] mx-auto items-center px-7 h-full">
           <div className="flex gap-4 items-center">
             <Link href={"/"}>
               <Image
@@ -59,9 +46,9 @@ export default function NavBar() {
             </Link>
             <div className="hidden xl:block">
               <ul className="flex gap-3 font-semibold">
-                <li className="dropdown-container">
+                <li className="relative">
                   <button
-                    className="flex relative items-center"
+                    className="flex items-center"
                     onClick={toggleDropdown}
                   >
                     {t("link1")}
@@ -102,16 +89,13 @@ export default function NavBar() {
             </div>
           </div>
           <div className="flex items-center gap-4">
-            {/* <div className="p-4"> */}
             <div className="hidden md:block">
-
               <SearchInput
-                icon={Search} 
+                icon={Search}
                 placeholder="Search..."
                 className="max-w-56 rounded-3xl text-accent"
               />
             </div>
-            {/* </div> */}
             <DropdownMenu>
               <DropdownMenuTrigger>
                 <Globe size={32} className="text-accent" />

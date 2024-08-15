@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import {
@@ -87,7 +88,9 @@ export function SheetDemo({ data }) {
         </div>
         <SheetFooter>
           {/* <Button variant="custom">Cencel</Button> */}
-          <Button variant="destructive">Refunded</Button>
+          <Link href="https://app.lemonsqueezy.com/orders" target="_blank">
+            <Button variant="destructive">Refunded</Button>
+          </Link>
           <Button variant="custom">Invoice</Button>
         </SheetFooter>
       </SheetContent>

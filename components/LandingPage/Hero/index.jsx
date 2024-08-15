@@ -77,7 +77,7 @@ export default function Hero() {
   }, []);
 
   return (
-    <section className="py-20">
+    <section className="py-20 mt-16 md:mt-24">
       <div className="flex flex-col xl:flex-row items-center justify-between relative px-10 3xl:px-0">
         <div className="xl:relative z-10">
           <h1
