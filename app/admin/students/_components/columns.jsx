@@ -67,7 +67,6 @@ export const columns = [
     enableHiding: false,
     cell: ({ row }) => {
       const payment = row.original;
-      console.log("This PAyments here", payment);
       return (
         <DropdownMenu>
           <DropdownMenuTrigger asChild>

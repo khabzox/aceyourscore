@@ -1,11 +1,19 @@
-// import Payments from "@/models/Payments";
 import { NextResponse } from "next/server";
 import clientPromise from "@/libs/mongodb";
+import { auth } from "@clerk/nextjs/server";
 
 export async function GET(req, { params }) {
   const { id } = params;
 
   try {
+    const { sessionClaims } = auth();
+
+    if (sessionClaims === null) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    } else if (sessionClaims?.metadata?.role !== "admin") {
+      return NextResponse.json({ message: "You don't have permission to access this resource" }, { status: 403 });
+    }
+
     const client = await clientPromise; // Ensure MongoDB connection is established
     const db = client.db();
 
@@ -35,6 +43,14 @@ export async function DELETE(req, { params }) {
   const { id } = params;
 
   try {
+    const { sessionClaims } = auth();
+
+    if (sessionClaims === null) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    } else if (sessionClaims?.metadata?.role !== "admin") {
+      return NextResponse.json({ message: "You don't have permission to access this resource" }, { status: 403 });
+    }
+
     const client = await clientPromise; // Ensure MongoDB connection is established
     const db = client.db();
 

@@ -1,28 +1,11 @@
 import config from "@/config";
-
-export async function fetchDataUsersList() {
-  try {
-    const res = await fetch(`${config.domainName}/api/payments`, {
-      cache: "no-store",
-    });
-
-    if (!res.ok) {
-      throw new Error("Failed to fetch payments data");
-    }
-
-    const data = await res.json();
-    return data.payments; // Access the 'payments' array
-  } catch (error) {
-    console.error("Error loading data: ", error);
-    return []; // Return an empty array in case of error
-  }
-}
+import { fetchDataUsersList } from "./fetchDataUsersList";
 
 export async function getFormattedData() {
   const fetchedData = await fetchDataUsersList();
 
-  if (!fetchedData) {
-    console.error("Fetch data Users not working");
+  if (!fetchedData || fetchedData.length === 0) {
+    console.error("No data found or fetchDataUsersList not working");
     return [];
   }
 
@@ -38,5 +21,6 @@ export async function getFormattedData() {
     totalFormatted: item.paymentUser.payment.totalFormatted
   }));
 
+  console.log("Formatted data:", formattedData); // Debugging
   return formattedData;
 }

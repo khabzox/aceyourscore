@@ -1,8 +1,15 @@
 import { lemonSqueezyApiInstance } from "@/libs/axios";
+import { auth } from "@clerk/nextjs/server";
 
 export const dynamic = "force-dynamic";
 
 export async function POST(req) {
+  const { userId } = auth();
+
+  if (!userId) {
+    return new Response(JSON.stringify({ message: "Unauthorized" }), { status: 401 });
+  }
+
   try {
     const reqData = await req.json();
 
