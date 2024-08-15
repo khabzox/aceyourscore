@@ -5,7 +5,6 @@ import Link from "next/link";
 import { FilePlus2 } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 export default function ArticlesPage() {
-  // console.log(EDITMODE, updateTicketData)
   return (
     <>
       {/* <Link href="/admin/articles/new" className="text-white p-10 mt-10">
@@ -19,7 +18,7 @@ export default function ArticlesPage() {
           type="text"
           placeholder="Search..."
           required={true}
-          // onChange={(e) => setQuery(e.target.value)}
+        // onChange={(e) => setQuery(e.target.value)}
         />
         <Button className="m-4 text-white">Send</Button>
         <Card className="flex justify-center h-10 max-w-1xl mx-auto m-2 md:max-w-5xl">

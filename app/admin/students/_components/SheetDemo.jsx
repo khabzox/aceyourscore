@@ -86,7 +86,7 @@ export function SheetDemo({ data }) {
           </div>
         </div>
         <SheetFooter>
-          <Button variant="custom">Cencel</Button>
+          {/* <Button variant="custom">Cencel</Button> */}
           <Button variant="destructive">Refunded</Button>
           <Button variant="custom">Invoice</Button>
         </SheetFooter>

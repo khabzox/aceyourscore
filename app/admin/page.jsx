@@ -5,9 +5,9 @@ import config from '@/config'
 export default function AdminPage() {
   return (
     <>
-    <div>AdminPage  </div>
-    {/* <Link href="/admin/articles" className='text-white'><Button>Articles Page</Button></Link> */}
-  {config.domainName}
+      <div>AdminPage  </div>
+      {/* <Link href="/admin/articles" className='text-white'><Button>Articles Page</Button></Link> */}
+      {config.domainName}
     </>
   )
 }

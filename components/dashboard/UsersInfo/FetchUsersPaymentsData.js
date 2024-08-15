@@ -3,7 +3,7 @@ import config from "@/config";
 export async function getUsersPaymentsData(id) {
   try {
     const res = await fetch(
-      `${config.domainName}/api/payments/${id}`,
+      `${config.domainName}/api/lemonsqueezy/payments/${id}`,
       {
         cache: "no-store",
       }

@@ -27,7 +27,7 @@ const useExamPurchase = (examName) => {
     }
 
     try {
-      const response = await axios.post("/api/lemonsqueezy", {
+      const response = await axios.post("/api/lemonsqueezy/create-checkout-url", {
         productId: examId,
         userId,
         userFullName,

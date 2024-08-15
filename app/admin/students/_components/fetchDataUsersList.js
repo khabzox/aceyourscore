@@ -10,7 +10,7 @@ export async function fetchDataUsersList() {
             throw new Error("Failed to obtain authentication token");
         }
 
-        const res = await fetch(`${config.domainName}/api/payments`, {
+        const res = await fetch(`${config.domainName}/api/lemonsqueezy/payments`, {
             headers: {
                 'Authorization': `Bearer ${token}`,
             },
