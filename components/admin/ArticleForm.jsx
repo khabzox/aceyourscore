@@ -15,7 +15,6 @@ import { storage } from "@/config/firebase";
 import { Loader } from "lucide-react";
 
 import RichTextEditor from "./RichTextEditor";
-import Tiptap from "./Tiptap";
 
 export default function ArticleForm({ article, articleId }) {
   const EDITMODE = article.id === "new" ? false : true;
