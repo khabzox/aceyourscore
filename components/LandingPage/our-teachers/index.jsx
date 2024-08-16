@@ -1,14 +1,12 @@
-import { CardBtnOurTeachers } from "@/components/shared/CustmsBtns";
-import CardTeachers from "./CardTeachers";
+import { CardBtnOurTeachersLoader } from "@/components/shared/CustmsBtns";
+import OurTeachersCards from "./OurTeachersCards";
 
 export default function OurTeachers() {
   return (
-    <div className="bg-accent text-primary w-full">
-      <div className="max-w-[95rem] mx-auto py-32 px-10 3xl:px-0">
+    <div className="bg-accent text-start text-primary w-full">
+      <div className="max-w-[95rem] mx-auto py-32 mt-20 px-10 3xl:px-0">
         <div>
-          <h1
-            className={`text-4xl sm:text-5xl md:text-6xl font-bold`}
-          >
+          <h1 className={`text-4xl sm:text-5xl md:text-6xl font-bold`}>
             Meet the Masters Behind Your Success
           </h1>
           <div className="flex">
@@ -18,10 +16,7 @@ export default function OurTeachers() {
             </p>
           </div>
         </div>
-        <CardTeachers />
-        <div className="mx-auto max-w-80 mt-10">
-          <CardBtnOurTeachers linkTo={"/our-teachers"} className={"w-full"}>See More Teachers</CardBtnOurTeachers>
-        </div>
+        <OurTeachersCards />
       </div>
     </div>
   );

@@ -13,6 +13,7 @@
     "@clerk/localizations": "^2.4.5",
     "@clerk/nextjs": "^5.3.1",
     "@gsap/react": "^2.1.1",
+    "@hello-pangea/dnd": "^16.6.0",
     "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",
     "@radix-ui/react-avatar": "^1.1.0",
     "@radix-ui/react-checkbox": "^1.1.0",
