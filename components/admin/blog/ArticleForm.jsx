@@ -1,4 +1,5 @@
 "use client";
+
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Progress } from "@/components/ui/progress";
@@ -14,7 +15,7 @@ import { storage } from "@/config/firebase";
 
 import { Loader } from "lucide-react";
 
-import RichTextEditor from "./RichTextEditor";
+import RichTextEditor from "@/components/admin/blog/RichTextEditor";
 
 export default function ArticleForm({ article, articleId }) {
   const EDITMODE = article.id === "new" ? false : true;
@@ -43,11 +44,11 @@ export default function ArticleForm({ article, articleId }) {
   useEffect(() => {
     setIsSubmitDisabled(
       EDITMODE &&
-        !(
-          formData.title &&
-          formData.articleDescription &&
-          formData.articleContent
-        )
+      !(
+        formData.title &&
+        formData.articleDescription &&
+        formData.articleContent
+      )
     );
   }, [formData, EDITMODE]);
 
@@ -186,11 +187,11 @@ export default function ArticleForm({ article, articleId }) {
           {/* <Tiptap /> */}
           <div className=" relative z-10">
 
-          <RichTextEditor
-            value={formData.articleContent}
-            onChange={handleBodyChange}
+            <RichTextEditor
+              value={formData.articleContent}
+              onChange={handleBodyChange}
             />
-            </div>
+          </div>
           <Button
             type="submit"
             className="text-white bg-accent"

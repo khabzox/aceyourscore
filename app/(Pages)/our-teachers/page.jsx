@@ -1,10 +1,11 @@
-import React from 'react'
-import { MetadataOurTeacher } from '@/libs/metadata';
+"use client";
 
-export const metadata = MetadataOurTeacher;
+import OurTeachers from './_components/teachers-cards';
 
-export default function OurTeachers() {
+export default function OurTeachersPage() {
   return (
-    <div>OurTeachers</div>
+    <>
+      <OurTeachers />
+    </>
   )
 }

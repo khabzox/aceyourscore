@@ -4,8 +4,8 @@ import { Avatar, AvatarImage } from "@/components/ui/avatar";
 import { Separator } from "@/components/ui/separator";
 import Image from "next/image";
 import { auth } from "@clerk/nextjs/server";
-import DeleteBlock from "@/components/admin/DeleteBlock";
-import EditBlock from "@/components/admin/EditeBlock";
+import DeleteBlock from "@/components/admin/blog/DeleteBlock";
+import EditBlock from "@/components/admin/blog/EditeBlock";
 // import DeleteBlock from "./DeleteBlock";
 
 export default async function ArticleCard({ article }) {

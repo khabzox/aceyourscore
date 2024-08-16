@@ -1,4 +1,4 @@
-import ArticleForm from "@/components/admin/ArticleForm";
+import ArticleForm from "@/components/admin/blog/ArticleForm";
 import config from "@/config";
 async function getArticleById(id) {
   try {
@@ -19,7 +19,7 @@ async function getArticleById(id) {
 
 export default async function ArticlePage({ params }) {
   const EDITMODE = params.id == "new" ? false : true;
-const articleId = params.id
+  const articleId = params.id
   let updateArticleData = {};
 
   if (EDITMODE) {
