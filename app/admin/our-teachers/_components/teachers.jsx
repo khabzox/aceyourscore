@@ -43,7 +43,6 @@ const getItemStyle = (isDragging, draggableStyle) => ({
 
 // Get list style function
 const getListStyle = (isDraggingOver) => ({
-  // background: isDraggingOver ? "lightblue" : "lightgrey",
   padding: grid,
   width: "100%", // Full width to adapt to the container
 });
@@ -95,6 +94,8 @@ export default function OurTeachersCards() {
   const [teachers, setTeachers] = useState([]);
   const containerRef = useRef(null);
   const [openDialog, setOpenDialog] = useState(null); // Moved to the top level
+  const { user } = useUser(); // Moved to the top level
+  const admin = user?.publicMetadata.role === "admin";
 
   // Fetch teachers data
   useEffect(() => {
@@ -158,9 +159,6 @@ export default function OurTeachersCards() {
   if (teachers.length === 0) {
     return <p className="text-center font-bold py-4">No teachers...</p>;
   }
-
-  const { user } = useUser();
-  const admin = user?.publicMetadata.role === "admin";
 
   return (
     <section className="w-full mx-auto text-center pb-14">
