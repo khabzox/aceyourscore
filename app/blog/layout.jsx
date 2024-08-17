@@ -1,5 +1,5 @@
-import Header from "@/components/blog/HomePage/Header";
-import Footer from "@/components/LandingPage/Footer/footer-1";
+import Header from "@/components/LandingPage/NavBar";
+import Footer from "@/components/LandingPage/Footer";
 
 export const metadata = {
   title: "AceYourScore | Blog",
@@ -8,11 +8,9 @@ export const metadata = {
 export default function Blog({ children }) {
   return (
     <>
-      <div>
-        <Header />
-        {children}
-        <Footer />
-      </div>
+      <Header />
+      <main className="pt-16">{children}</main>
+      <Footer />
     </>
   );
 }

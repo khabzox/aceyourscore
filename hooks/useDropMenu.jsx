@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 
 export function useDropMenu(initialOpen = false) {
   const [isOpen, setIsOpen] = useState(initialOpen);
+  const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
     setIsOpen((prevIsOpen) => !prevIsOpen);
@@ -13,20 +14,17 @@ export function useDropMenu(initialOpen = false) {
 
   useEffect(() => {
     const handleBodyClick = (event) => {
-      // Check if the click is outside the dropdown
-      if (!event.target.closest(".dropdown-container")) {
-        setIsOpen(false);
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        closeDropdown(); // Close dropdown if clicking outside
       }
     };
 
-    // Attach event listener to the body
-    document.body.addEventListener("mousedown", handleBodyClick);
+    document.addEventListener("mousedown", handleBodyClick);
 
-    // Clean up event listener on unmount
     return () => {
-      document.body.removeEventListener("mousedown", handleBodyClick);
+      document.removeEventListener("mousedown", handleBodyClick);
     };
   }, []);
 
-  return [toggleDropdown, closeDropdown, isOpen];
+  return [toggleDropdown, closeDropdown, isOpen, dropdownRef];
 }

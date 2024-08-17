@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import { useDropMenu } from "@/hooks/useDropMenu";
 import { useTranslations } from "next-intl";
 import { useNav } from "@/hooks/useNav";
@@ -28,13 +28,12 @@ export default function NavBar() {
   const { userId } = useAuth();
   const t = useTranslations("Navbar");
 
-  const [toggleDropdown, closeDropdown, isOpen] = useDropMenu();
+  const [toggleDropdown, closeDropdown, isOpen, dropdownRef] = useDropMenu();
   const [open, MenuOpen] = useNav();
   const [searchQuery, setSearchQuery] = useState("");
 
   const handleSearch = () => {
     if (searchQuery.trim()) {
-      // Perform search action, e.g., redirect to a search results page
       window.location.href = `/search?q=${encodeURIComponent(searchQuery)}`;
     }
   };
@@ -64,32 +63,43 @@ export default function NavBar() {
                     <ChevronDown size={20} />
                   </button>
                   {isOpen && (
-                    <div className="dropdown-content w-44 p-5 rounded-lg bg-primary border-2 border-accent absolute z-50">
+                    <div
+                      ref={dropdownRef}
+                      className="dropdown-content w-44 p-5 rounded-lg bg-primary border-2 border-accent absolute z-50"
+                    >
                       <ul className="space-y-3">
                         <li>
-                          <Link href={"/exams/toefl"} onClick={closeDropdown}>TOEFL Exam</Link>
+                          <Link href={"/exams/toefl"} onClick={closeDropdown}>
+                            TOEFL Exam
+                          </Link>
                         </li>
                         <li>
-                          <Link href={"/exams/sat"} onClick={closeDropdown}>SAT Exam</Link>
+                          <Link href={"/exams/sat"} onClick={closeDropdown}>
+                            SAT Exam
+                          </Link>
                         </li>
                         <li>
-                          <Link href={"/exams/ielts"} onClick={closeDropdown}>IELTS Exam</Link>
+                          <Link href={"/exams/ielts"} onClick={closeDropdown}>
+                            IELTS Exam
+                          </Link>
                         </li>
                         <li>
-                          <Link href={"/exams/toeic"} onClick={closeDropdown}>TOEIC Exam</Link>
+                          <Link href={"/exams/toeic"} onClick={closeDropdown}>
+                            TOEIC Exam
+                          </Link>
                         </li>
                       </ul>
                     </div>
                   )}
                 </li>
                 <li>
-                  <Link href={"/"}>{t("link2")}</Link>
+                  <Link href={"/our-teachers"}>{t("link2")}</Link>
                 </li>
                 <li>
-                  <Link href={"/"}>{t("link3")}</Link>
+                  <Link href={"/dashboard/community"}>{t("link3")}</Link>
                 </li>
                 <li>
-                  <Link href={"/blog"}>{t("link4")}</Link>
+                  <Link href={"/about-us"}>{t("link4")}</Link>
                 </li>
                 <li>
                   <Link href={"/blog"}>{t("link5")}</Link>
@@ -124,17 +134,10 @@ export default function NavBar() {
             <span className="hidden sm:block">
               {userId ? (
                 <div className="flex gap-4 items-center border-2 border-accent rounded-full p-[2px]">
-                  {/* <Link href='/dashboard'>Dashboard</Link> */}
                   <UserButton />
                 </div>
               ) : (
-                <>
-                  {/* <SignedOut>
-                    <SignInButton mode="modal">
-                    </SignInButton>
-                  </SignedOut> */}
-                  <BtnOfLogIn text={t("login")} linkto={"/sign-in"} />
-                </>
+                <BtnOfLogIn text={t("login")} linkto={"/sign-in"} />
               )}
             </span>
             <div className="block md:hidden">

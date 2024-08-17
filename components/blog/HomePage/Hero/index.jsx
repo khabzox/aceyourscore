@@ -9,7 +9,7 @@ export default function Hero() {
   const t = useTranslations("Blog");
   return (
     <>
-      <section className="flex flex-col items-center justify-center py-20 px-0 md:px-10 max-w-7xl mx-auto">
+      <section className="flex flex-col items-center justify-center py-20 px-0 md:px-10 max-w-[95rem] mx-auto">
         <div className="container mx-auto flex flex-col md:flex-row items-center justify-between px-6 md:px-0">
           <div className="md:w-1/2">
             <h1

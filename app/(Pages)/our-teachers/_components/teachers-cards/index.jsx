@@ -19,6 +19,7 @@ export default function OurTeachers() {
           </div>
         </div>
         <CardTeachers />
+        {/* TODO: add loading btn for fetching data */}
         <div className="mx-auto max-w-80 mt-10">
           <CardBtnOurTeachersLoader linkTo={"/our-teachers"} className={"w-full"}>Load more</CardBtnOurTeachersLoader>
         </div>

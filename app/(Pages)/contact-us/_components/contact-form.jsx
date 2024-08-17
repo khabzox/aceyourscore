@@ -87,7 +87,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="py-10 flex flex-col-reverse items-start md:flex-row gap-20 relative">
+    <div className="py-10 flex flex-col-reverse items-start md:flex-row gap-20 relative max-w-[95rem] mx-auto px-5">
       <form onSubmit={handleSubmit} className="w-full space-y-3" ref={formRef}>
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-2">
           <div>

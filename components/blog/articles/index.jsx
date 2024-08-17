@@ -19,7 +19,7 @@ export default async function OurBlog() {
 
   return (
     <section>
-      <div className="max-w-7xl mx-auto text-center pb-14">
+      <div className="max-w-[95rem] mx-auto text-center pb-14">
         <div className="text-start pt-16">
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-center gap-4 px-10">
             {articles.map((article) => (

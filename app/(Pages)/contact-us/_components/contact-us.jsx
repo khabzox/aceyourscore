@@ -4,7 +4,7 @@ import { useTranslations } from "next-intl";
 
 import { ubuntu } from "@/libs/font";
 
-export default function About() {
+export default function ContactUS() {
   const t = useTranslations("About");
   return (
     <section className="bg-accent">
@@ -13,10 +13,11 @@ export default function About() {
           <h1
             className={`${ubuntu.className} text-4xl sm:text-5xl md:text-7xl font-bold mb-6`}
           >
-           Achieve Excellence <br /> in Your Exams
+            {"We’re Here to"} <br /> {"Help You"}
           </h1>
           <p className="text-sm sm:text-base md:text-lg font-semibold mb-8 text-accent-TextHoverDark">
-            {t("description")}
+            {"Reach Out with Your Questions or Feedback,"} <br />
+            {"And We’ll Get Back to You ASAP"}
           </p>
         </div>
       </div>

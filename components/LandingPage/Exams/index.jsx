@@ -9,7 +9,7 @@ import SlideShowExamsCards from "./SlideShowExamsCards";
 export default function Exams() {
   const t = useTranslations("Exams");
   return (
-    <div className="flex flex-col items-center mt-56 mb-28">
+    <div className="flex flex-col items-center mt-56 mb-28" id="Exams">
       <div className="px-10 3xl:px-0">
         <h1 className={`text-4xl sm:text-5xl md:text-7xl font-bold`}>
           Ace Your Exams with <br />

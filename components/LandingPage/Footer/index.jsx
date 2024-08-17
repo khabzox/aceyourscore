@@ -17,7 +17,7 @@ export default function FooterPage() {
 
           <ul className="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
             <li>
-              <a
+              <Link
                 href="https://www.facebook.com/people/Fahd-Ays/pfbid035D2jFXJWYu69WueEzb9NYQDbta89H3JWzLsp2hDVyqwdBfSwogRptXCZwneTjyPil/"
                 rel="noreferrer"
                 target="_blank"
@@ -26,11 +26,11 @@ export default function FooterPage() {
                 <span className="sr-only">Facebook</span>
 
                 <Facebook />
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
+              <Link
                 href="https://www.instagram.com/fahd.aceyourscore "
                 rel="noreferrer"
                 target="_blank"
@@ -39,11 +39,11 @@ export default function FooterPage() {
                 <span className="sr-only">Instagram</span>
 
                 <Instagram />
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
+              <Link
                 href="https://www.youtube.com/@fahd-je7gb"
                 rel="noreferrer"
                 target="_blank"
@@ -52,11 +52,11 @@ export default function FooterPage() {
                 <span className="sr-only">YouTube</span>
 
                 <Youtube />
-              </a>
+              </Link>
             </li>
 
             <li>
-              <a
+              <Link
                 href="https://www.threads.net/@fahd.aceyourscore"
                 rel="noreferrer"
                 target="_blank"
@@ -65,7 +65,7 @@ export default function FooterPage() {
                 <span className="sr-only">Threads</span>
 
                 <AtSign />
-              </a>
+              </Link>
             </li>
           </ul>
         </div>
@@ -75,48 +75,48 @@ export default function FooterPage() {
 
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="https://www.aceyourscore.com/"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   Home
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/about-us"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   About Us
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/#Exams"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   Our Services
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/#how-its-work"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   How It Works
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/pricing"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   Pricing
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -126,39 +126,39 @@ export default function FooterPage() {
 
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/exams/toefl"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   TOEFL Page
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/exams/sat"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   SAT Page
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/exams/ielts"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   IELTS Page
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/exams/toeic"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   TOEIC Page
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -168,30 +168,30 @@ export default function FooterPage() {
 
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/contact-us"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/privacy-policy"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   Privacy Policy
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/terms-of-service"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   Terms of Service
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
@@ -201,21 +201,21 @@ export default function FooterPage() {
 
             <ul className="mt-6 space-y-4 text-sm">
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/contact-us"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   Contact Us
-                </a>
+                </Link>
               </li>
 
               <li>
-                <a
-                  href="#"
+                <Link
+                  href="/faqs"
                   className="text-accent-TextHover transition hover:opacity-75"
                 >
                   FAQs
-                </a>
+                </Link>
               </li>
             </ul>
           </div>
