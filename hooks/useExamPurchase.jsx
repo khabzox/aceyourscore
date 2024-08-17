@@ -14,7 +14,7 @@ const useExamPurchase = (examName) => {
   const examId = examMappings[examName];
 
   const handleExamPurchase = async () => {
-    console.log(`Attempting purchase for exam: ${examName}`); // Add this line
+    console.log(`Attempting purchase for exam: ${examName}`);
     if (!userId || !userFullName || !userEmail) {
       router.push("/sign-up");
       return;
@@ -34,7 +34,7 @@ const useExamPurchase = (examName) => {
         userEmail,
       });
       console.log(response.data);
-      window.location.href = response.data.checkoutUrl; // Modify this line
+      window.location.href = response.data.checkoutUrl;
     } catch (error) {
       console.error("Error during exam purchase:", error);
       alert(`Failed to buy product ${examName}. Please try again later.`);

@@ -2,7 +2,7 @@ import useExamPurchase from "@/hooks/useExamPurchase";
 import { ArrowRight, Loader, SquareCheckBig } from "lucide-react";
 import { useState } from "react";
 
-export const GenerateOfferings = ({ title, items, specialMessage, examName }) => {
+export const GenerateOfferings = ({ title, items, specialMessage, examName, price }) => {
     const handleExamPurchase = useExamPurchase(examName);
     const [loading, setLoading] = useState(false);
 
@@ -20,11 +20,11 @@ export const GenerateOfferings = ({ title, items, specialMessage, examName }) =>
     return (
         <div className="bg-primary max-w-sm rounded-3xl overflow-hidden shadow-2xl flex flex-col relative">
             {specialMessage && (
-                <div className="absolute top-0 left-0 bg-destructive text-primary font-medium text-sm rounded-br-lg py-1 px-3">
+                <div className="absolute top-0 left-0 bg-destructive text-primary font-medium text-sm rounded-br-lg py-2 px-3">
                     {specialMessage}
                 </div>
             )}
-            <div className="flex-1 p-8">
+            <div className={`flex-1 px-8 pt-8 ${specialMessage ? "mt-5" : ""}`}>
                 <h2 className="text-center text-3xl font-bold text-accent">{title}</h2>
                 <div className="border-accent border-2 rounded-full mx-3 opacity-30 my-3 mb-6"></div>
                 <div className="space-y-4 text-accent font-semibold">
@@ -36,6 +36,10 @@ export const GenerateOfferings = ({ title, items, specialMessage, examName }) =>
                             <h3 className="text-lg">{item}</h3>
                         </div>
                     ))}
+                </div>
+                {/* Display the price */}
+                <div className="text-center pt-7 pb-2 text-2xl font-bold text-accent">
+                    Price: {price} MAD
                 </div>
             </div>
             <div className="p-4 mt-auto">
