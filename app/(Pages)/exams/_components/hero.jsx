@@ -15,7 +15,6 @@ const Hero = ({ examName }) => {
     "Receive personalized feedback on your progress",
   ];
 
-  console.log(examName);
   let priceExam;
   switch (examName) {
     case "Toefl":
@@ -40,7 +39,7 @@ const Hero = ({ examName }) => {
             🚀 New! Cutting-Edge {examName} Prep
           </p>
           <h1 className="leading-tight text-2xl sm:text-6xl relative z-10">
-            AceYourScore {examName} Prep: <br />
+            Ace Your Score {examName} Prep: <br />
             Unlock Your Path to Success
           </h1>
         </div>

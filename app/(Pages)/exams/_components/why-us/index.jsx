@@ -4,7 +4,7 @@ import WhyGridCards from './why-gridCards';
 const WhyUs = ({examName}) => {
     return (
         <div className="my-48">
-        <div className="flex flex-col">
+        <div className="flex flex-col space-y-9">
           <div className="px-10 3xl:px-0">
             <h1
               className={`text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold`}

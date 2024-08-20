@@ -7,14 +7,11 @@ export function CardsProcess() {
         <Goal size={75} />
         <div className="">
           <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-extrabold py-6">
-            Comprehensive
-            <br />
-            Guidance
+            Initial Assessment
           </h3>
           <p className="text-accent-TextHover font-medium text-2xl">
-            Our process begins with a thorough assessment of your needs and
-            goals. We provide a clear roadmap for your preparation, including
-            tailored study plans and expert insights.
+            We start with a thorough evaluation of your unique needs and goals
+            to understand your starting point and desired outcomes.
           </p>
         </div>
       </div>
@@ -23,14 +20,12 @@ export function CardsProcess() {
         <LaptopMinimal size={75} className="text-yellow" />
         <div className="">
           <h3 className="text-2xl sm:text-3xl 2xl:text-4xl font-extrabold py-6">
-            Comprehensive
-            <br />
-            Guidance
+          Custom Roadmap
           </h3>
           <p className="text-accent-TextHover font-medium text-2xl">
-            Our process begins with a thorough assessment of your needs and
-            goals. We provide a clear roadmap for your preparation, including
-            tailored study plans and expert insights.
+            Based on the assessment, we develop a personalized study plan that
+            outlines each step of your preparation journey, tailored to address
+            your specific needs.
           </p>
         </div>
       </div>
@@ -39,14 +34,12 @@ export function CardsProcess() {
         <MessagesSquare size={75} className="text-destructive" />
         <div className="">
           <h3 className="text-2xl sm:text-3xl 2xl:text-4xl text-primary font-extrabold py-6">
-            Comprehensive
-            <br />
-            Guidance
+            Expert Guidance
           </h3>
           <p className="text-accent-TextHoverDark font-medium text-2xl">
-            Our process begins with a thorough assessment of your needs and
-            goals. We provide a clear roadmap for your preparation, including
-            tailored study plans and expert insights.
+            Throughout the process, we provide expert insights and support to
+            help you navigate challenges and stay on track toward achieving your
+            goals.
           </p>
         </div>
       </div>

@@ -11,44 +11,45 @@ export function GridCards() {
             <h3
               className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
             >
-              Tailored Preparation
+              Personalized Exam Preparation
             </h3>
             <p className="pt-5 text-xl text-accent-TextHover font-medium">
-              Our courses are customized to meet your specific needs, ensuring
-              you get the most relevant practice and guidance.
+              Discover tailored courses that address your unique needs and help
+              you master test content with confidence.
             </p>
           </div>
           <div className="col-start-1 col-end-7 row-start-2 lg:col-start-4 lg:col-end-7 2xl:col-start-3 2xl:col-end-5 lg:row-start-1 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-yellow">
             <h3
               className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
             >
-              Proven Success
+              Proven Path to Excellence
             </h3>
             <p className="pt-5 text-xl text-accent-TextHover font-medium">
-              Join thousands of successful students who have achieved their
-              goals with our proven methods and expert instruction.
+              Join a community of successful students who have reached their
+              goals with our expert-driven strategies.
             </p>
           </div>
           <div className="col-start-1 col-end-7 row-start-3 lg:col-start-1 lg:col-end-4 2xl:col-start-1 2xl:col-end-3 lg:row-start-2 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-accent">
             <h3
               className={`${ubuntu.className} text-primary text-2xl sm:text-3xl font-semibold pt-2`}
             >
-              Interactive Learning
+              Engaging Learning Experience
             </h3>
             <p className="pt-5 text-xl text-accent-TextHoverDark font-medium">
-              Experience engaging and interactive lessons designed to make
-              learning enjoyable and effective.
+              Enjoy interactive and effective lessons designed to make your
+              study time both productive and enjoyable.
             </p>
           </div>
           <div className="col-start-1 col-end-7 row-start-4 lg:col-start-4 lg:col-end-7 2xl:col-start-3 2xl:col-end-7 lg:row-start-2 rounded-3xl p-5 w-full 2xl:w-[488px] min-h-[220px] 2xl:h-full bg-muted-Hover">
             <h3
               className={`${ubuntu.className} text-2xl sm:text-3xl font-semibold pt-2`}
             >
-              Comprehensive Resources
+              All-Inclusive Study Tools{" "}
             </h3>
             <p className="pt-5 text-xl text-accent-TextHover font-medium">
-              Access a wide range of study materials, practice tests, and expert
-              tips to help you excel in your exams.
+              Access a comprehensive suite of study materials, practice exams,
+              and expert tips designed to enhance your exam readiness and
+              performance.
             </p>
           </div>
           <div className="col-start-5 col-end-7 row-start-1 row-end-3">

@@ -25,7 +25,7 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function NavBar() {
-  const { userId } = useAuth();
+  const { userId } = useAuth(); 
   const t = useTranslations("Navbar");
 
   const [toggleDropdown, closeDropdown, isOpen, dropdownRef] = useDropMenu();

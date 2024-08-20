@@ -94,7 +94,7 @@ export default function Hero() {
           </p>
           <BtnOfHero
             text={t('GetStartedBtn')}
-            linkto="/dashboard"
+            linkto="/pricing"
             className="hero-button"
           />
         </div>
