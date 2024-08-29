@@ -154,7 +154,7 @@ export default function ContactForm() {
           type="submit"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? 'Sending...' : 'Booking an Appointment'}
         </Button>
       </form>
 
