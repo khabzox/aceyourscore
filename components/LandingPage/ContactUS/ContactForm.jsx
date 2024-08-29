@@ -1,15 +1,20 @@
 "use client";
+
 import { useState, useEffect, useRef } from "react";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Button } from "@/components/ui/button";
-import { PhoneInput } from '@/components/ui/phone-input';
+import { format } from "date-fns";
+import { PhoneInput } from "@/components/ui/phone-input";
 import Link from "next/link";
-import { Facebook, Instagram, Youtube, AtSign } from "lucide-react";
+import { Facebook, Instagram, Youtube, AtSign, Clock, CalendarIcon } from "lucide-react";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import gsap from "gsap";
+import { Calendar } from "@/components/ui/calendar";
+import { Popover, PopoverContent, PopoverTrigger } from "@/components/ui/popover";
+import { cn } from "@/libs/utils";
 
 export default function ContactForm() {
   const [formData, setFormData] = useState({
@@ -17,22 +22,24 @@ export default function ContactForm() {
     phone: '',
     email: '',
     message: '',
+    date: '',
+    time: ''
   });
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [error, setError] = useState(null);
   const formRef = useRef(null);
   const alertRef = useRef(null);
+  const [date, setDate] = useState(undefined);
+  const [time, setTime] = useState('');
 
   useEffect(() => {
     if (isSubmitted || error) {
-      // Animate alert appearance
       gsap.fromTo(alertRef.current,
         { opacity: 0, y: +50 },
         { opacity: 1, y: 0, duration: 0.5, stagger: 0.2 }
       );
-
-      // Hide alert after 5 seconds
       gsap.delayedCall(5, () => {
         gsap.to(alertRef.current, {
           opacity: 0,
@@ -44,32 +51,38 @@ export default function ContactForm() {
     }
   }, [isSubmitted, error]);
 
+  useEffect(() => {
+    setFormData(prev => ({
+      ...prev,
+      date: date ? format(date, "yyyy-MM-dd") : '',
+      time
+    }));
+  }, [date, time]);
+
   const handleChange = (e) => {
     const { name, value } = e.target || {};
-
     if (!name) {
       console.error('Input does not have a name attribute.');
       return;
     }
-
-    setFormData(prev => ({
-      ...prev,
-      [name]: value
-    }));
+    setFormData(prev => ({ ...prev, [name]: value }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
     setError(null);
-
     try {
       await fetch('https://formbold.com/s/6MbaW', {
         method: 'POST',
-        headers: {
-          'Content-Type': 'application/x-www-form-urlencoded',
-        },
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
+      });
+      // Send a confirmation email to the user
+      await fetch('/api/send-email/booking', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
       });
 
       setIsSubmitted(true);
@@ -78,13 +91,31 @@ export default function ContactForm() {
         phone: '',
         email: '',
         message: '',
+        date: '',
+        time: ''
       });
+      setDate(undefined);
+      setTime('');
     } catch (error) {
       setError('Something went wrong, please try again.');
     } finally {
       setIsSubmitting(false);
     }
   };
+
+  const timeOptions = [
+    { value: '09:00', label: '9:00 - 10:00' },
+    { value: '10:00', label: '10:00 - 11:00' },
+    { value: '11:00', label: '11:00 - 12:00' },
+    { value: '12:00', label: '12:00 - 13:00' },
+    { value: '13:00', label: '13:00 - 14:00' },
+    { value: '14:00', label: '14:00 - 15:00' },
+    { value: '15:00', label: '15:00 - 16:00' },
+    { value: '16:00', label: '16:00 - 17:00' },
+    { value: '17:00', label: '17:00 - 18:00' },
+    { value: '18:00', label: '18:00 - 19:00' }
+  ];
+
 
   return (
     <div className="py-10 flex flex-col-reverse items-start md:flex-row gap-20 relative">
@@ -104,7 +135,6 @@ export default function ContactForm() {
           <div>
             <Label className="text-lg text-accent font-medium">Phone Number:</Label>
             <PhoneInput
-              // placeholder="Enter phone number"
               name="phone"
               value={formData.phone}
               onChange={(value) => setFormData(prev => ({ ...prev, phone: value }))}
@@ -123,6 +153,52 @@ export default function ContactForm() {
             required
           />
         </div>
+        <div className="space-y-2 text-lg">
+          <Label className="text-lg text-accent font-medium">Date:</Label>
+          <Popover>
+            <PopoverTrigger asChild>
+              <Button
+                variant="outline"
+                className={cn(
+                  "w-full justify-start text-lg text-left font-normal bg-accent text-primary h-14 hover:text-primary ",
+                )}
+              >
+                <CalendarIcon className="mr-2 h-5 w-5" />
+                {date ? format(date, "PPP") : <span>Pick a date</span>}
+              </Button>
+            </PopoverTrigger>
+            <PopoverContent className="w-auto p-0">
+              <Calendar
+                mode="single"
+                selected={date}
+                onSelect={setDate}
+                initialFocus
+                className={"bg-primary text-accent"}
+              />
+            </PopoverContent>
+          </Popover>
+        </div>
+        <div className="space-y-2">
+          <Label htmlFor="time" className="text-lg text-accent font-medium">Time</Label>
+          <div className="relative">
+            <select
+              id="time"
+              name="time"
+              value={formData.time}
+              onChange={(e) => setTime(e.target.value)}
+              className="w-full rounded-lg text-lg h-14 bg-accent text-primary px-3"
+              required
+            >
+              <option value="" disabled>Select a time</option>
+              {timeOptions.map(option => (
+                <option key={option.value} value={option.value}>
+                  {option.label}
+                </option>
+              ))}
+            </select>
+          </div>
+        </div>
+
         <div>
           <Label className="text-lg text-accent font-medium">Message:</Label>
           <Textarea
@@ -150,12 +226,14 @@ export default function ContactForm() {
         </div>
 
         <Button
-          className="w-full text-primary h-14 text-lg"
+          className="w-full bg-accent text-primary h-14 text-lg"
           type="submit"
           disabled={isSubmitting}
         >
           {isSubmitting ? 'Sending...' : 'Send Message'}
         </Button>
+
+
       </form>
 
       <div className="w-1/2">

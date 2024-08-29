@@ -1,33 +1,39 @@
-import React from "react";
+"use client";
+
+import { useState, useEffect } from "react";
+
+import { getTestimonials } from "./getTestimonials";
 
 export default function TestimonialsCards() {
+  const [testimonials, setTestimonials] = useState([]);
+
+  const fetchTestimonialsData = async () => {
+    try {
+      const data = await getTestimonials();
+      if (data?.testimonials) {
+        // Sort teachers by their order before setting the state
+        const sortedTestimonials = data.testimonials.sort((a, b) => a.order - b.order);
+        setTestimonials(sortedTestimonials);
+      }
+    } catch (error) {
+      console.error("Failed to fetch Testimonials:", error);
+    }
+  };
+
+  useEffect(() => {
+    fetchTestimonialsData();
+  }, []);
+
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 px-2 sm:px-10 3xl:px-0">
-        <TestimonialCard
-          title={"Amin"}
-          desc={
-            "Mr. Sabik's efficient teaching methods and personalized coaching made a huge difference in my IELTS preparation, helping me score 6.5. His engaging sessions and valuable feedback were truly inspiring."
-          }
-        />
-        <TestimonialCard
-          title={"Mohamed Ali"}
-          desc={
-            "With Mr. Sabik's guidance, I scored 110/120 on the TOEFL. His engaging teaching style and personalized advice, even when I was sick, were incredibly helpful. Highly recommend his classes!"
-          }
-        />
-        <TestimonialCard
-          title={"Yacout"}
-          desc={
-            "Mr. Sabik's tailored approach to TOEFL preparation helped me achieve a score of 113. His dedication to improving every student's skills is unmatched. Highly recommend!"
-          }
-        />
-        <TestimonialCard
-          title={"Asma"}
-          desc={
-            "Thanks to Mr. Sabik's exceptional guidance, I scored over 100 on both TOEFL attempts. His clear explanations and encouragement were key to my success. Highly recommended!"
-          }
-        />
+        {testimonials.map(({ fullName, description, id }) => (
+          <TestimonialCard
+            key={id}
+            title={fullName}
+            desc={description}
+          />
+        ))}
       </div>
     </>
   );

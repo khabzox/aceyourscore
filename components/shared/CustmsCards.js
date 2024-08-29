@@ -122,7 +122,7 @@ export function ExamsCard({ linkTo, title, subTitle, desc }) {
             <h2 className="text-white font-semibold text-xl md:text-2xl">
               Start Your Preparation
             </h2>
-            <ChevronRight className="bg-white/20 rounded-full text-white p-3 w-14 h-14 ml-2 hidden md:block" />
+            <ChevronRight className="bg-white/20 rounded-full text-white p-3 w-14 h-14 ml-2" />
           </div>
         </Link>
       </div>

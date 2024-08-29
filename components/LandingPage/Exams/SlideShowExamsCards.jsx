@@ -95,12 +95,12 @@ export default function SlideShowExamsCards() {
           <CarouselPrevious
             size={35}
             variant="CarsoulBtn"
-            className="bg-accent h-14 w-14 md:h-16 md:w-16"
+            className="bg-accent text-white h-14 w-14 md:h-16 md:w-16"
           />
           <CarouselNext
             size={35}
             variant="CarsoulBtn"
-            className="bg-accent h-14 w-14 md:h-16 md:w-16"
+            className="bg-accent text-white h-14 w-14 md:h-16 md:w-16"
           />
         </div>
       </Carousel>

@@ -12,7 +12,7 @@ import {
 import { LayoutDashboard } from "lucide-react";
 import { FileText } from "lucide-react";
 import { Info } from "lucide-react";
-import {  UsersRound, GraduationCap } from "lucide-react"
+import {  UsersRound, GraduationCap, MessageSquareHeart } from "lucide-react"
 
 export default function Sidebar() {
   return (
@@ -49,6 +49,11 @@ export default function Sidebar() {
           <Link href={"/admin/our-teachers"}>
             <Button variant="fourth" className="p-2 bg-white/10">
               <GraduationCap />
+            </Button>
+          </Link>
+          <Link href={"/admin/our-testimonials"}>
+            <Button variant="fourth" className="p-2 bg-white/10">
+              <MessageSquareHeart />
             </Button>
           </Link>
         </div>

@@ -15,6 +15,7 @@ import {
   SignedOut,
   UserButton,
   useAuth,
+  useUser,
 } from "@clerk/nextjs";
 import { SearchInput } from "@/components/ui/input";
 import {
@@ -25,7 +26,11 @@ import {
 } from "@/components/ui/dropdown-menu";
 
 export default function NavBar() {
-  const { userId } = useAuth(); 
+  const { userId } = useAuth();
+  const { user } = useUser();
+
+  const isAdmin = user?.publicMetadata.role === "admin";
+
   const t = useTranslations("Navbar");
 
   const [toggleDropdown, closeDropdown, isOpen, dropdownRef] = useDropMenu();
@@ -104,6 +109,11 @@ export default function NavBar() {
                 <li>
                   <Link href={"/blog"}>{t("link5")}</Link>
                 </li>
+                {isAdmin && (
+                  <li>
+                    <Link href={"/admin"}>Admin</Link>
+                  </li>
+                )}
               </ul>
             </div>
           </div>
