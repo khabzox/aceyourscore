@@ -154,17 +154,28 @@ export default function NavBar() {
               <Menu size={32} onClick={MenuOpen} className="cursor-pointer" />
             </div>
             {open && (
-              <div className="absolute right-[25px] mt-56 sm:mt-48 z-30 w-[50%] bg-primary border-2 border-accent rounded-lg block md:hidden">
+              <div className="absolute right-[25px] top-20 z-30 w-[50%] bg-primary border-2 border-accent rounded-lg block md:hidden">
                 <ul className="flex flex-col justify-center gap-3 font-semibold p-4">
+               <li>
+                <Link href={"/pricing"}>{t("link1")}</Link>
+               </li>
+                <li>
+                  <Link href={"/our-teachers"}>{t("link2")}</Link>
+                </li>
+                <li>
+                  <Link href={"/dashboard/community"}>{t("link3")}</Link>
+                </li>
+                <li>
+                  <Link href={"/about-us"}>{t("link4")}</Link>
+                </li>
+                <li>
+                  <Link href={"/blog"}>{t("link5")}</Link>
+                </li>
+                {isAdmin && (
                   <li>
-                    <Link href={"/#prep"}>{t("link1")}</Link>
+                    <Link href={"/admin"}>Admin</Link>
                   </li>
-                  <li>
-                    <Link href={"/"}>{t("link3")}</Link>
-                  </li>
-                  <li>
-                    <Link href={"/blog"}>{t("link4")}</Link>
-                  </li>
+                )}
                 </ul>
               </div>
             )}
