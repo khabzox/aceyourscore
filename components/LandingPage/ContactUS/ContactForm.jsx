@@ -73,7 +73,7 @@ export default function ContactForm() {
     setIsSubmitting(true);
     setError(null);
     try {
-      await fetch('https://formbold.com/s/6MbaW', {
+      await fetch(process.env.NEXT_PUBLIC_FORM_BOLD, {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(formData).toString(),
@@ -230,7 +230,7 @@ export default function ContactForm() {
           type="submit"
           disabled={isSubmitting}
         >
-          {isSubmitting ? 'Sending...' : 'Send Message'}
+          {isSubmitting ? 'Sending...' : 'Booking an Appointment'}
         </Button>
 
 
