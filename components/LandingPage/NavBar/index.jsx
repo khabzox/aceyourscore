@@ -163,7 +163,7 @@ export default function NavBar() {
                   <Link href={"/our-teachers"}>{t("link2")}</Link>
                 </li>
                 <li>
-                  <Link href={"/dashboard/community"}>{t("link3")}</Link>
+                  <Link href={"https://discord.com/invite/9wPrTEeF"} target={"_blank"} >{t("link3")}</Link>
                 </li>
                 <li>
                   <Link href={"/about-us"}>{t("link4")}</Link>
