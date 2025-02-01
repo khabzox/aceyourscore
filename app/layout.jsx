@@ -12,6 +12,8 @@ import { ClerkProvider } from "@clerk/nextjs";
 import { frFR, enUS } from "@clerk/localizations";
 import { MetadataHome } from "@/libs/metadata";
 
+import WhatsAppButton from "@/components/LandingPage/ContactUS/WhatsAppButton";
+
 const poppins = Poppins({
   weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
   style: ["normal"],
@@ -36,7 +38,7 @@ export default async function RootLayout({ children }) {
           {/* <title>Your App Title</title>
       <meta name="description" content="Your App Description" /> */}
           {/* Crisp Chat Integration */}
-          <script
+          {/* <script
             dangerouslySetInnerHTML={{
               __html: `
               window.$crisp = [];
@@ -50,13 +52,14 @@ export default async function RootLayout({ children }) {
               })();
             `,
             }}
-          />
+          /> */}
           {process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS ? (
             <GoogleAnalytics ga_id={process.env.NEXT_PUBLIC_GOOGLE_ANALYTICS} />
           ) : null}
         </head>
         <body className={`${poppins.className} text-accent bg-primary`}>
           <NextIntlClientProvider messages={messages}>
+            <WhatsAppButton />
             {children}
           </NextIntlClientProvider>
           <Analytics />
