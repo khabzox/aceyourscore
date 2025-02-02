@@ -1,40 +1,45 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useRouter, useSearchParams } from "next/navigation"
-import useSearch from "@/hooks/useSearch"
-import Loading from "@/app/loading"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
-import { Card, CardContent } from "@/components/ui/card"
-import { SearchIcon, XIcon } from "lucide-react"
-import NavBar from "@/components/LandingPage/NavBar"
-import FooterPage from "@/components/LandingPage/Footer"
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
+import useSearch from "@/hooks/useSearch";
+import Loading from "@/app/loading";
+import { Input } from "@/components/ui/input";
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { SearchIcon, XIcon } from "lucide-react";
+import NavBar from "@/components/LandingPage/NavBar";
+import FooterPage from "@/components/LandingPage/Footer";
+import Link from "next/link";
 
 const SearchPage = () => {
-  const router = useRouter()
-  const searchParams = useSearchParams()
-  const [searchQuery, setSearchQuery] = useState("")
-  const [results, loading, query] = useSearch()
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const [searchQuery, setSearchQuery] = useState("");
+  // Get results, loading state, and query from our custom hook
+  const [results, loading, query] = useSearch();
 
+  // Update the local state when the URL query changes
   useEffect(() => {
-    setSearchQuery(searchParams.get("q") || "")
-  }, [searchParams])
+    setSearchQuery(searchParams.get("q") || "");
+  }, [searchParams]);
 
+  // Handle search form submission
   const handleSearch = (e) => {
-    e.preventDefault()
+    e.preventDefault();
     if (searchQuery.trim()) {
-      router.push(`/search?q=${encodeURIComponent(searchQuery)}`)
+      router.push(`/search?q=${encodeURIComponent(searchQuery)}`);
     }
-  }
+  };
 
+  // Clear the search query
   const handleClear = () => {
-    setSearchQuery("")
-    router.push("/search")
-  }
+    setSearchQuery("");
+    router.push("/search");
+  };
 
   if (loading) {
-    return <Loading />
+    return <Loading />;
   }
 
   return (
@@ -52,7 +57,10 @@ const SearchPage = () => {
               onChange={(e) => setSearchQuery(e.target.value)}
               className="flex-grow mr-2"
             />
-            <Button type="submit" className="bg-accent hover:bg-accent-CardHover text-white mr-2">
+            <Button
+              type="submit"
+              className="bg-accent hover:bg-accent-CardHover text-white mr-2"
+            >
               <SearchIcon className="mr-2" size={20} />
               Search
             </Button>
@@ -68,7 +76,11 @@ const SearchPage = () => {
           </div>
         </form>
 
-        {query && <h2 className="text-2xl font-semibold mb-4 text-accent">Search Results for "{query}"</h2>}
+        {query && (
+          <h2 className="text-2xl font-semibold mb-4 text-accent">
+            Search Results for &quot;{query}&quot;
+          </h2>
+        )}
 
         {results.length === 0 ? (
           <Card className="bg-accent-Card p-6">
@@ -81,15 +93,22 @@ const SearchPage = () => {
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
             {results.map((result) => (
-              <Card key={result.id} className="hover:border-accent hover:border duration-200">
+              <Card
+                key={result.id}
+                className="hover:border-accent hover:border duration-200"
+                >
                 <CardContent className="p-4">
-                  <a
-                    href={`/item/${result.id}`}
+                <Link
+                    href={`/blog/articles/${result.id}`}
                     className="text-lg font-medium text-accent hover:text-accent-TextHover transition-colors duration-200"
                   >
                     {result.title}
-                  </a>
-                  {/* Add more details here if available, like description or image */}
+                  {result.articleDescription && (
+                    <p className="mt-2 text-sm text-gray-600">
+                      {result.articleDescription}
+                    </p>
+                  )}
+                  </Link>
                 </CardContent>
               </Card>
             ))}
@@ -98,8 +117,7 @@ const SearchPage = () => {
       </div>
       <FooterPage />
     </>
-  )
-}
+  );
+};
 
-export default SearchPage
-
+export default SearchPage;

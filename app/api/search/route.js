@@ -1,25 +1,34 @@
-import { NextResponse } from 'next/server';
+import { db } from "@/config/firebase";
+import { getDocs, collection } from "firebase/firestore";
+import { NextResponse } from "next/server";
 
-// Mock data (يمكن استبدالها بقاعدة بيانات حقيقية)
-const mockData = [
-    { id: 1, title: 'Introduction to Next.js' },
-    { id: 2, title: 'Advanced React Techniques' },
-    { id: 3, title: 'Understanding TypeScript' },
-    { id: 4, title: 'Building APIs with Next.js' },
-    { id: 5, title: 'Deploying Next.js Applications' },
-];
+const articlesCollectionRef = collection(db, "articles");
 
-export async function GET(request) {
-    const url = new URL(request.url);
-    const query = url.searchParams.get('q') || '';
+export async function GET(req) {
+  try {
+    // Retrieve articles from Firebase
+    const querySnapshot = await getDocs(articlesCollectionRef);
+    const articles = querySnapshot.docs.map((doc) => ({
+      id: doc.id,
+      ...doc.data(),
+    }));
 
-    // Normalize query to lowercase and split into words
+    // Get the search query (if any)
+    const url = new URL(req.url);
+    const query = url.searchParams.get("q") || "";
     const words = query.toLowerCase().split(/\s+/);
 
-    // Filter mock data based on the query words
-    const results = mockData.filter(item =>
-        words.some(word => item.title.toLowerCase().includes(word))
+    // Filter the articles using the search words (assuming articles have a 'title' field)
+    const results = articles.filter((article) =>
+      words.some((word) => article.title?.toLowerCase().includes(word))
     );
 
-    return NextResponse.json({ results });
+    return NextResponse.json({ results }, { status: 200 });
+  } catch (error) {
+    console.error("Error fetching articles:", error);
+    return NextResponse.json(
+      { message: "Failed to fetch articles", error },
+      { status: 500 }
+    );
+  }
 }
