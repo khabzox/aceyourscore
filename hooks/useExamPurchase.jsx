@@ -26,19 +26,20 @@ const useExamPurchase = (examName) => {
       return;
     }
 
-    try {
-      const response = await axios.post("/api/lemonsqueezy/create-checkout-url", {
-        productId: examId,
-        userId,
-        userFullName,
-        userEmail,
-      });
-      console.log(response.data);
-      window.location.href = response.data.checkoutUrl;
-    } catch (error) {
-      console.error("Error during exam purchase:", error);
-      alert(`Failed to buy product ${examName}. Please try again later.`);
-    }
+    // try {
+    //   const response = await axios.post("/api/lemonsqueezy/create-checkout-url", {
+    //     productId: examId,
+    //     userId,
+    //     userFullName,
+    //     userEmail,
+    //   });
+    //   console.log(response.data);
+    //   window.location.href = response.data.checkoutUrl;
+    // } catch (error) {
+    //   console.error("Error during exam purchase:", error);
+    //   alert(`Failed to buy product ${examName}. Please try again later.`);
+    // }
+    router.push("https://wa.me/+212616139962");
   };
 
   return handleExamPurchase;

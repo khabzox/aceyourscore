@@ -12,6 +12,7 @@
     "@clerk/elements": "^0.12.1",
     "@clerk/localizations": "^2.4.5",
     "@clerk/nextjs": "^5.7.5",
+    "@clerk/shared": "^2.20.18",
     "@gsap/react": "^2.1.1",
     "@hello-pangea/dnd": "^16.6.0",
     "@lemonsqueezy/lemonsqueezy.js": "^3.2.0",
